@@ -12,9 +12,8 @@
   - `REQUIREMENTS.md` — 题面原文（需求唯一来源）
   - `PRD.md` — 产品需求文档
   - `ARCHITECTURE.md` — 本文档
-  - `PLAN.md` — 实施计划与执行裁定
   - `devlog.md` — 施工日志
-  - `plan/` — 分阶段细化计划
+  - `plan/` — 分阶段实施计划（现行计划唯一存放处）
 - `scripts/` — 脚本工具（`dev.sh` 一键启动等）
 - `logs/` — 运行日志（不入库）
 

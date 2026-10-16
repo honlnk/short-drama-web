@@ -115,8 +115,7 @@ curl http://localhost:8080/api/ping   # {"message":"pong",...} 即后端与 MySQ
 | [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) | 题面原文（需求唯一来源） |
 | [docs/PRD.md](docs/PRD.md) | 产品需求文档（功能清单、页面结构、数据设计、接口草案、里程碑） |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | 架构决策（工程结构、技术栈、数据模型） |
-| [docs/PLAN.md](docs/PLAN.md) | 总实施计划与执行裁定记录 |
-| [docs/plan/](docs/plan/) | 分阶段细化计划（第一阶段：数据底座与种子资源） |
+| [docs/plan/](docs/plan/) | 分阶段实施计划（现行计划唯一存放处；第一阶段：数据底座与种子资源） |
 | [docs/devlog.md](docs/devlog.md) | 施工日志（每阶段门禁结论与偏差记录） |
 
 ## 开发进度（按 PRD 里程碑）

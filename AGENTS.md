@@ -33,7 +33,7 @@ AI Coding 现场实战题：开发一个类似「红果短剧」的简化版短�
 - `apps/web`：C 端，Vite + React + TS + Tailwind v4 + react-router + axios；`/api`、`/uploads` 经 Vite 代理转发 8080。
 - `apps/admin`：管理后台，同栈 + Ant Design，仅 PC；代理同上。
 - `apps/api/uploads/`：封面/视频本地存储目录（`/uploads/**` 静态服务）。
-- `docs/`：PLAN.md（实施计划+执行裁定）、devlog.md（施工日志）。
+- `docs/`：plan/（分阶段实施计划，现行计划唯一存放处）、devlog.md（施工日志）。
 
 ### 数据库连接与初始化
 
