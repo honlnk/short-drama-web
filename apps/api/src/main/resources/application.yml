@@ -17,3 +17,8 @@ server:
 app:
   # 本地文件存储目录（封面/视频上传落盘处，经 /uploads/** 静态映射对外提供）
   upload-dir: ./uploads
+  jwt:
+    # 本地演示固定密钥（HS256 要求 ≥256bit，此串 52 字符）；与数据库凭据同口径不拆环境变量
+    secret: short-drama-local-demo-secret-key-please-change-in-prod
+    # 演示期间不过期，避免现场重新登录
+    expire-hours: 72

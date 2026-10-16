@@ -1,0 +1,52 @@
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
+import { useAuth } from '../store/AuthContext'
+
+/** 全局壳：顶栏（品牌 + 登录态/登录入口）+ 路由出口。 */
+export default function Layout() {
+  const { user, ready, logout } = useAuth()
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+  }
+
+  return (
+    <div className="flex min-h-screen flex-col bg-neutral-950 text-white">
+      <header className="sticky top-0 z-20 border-b border-neutral-800 bg-neutral-950/90 backdrop-blur">
+        <div className="mx-auto flex h-14 w-full max-w-6xl items-center px-4">
+          <Link to="/" className="text-lg font-bold">
+            短剧
+          </Link>
+          <span className="ml-3 rounded-full bg-rose-500/15 px-2 py-0.5 text-xs text-rose-400">推荐</span>
+          <div className="ml-auto flex items-center gap-3 text-sm">
+            {!ready ? null : user ? (
+              <>
+                <span className="max-w-32 truncate text-neutral-300">{user.nickname || user.username}</span>
+                <button
+                  onClick={handleLogout}
+                  className="rounded-lg border border-neutral-700 px-3 py-1 text-neutral-300 transition hover:border-neutral-500 hover:text-white"
+                >
+                  退出
+                </button>
+              </>
+            ) : (
+              <>
+                <NavLink to="/login" className="text-neutral-300 transition hover:text-white">
+                  登录
+                </NavLink>
+                <NavLink
+                  to="/register"
+                  className="rounded-lg bg-rose-500 px-3 py-1 font-medium text-white transition hover:bg-rose-600"
+                >
+                  注册
+                </NavLink>
+              </>
+            )}
+          </div>
+        </div>
+      </header>
+      <Outlet />
+    </div>
+  )
+}

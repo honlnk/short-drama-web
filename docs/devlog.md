@@ -88,3 +88,41 @@
 ### 下一步
 
 阶段2（里程碑 2）：注册/登录/JWT 贯通 → 阶段3 C 端详情页与播放页 → 阶段4 点赞收藏 → 阶段5 管理后台。
+
+## 2026-10-16 16:40 · 阶段2 门禁通过：用户链路与核心演示路径全线落地（第二阶段·本会话）
+
+按《第二阶段计划》完成里程碑 2+3 合并施工。验收标准一句话达成：**访客打开 C 端首页看到真实短剧网格，注册登录后进入详情页看到点赞收藏状态回显，点集进入竖屏播放页正常播放，三档宽度布局无错位；受保护接口无 token 返回 401。**
+
+### 交付物
+
+**后端（apps/api，第一阶段实体与列表接口未动，只新增）**：
+
+- `security/` 包：`JwtService`（HS256 签发/解析，载荷 sub=userId + username + role，72h）、`JwtAuthFilter`（Bearer 解析入 SecurityContext，非法/过期放行交授权规则兜底；非 bean，由 SecurityConfig 显式构造避免 Boot 全局 Filter 双注册）、`AuthUser`（UserDetails，供 @AuthenticationPrincipal）、`UserDetailsServiceImpl`（桥接 Security 基础设施，登录本身走 AuthService 直查仓储）。
+- SecurityConfig 替换全量放行：公开 `/api/auth/**`（`/me` 除外，靠规则顺序）、`/api/ping`、`/uploads/**`、C 端浏览 GET（`/api/dramas` 列表/详情/剧集）；登录才能点赞收藏与 `/api/me/**`；`/api/admin/**` 需 ADMIN（规则先行，接口属里程碑 5）；STATELESS + 关 CSRF；401 统一 JSON `{code:401,message:"未登录或登录已过期",data:null}`。
+- 认证接口：`POST /api/auth/register`（重名 409「用户名已被注册」，注册即登录返回 token）、`POST /api/auth/login`（失败统一 400「用户名或密码错误」）、`GET /api/auth/me`（登录态校验回填，nickname 查库）。DTO 四件 + `@NotBlank/@Size` 校验；`exception/` 包：BusinessException + GlobalExceptionHandler 统一 `{code,message,data}` 出口（业务/校验/未知异常）。
+- 详情与剧集：`GET /api/dramas/{id}`（可选登录：带 token 返回 liked/favorited 真实状态，匿名 false；OFFLINE/不存在一律 404）、`GET /api/dramas/{id}/episodes`（episodeNo 升序）；新增 `FavoriteRepository`/`UserLikeRepository`（existsByUserIdAndDramaId）与 `EpisodeRepository.findByDramaIdOrderByEpisodeNoAsc`；DTO `DramaDetail`/`EpisodeSummary`。
+
+**C 端（apps/web，从单页改造为带路由与全局登录态的应用）**：
+
+- 基础设施：`api/client.ts`（axios 实例，请求拦截塞 Bearer；401 清 token 跳 `/login?from=`，`skipAuthRedirect` 标记豁免启动校验）、`api/auth.ts`、`api/dramas.ts`、`store/AuthContext.tsx`（挂载经 getMe 恢复登录态，失败静默降级访客）、`router/index.tsx`（五路由 + 兜底回首页）、`components/Layout.tsx`（顶栏含登录态/退出）、`components/RequireAuth.tsx`（整页守卫备好，供里程碑 4）、`hooks/useDramaInteractions.ts`（点赞收藏点击守卫：未登录跳登录页带回跳，已登录提示「即将上线」不写库）。
+- 页面：HomePage（分类筛选条 + 2/4/6 列响应式网格 + loading/空态/失败重试）、DramaDetailPage（封面左信息右布局、点赞收藏状态回显、选集网格）、PlayerPage（竖屏 9:16 播放、`?ep=` 定位与切换、video key 重载、PC 双栏布局）、LoginPage（含 demo/admin 快捷填充）、RegisterPage（确认密码 + 注册即登录）。
+
+### 门禁实证（全绿）
+
+- curl：注册 200/重名 409、登录 200/错密码 400、`/me` 带 token 200 / 无 token 401 / 伪造 token 401、`GET /api/dramas` 匿名 200（公开接口不回退）、`POST /api/dramas/1/like` 匿名 401。
+- 详情/剧集：无 token liked/favorited=false，带 demo token 正确（false/false）；`/episodes` 4 集升序 videoUrl 正确；mp4 HEAD 200 + Range 206（video/mp4）；不存在的剧 404。
+- 浏览器（自动化全路径）：首页 6 剧网格真实渲染 → 点「悬疑」只剩《午夜出租车》→ 进详情 → 未登录点点赞跳 `/login?from=%2Fdrama%2F5` → 快捷填充登录回详情且头部显示「演示用户/退出」→ 已登录点赞出占位提示不跳转 → 点第 2 集 URL `?ep=2` 视频 readyState=4（360×640 竖屏、进度 3.4s 证实在播）→ 刷新仍停第 2 集 → 选集切 3 URL/片源同步 → 注册 browser_demo 即登录 → 刷新登录态保持 → 退出回登录/注册。
+- 三档宽度（375/900/1440）：首页网格列数实测 2/4/6，均无横向滚动；播放页视频本体 9:16（object-contain 不裁切），PC 档「播放区+右侧信息栏」双栏；四档截图视觉核验无错位/重叠/截断。
+- `./mvnw test` 绿；web `tsc -b` 绿；前端源码无任何外网资源引用（断网演示安全）。
+
+### 偏差记录
+
+1. **播放页数据源用详情接口一次取齐**：计划写「GET /api/dramas/{id}/episodes（+详情取剧名）」两次请求，实际 `DramaDetail` 已内嵌升序 episodes，播放页只调一次详情接口。效果一致少一次请求；episodes 独立接口保留供后续使用（如记忆续播）。
+2. **登录失败 HTTP 状态取 400 而非 401**：若用 401 会触发前端 axios 拦截器「清 token + 跳登录页」，在登录页内形成错误提示被劫持；400 携带「用户名或密码错误」message 由登录页直接展示。语义无歧义。
+3. **手机档播放页保留全局顶栏**：计划写「手机全屏沉浸」，实际保留 56px 顶栏（提供返回首页与登录态入口），播放区 max-h 自适应不出屏。演示价值（随处可导航/退出）优于纯沉浸，如需纯沉浸里程碑 6 再收。
+4. **UserDetailsServiceImpl 本阶段为基础设施预备件**：登录走 AuthService 直查 UserRepository（少一层转换），该类供 Spring Security 全局 AuthenticationManager 装配，里程碑 5 管理后台登录可复用。计划原文即列此类，未删。
+5. 验收期间注册的 browser_demo/gateuser 测试账号留在库中（真实注册链路的副产物），不影响演示；如需清理可 `DELETE FROM user WHERE username IN ('gateuser','browser_demo')`。
+
+### 下一步
+
+里程碑 4：点赞/收藏写库（POST /api/dramas/*/like、/favorite 与 /api/me/favorites，规则已配好）→ 里程碑 5 管理后台。

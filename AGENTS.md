@@ -12,9 +12,9 @@ AI Coding 现场实战题：开发一个类似「红果短剧」的简化版短�
 - 前后端及数据库必须**真实打通**，禁止用 mock 数据糊弄演示路径
 - 项目必须可在本地正常启动并现场演示
 
-## 当前状态（阶段1 数据底座与种子资源已完成，2026-10-16）
+## 当前状态（阶段2 用户链路与核心演示路径已完成，2026-10-16）
 
-三工程 monorepo 就绪（阶段0 门禁）+ 数据底座全线落地（阶段1 门禁，验收清单见 `docs/plan/第一阶段-数据底座与种子资源.md` 第五节）。当前能力：空库启动自动建 6 表并灌种子（6 剧 24 集 + 2 账号），`GET /api/dramas` 出真实数据，C 端首页渲染封面网格，视频/封面本地资源可播。后续按里程碑推进：用户链路（注册/登录/JWT）→ 详情/播放页 → 点赞收藏 → 管理后台。施工日志见 `docs/devlog.md`。
+三工程 monorepo 就绪（阶段0）+ 数据底座（阶段1）+ 用户链路与核心演示路径（阶段2，验收清单见 `docs/plan/第二阶段-用户链路与核心演示路径.md` 第六节，全部通过）。当前能力：JWT 注册/登录/登出（jjwt HS256 72h，`/api/auth/*`），C 端五路由（首页分类筛选网格 → 详情（点赞收藏状态回显）→ 竖屏播放页 `?ep=` 选集/刷新续停 → 登录/注册），三档响应式布局（2/4/6 列），受保护接口无 token 401。点赞收藏按钮仅 UI+状态回显（写库属里程碑 4）。后续：点赞收藏写库 → 管理后台 → 体验加分项。施工日志见 `docs/devlog.md`。
 
 ### 构建 / 启动 / 测试命令
 
@@ -30,8 +30,8 @@ AI Coding 现场实战题：开发一个类似「红果短剧」的简化版短�
 
 ### 目录结构与分层规则
 
-- `apps/api`：Spring Boot 3.5.16（Java 21、Maven mvnw）。包 `com.shortdrama.api` 分层：`config/`（SecurityConfig 脚手架临时全放行、WebMvcConfig 映射 `/uploads/**`、DataSeeder 种子灌库）、`entity/`（User/Drama/Episode/Favorite/UserLike/WatchProgress，drama.status 取 ONLINE/OFFLINE）、`repository/`、`service/`（DramaService）、`controller/`（`GET /api/ping`、`GET /api/dramas`）、`dto/`（DramaSummary）。
-- `apps/web`：C 端，Vite + React + TS + Tailwind v4 + react-router + axios；首页已接 `/api/dramas` 渲染封面网格；`/api`、`/uploads` 经 Vite 代理转发 8080。
+- `apps/api`：Spring Boot 3.5.16（Java 21、Maven mvnw）。包 `com.shortdrama.api` 分层：`config/`（SecurityConfig JWT 无状态鉴权、WebMvcConfig 映射 `/uploads/**`、DataSeeder 种子灌库）、`security/`（JwtService/JwtAuthFilter/AuthUser/UserDetailsServiceImpl）、`entity/`（User/Drama/Episode/Favorite/UserLike/WatchProgress，drama.status 取 ONLINE/OFFLINE）、`repository/`、`service/`（DramaService/AuthService）、`controller/`（`GET /api/ping`、`GET /api/dramas`、`GET /api/dramas/{id}`、`GET /api/dramas/{id}/episodes`、`POST /api/auth/register|login`、`GET /api/auth/me`）、`dto/`、`exception/`（BusinessException + GlobalExceptionHandler）。鉴权规则：点赞/收藏/`/api/me/**` 需登录，`/api/admin/**` 需 ADMIN（接口未实现，规则先行）。
+- `apps/web`：C 端，Vite + React + TS + Tailwind v4 + react-router v7 + axios；路由 `/`（首页分类筛选+网格）、`/drama/:id`（详情）、`/drama/:id/play?ep=`（竖屏播放）、`/login`、`/register`；`api/client.ts` 统一带 token 与 401 跳转，`store/AuthContext.tsx` 全局登录态；`/api`、`/uploads` 经 Vite 代理转发 8080。
 - `apps/admin`：管理后台，同栈 + Ant Design，仅 PC；代理同上。
 - `apps/api/uploads/`：封面/视频本地存储目录（`/uploads/**` 静态服务）；不入 git，由 scripts 两个脚本重建。
 - `docs/`：plan/（分阶段实施计划，现行计划唯一存放处）、devlog.md（施工日志）。
