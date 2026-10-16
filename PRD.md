@@ -220,7 +220,7 @@ erDiagram
 |---|---|---|
 | 后端 | Spring Boot 3 + Spring Data JPA + Maven | Java 题目硬性要求；JPA 快速建表 |
 | 鉴权 | JWT（无状态）+ BCrypt 密码加密 | 免 session 存储，前后端分离标准做法 |
-| 数据库 | H2 嵌入式文件库（默认）+ MySQL profile（备选讲解） | 零外部依赖一条命令启动，现场最稳 |
+| 数据库 | 本机 MySQL（26.7，日历版本号体系），专用库 `short_drama` | 开发者本机已安装运行，3306 端口直连，免容器 |
 | 前端 C 端 | Vite + React + React Router + CSS 媒体查询响应式 | React 题目硬性要求；三档断点自适应 |
 | 管理后台 | 独立工程：Vite + React + Ant Design | 表格表单开箱即用，与 C 端解耦 |
 | 文件存储 | 本地磁盘存储，经 StorageService 抽象层访问 | 本期不上 OSS，但预留扩展能力（见 7.3） |

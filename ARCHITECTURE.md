@@ -20,7 +20,7 @@ short-drama-web/
 |------|------|------|
 | 用户端 web | React 18 + Vite + Tailwind CSS | 3000 |
 | 管理后台 admin | React 18 + Vite + Tailwind CSS | 3001 |
-| 后端 api | Spring Boot 3 + JPA + H2 | 8080 |
+| 后端 api | Spring Boot 3 + JPA + MySQL | 8080 |
 
 ## 核心功能
 
@@ -38,7 +38,7 @@ short-drama-web/
 ### 后端 api
 - RESTful API 设计
 - Spring Security + JWT 认证
-- JPA + H2 内嵌数据库（免安装，启动即跑）
+- JPA + MySQL（本机已安装，3306 直连，专用库 `short_drama`）
 - 文件上传（封面图、视频）
 
 ## 数据模型（核心表）
@@ -54,14 +54,14 @@ short-drama-web/
 ## 开发原则
 
 1. **单仓库 Monorepo**：所有代码在一个 Git 仓库，无子模块
-2. **快速演示优先**：H2 内嵌数据库，零外部依赖启动
+2. **真实数据持久化**：本机 MySQL 存储，数据真实落库可交叉验证
 3. **前后端分离**：API 与前端独立开发，通过 HTTP 通信
 4. **同构前端**：web 和 admin 共用技术栈，可复用组件和工具函数
 
 ## 启动方式
 
 ```bash
-# 后端（H2 数据库自动初始化）
+# 后端（需先在本机 MySQL 创建数据库 `short_drama`，表结构与种子数据由应用启动时自动初始化）
 cd apps/api && ./mvnw spring-boot:run
 
 # 用户端
@@ -73,7 +73,6 @@ cd apps/admin && pnpm dev
 
 ## 后续扩展方向
 
-- 数据库切换 MySQL（配置化）
 - 视频存储接入 OSS / CDN
 - 短剧推荐算法
 - 支付与会员体系
