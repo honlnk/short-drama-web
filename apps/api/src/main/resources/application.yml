@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: shortdrama-api
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/short_drama?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+server:
+  port: 8080
+
+app:
+  # 本地文件存储目录（封面/视频上传落盘处，经 /uploads/** 静态映射对外提供）
+  upload-dir: ./uploads
