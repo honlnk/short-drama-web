@@ -2,17 +2,21 @@
 
 ## 项目结构
 
-```
-short-drama-web/
-├── REQUIREMENTS.md          # 需求文档
-├── ARCHITECTURE.md          # 本文档
-├── apps/
-│   ├── web/                 # 用户端（React）
-│   ├── admin/               # 管理后台（React）
-│   └── api/                 # 后端服务（Spring Boot）
-├── docs/                    # 项目文档
-└── scripts/                 # 脚本工具
-```
+- `README.md` — 项目说明（仓库入口）
+- `AGENTS.md` — AI 协作约定（供编码工具读取，固定在根目录）
+- `apps/` — 三个独立工程
+  - `api/` — 后端服务（Spring Boot 3.5，端口 8080）
+  - `web/` — 用户端（Vite + React，端口 3000）
+  - `admin/` — 管理后台（Vite + React + Ant Design，端口 3001）
+- `docs/` — 项目文档
+  - `REQUIREMENTS.md` — 题面原文（需求唯一来源）
+  - `PRD.md` — 产品需求文档
+  - `ARCHITECTURE.md` — 本文档
+  - `PLAN.md` — 实施计划与执行裁定
+  - `devlog.md` — 施工日志
+  - `plan/` — 分阶段细化计划
+- `scripts/` — 脚本工具（`dev.sh` 一键启动等）
+- `logs/` — 运行日志（不入库）
 
 ## 技术栈
 
