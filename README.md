@@ -14,7 +14,7 @@
 | 观看增强 | 滑动切集、自动连播、记忆续播、观看历史、搜索 | 规划中 |
 | 管理后台 | 短剧与剧集增删改查、文件上传、用户管理（独立工程，仅 PC） | 开发中 |
 
-当前进度：里程碑 1「脚手架与数据底座」——三工程骨架已就绪并过启动门禁，数据底座与种子资源正在施工（见 [docs/plan/](docs/plan/) 与 [docs/devlog.md](docs/devlog.md)）。
+当前进度：里程碑 1「脚手架与数据底座」✅ 已完成并过验收门禁——空库启动自动建表灌种子，C 端首页以真实接口渲染 6 部短剧封面网格，视频封面全本地资源（见 [docs/plan/](docs/plan/) 与 [docs/devlog.md](docs/devlog.md)）。
 
 ## 技术栈
 
@@ -79,7 +79,7 @@ CREATE DATABASE IF NOT EXISTS short_drama
 curl http://localhost:8080/api/ping   # {"message":"pong",...} 即后端与 MySQL 连接正常
 ```
 
-浏览器打开 http://localhost:3000 与 http://localhost:3001，页面上的「/api/ping → 后端连通」标签变绿即前后端链路打通。
+浏览器打开 http://localhost:3000 ：首页渲染出 6 部短剧封面网格即前后端与数据库链路全通（数据来自 MySQL，无 mock）。
 
 ## 演示账号
 
@@ -88,23 +88,23 @@ curl http://localhost:8080/api/ping   # {"message":"pong",...} 即后端与 MySQ
 | `admin` | `admin123` | ADMIN | 管理后台 + 全部用户能力 |
 | `demo` | `demo123` | USER | 普通用户 |
 
-> 账号由种子数据在空库首次启动时自动创建（里程碑 1 交付），当前脚手架阶段尚未灌入。
+> 账号由种子数据在空库首次启动时自动创建（已随里程碑 1 交付，首次启动后即可登录使用）。
 
 ## 数据库说明
 
 - 连接配置在 `apps/api/src/main/resources/application.yml`，凭据默认 `root / root123`（本机演示口径），支持环境变量覆盖：`DB_USERNAME` / `DB_PASSWORD`。
 - 建表：JPA `ddl-auto=update`，后端启动自动建表，无需手工执行 SQL。
 - 种子数据：空库（用户表为空）首次启动由 `CommandLineRunner` 自动导入，重复启动不重复灌入。
-- 种子媒体（视频/封面）落 `apps/api/uploads/`，不入 git，由 `scripts/fetch-seed-media.sh` 一键重建（里程碑 1 交付）。
+- 种子媒体（视频/封面）落 `apps/api/uploads/`，不入 git；重建两步：`./scripts/fetch-seed-media.sh 50`（下载原始素材，幂等）→ `./scripts/allocate-seed-media.sh`（按分类选片复制 + 生成封面，幂等）。
 
 ## 目录结构
 
 - `apps/` — 三个独立工程
-  - `api/` — 后端服务（Spring Boot，包结构 `com.shortdrama.api`：`config` / `controller`，后续按 `entity` / `repository` / `service` / `dto` 分层）
-  - `web/` — C 端（Vite + React + Tailwind）
+  - `api/` — 后端服务（Spring Boot，包结构 `com.shortdrama.api`：`config` / `entity` / `repository` / `service` / `controller` / `dto` 分层）
+  - `web/` — C 端（Vite + React + Tailwind；首页已接 `/api/dramas` 渲染封面网格）
   - `admin/` — 管理后台（Vite + React + Ant Design）
 - `docs/` — 全部项目文档（见下表）
-- `scripts/` — `dev.sh` 一键启动；后续补充 `api-test.sh` 验收脚本、`fetch-seed-media.sh` 种子资源脚本
+- `scripts/` — `dev.sh` 一键启动；`fetch-seed-media.sh` + `allocate-seed-media.sh` 种子媒体下载与分配（幂等）
 - `logs/` — 运行日志（gitignore）
 - `AGENTS.md` — AI 协作约定（供编码工具读取，固定在根目录）
 
@@ -120,7 +120,7 @@ curl http://localhost:8080/api/ping   # {"message":"pong",...} 即后端与 MySQ
 
 ## 开发进度（按 PRD 里程碑）
 
-1. **脚手架与数据底座** — 三工程骨架 ✅ / 数据库直连 ✅ / 种子数据与媒体资源 🚧
+1. **脚手架与数据底座** — 三工程骨架 ✅ / 数据库直连 ✅ / 种子数据与媒体资源 ✅（2026-10-16 验收门禁通过）
 2. 用户链路（注册、登录、JWT 贯通）— 待开工
 3. 核心演示路径（首页 → 详情 → 播放、响应式布局）— 待开工
 4. 互动闭环（点赞、收藏）— 待开工

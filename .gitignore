@@ -26,3 +26,7 @@ tmp/
 
 # --- 种子媒体素材（二进制视频体积大，由下载脚本重建，不入库）---
 seed-assets/
+
+# --- 后端上传目录（媒体文件由 allocate 脚本从 seed-assets 重建，仅保留目录占位）---
+apps/api/uploads/*
+!apps/api/uploads/.gitkeep
