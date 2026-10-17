@@ -4,6 +4,8 @@
 
 一个前后端与数据库真实打通的三工程 monorepo：访客可浏览竖屏短剧、注册登录后可点赞收藏，管理员通过独立后台维护短剧内容。目标是本地一条命令启动、不依赖外网即可现场演示。
 
+整个项目由 AI 结对开发完成——从红果短剧功能调研、分阶段计划制定到逐里程碑施工收口，全部会话原档存于 [conversations/](conversations/)（json 全量 + md 精简双份），创作思路与决策过程全程可回溯。
+
 ## 功能概览
 
 | 模块 | 功能 | 状态 |
@@ -105,6 +107,7 @@ curl http://localhost:8080/api/ping   # {"message":"pong",...} 即后端与 MySQ
   - `api/` — 后端服务（Spring Boot，包结构 `com.shortdrama.api`：`config` / `security` / `entity` / `repository` / `service` / `controller` / `dto` / `exception` 分层）
   - `web/` — C 端（Vite + React + Tailwind；路由：`/` 首页、`/drama/:id` 详情、`/drama/:id/play` 播放、`/login`、`/register`、`/mine`、`/mine/history`、`/mine/favorites`）
   - `admin/` — 管理后台（Vite + React + Ant Design）
+- `conversations/` — AI 开发会话存档（每次会话一份 json 全量 + 一份 md 精简版，入口见 [conversations/index.md](conversations/index.md)）
 - `docs/` — 全部项目文档（见下表）
 - `scripts/` — `dev.sh` 一键启动；`fetch-seed-media.sh` + `allocate-seed-media.sh` 种子媒体下载与分配（幂等）
 - `logs/` — 运行日志（gitignore）
@@ -120,6 +123,7 @@ curl http://localhost:8080/api/ping   # {"message":"pong",...} 即后端与 MySQ
 | [docs/plan/](docs/plan/) | 分阶段实施计划（现行计划唯一存放处：阶段1 数据底座、阶段2 用户链路、阶段3 互动闭环与管理后台、阶段4 体验加分项、阶段5 体验收尾、阶段6 联调彩排） |
 | [docs/demo-script.md](docs/demo-script.md) | 现场演示脚本（动线 + 话术 + 兜底预案 + 演示前自检清单） |
 | [docs/devlog.md](docs/devlog.md) | 施工日志（每阶段门禁结论与偏差记录） |
+| [conversations/index.md](conversations/index.md) | AI 开发过程会话存档总览（json 全量 / md 仅用户输入与 AI 最终回复，双份导出） |
 
 ## 开发进度（按 PRD 里程碑）
 
