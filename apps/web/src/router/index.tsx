@@ -8,6 +8,7 @@ import LoginPage from '../pages/LoginPage'
 import RegisterPage from '../pages/RegisterPage'
 import MinePage from '../pages/MinePage'
 import FavoritesPage from '../pages/FavoritesPage'
+import HistoryPage from '../pages/HistoryPage'
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,14 @@ export const router = createBrowserRouter([
         element: (
           <RequireAuth>
             <MinePage />
+          </RequireAuth>
+        ),
+      },
+      {
+        path: '/mine/history',
+        element: (
+          <RequireAuth>
+            <HistoryPage />
           </RequireAuth>
         ),
       },

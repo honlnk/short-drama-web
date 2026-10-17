@@ -35,6 +35,14 @@ export default function MinePage() {
 
       <nav className="mt-4 overflow-hidden rounded-xl bg-neutral-900">
         <Link
+          to="/mine/history"
+          className="flex items-center justify-between px-5 py-4 text-sm transition hover:bg-neutral-800"
+        >
+          <span>🕐 观看历史</span>
+          <span className="text-neutral-500">›</span>
+        </Link>
+        <div className="border-t border-neutral-800" />
+        <Link
           to="/mine/favorites"
           className="flex items-center justify-between px-5 py-4 text-sm transition hover:bg-neutral-800"
         >

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { getApiErrorMessage } from '../api/client'
 import { formatLikes, getDrama, type DramaDetail } from '../api/dramas'
-import { getHistory, reportProgress } from '../api/progress'
+import { getHistory, reportProgress, type HistoryItem } from '../api/progress'
 import { useDramaInteractions } from '../hooks/useDramaInteractions'
 import { useAuth } from '../store/AuthContext'
 
@@ -37,6 +37,8 @@ export default function PlayerPage() {
   const [notice, setNotice] = useState('')
   const [resumeTip, setResumeTip] = useState('')
   const [autoplayBlocked, setAutoplayBlocked] = useState(false)
+  // PL-03 已看标记数据源：复用续播分支拉到的 history，不为标记单独发请求
+  const [historyItems, setHistoryItems] = useState<HistoryItem[]>([])
 
   useEffect(() => {
     if (!id) {
@@ -113,14 +115,16 @@ export default function PlayerPage() {
     selectEpisode(episodes[currentIndex - 1].episodeNo)
   }, [currentIndex, episodes, selectEpisode])
 
-  // 记忆续播（PL-04）：已登录且 ?ep= 缺省时恢复最近进度；URL 显式存在则跳过（用户选集优先于记忆）
+  // 记忆续播（PL-04）+ 已看标记（PL-03）：已登录即拉一次 history，两处共用同一份数据；
+  // ?ep= 显式存在时只用于标记、跳过恢复跳转（用户选集优先于记忆）
   useEffect(() => {
     if (!user || !detail || episodes.length === 0) return
     if (resumedForRef.current === detail.id) return
     resumedForRef.current = detail.id
-    if (searchParams.has('ep')) return
     getHistory()
       .then((items) => {
+        setHistoryItems(items)
+        if (searchParams.has('ep')) return
         const record = items.find((item) => item.dramaId === detail.id)
         if (!record) return
         resumeSecRef.current = record.progressSec
@@ -129,6 +133,23 @@ export default function PlayerPage() {
       })
       .catch(() => {})
   }, [user, detail, episodes, searchParams, setSearchParams])
+
+  // 已看标记（PL-03）推断式：进度集之前的集视为已看；进度集本身看到片尾（距结尾 <3s）也标已看。
+  // watch_progress 每用户每剧只有一条最新记录（PRD §6），跳跃式观看会把中间集误标，属拍板取舍。
+  const watchedBefore = useMemo(() => {
+    const watched = new Set<number>()
+    if (!detail) return watched
+    const record = historyItems.find((item) => item.dramaId === detail.id)
+    if (!record) return watched
+    for (const episode of detail.episodes) {
+      if (episode.episodeNo < record.episodeNo) watched.add(episode.episodeNo)
+    }
+    const recordEpisode = detail.episodes.find((episode) => episode.episodeNo === record.episodeNo)
+    if (recordEpisode && record.progressSec >= recordEpisode.durationSec - RESUME_TAIL_GRACE_SEC) {
+      watched.add(record.episodeNo)
+    }
+    return watched
+  }, [detail, historyItems])
 
   // 页面隐藏/卸载补报：关标签页、切走前保住最后几秒进度
   useEffect(() => {
@@ -339,11 +360,19 @@ export default function PlayerPage() {
               onClick={() => selectEpisode(episode.episodeNo)}
               className={
                 episode.episodeNo === current.episodeNo
-                  ? 'rounded-lg bg-rose-500 py-1.5 text-sm font-medium text-white'
-                  : 'rounded-lg border border-neutral-700 bg-neutral-900 py-1.5 text-sm text-neutral-200 transition hover:border-rose-500 hover:text-rose-300'
+                  ? 'relative rounded-lg bg-rose-500 py-1.5 text-sm font-medium text-white'
+                  : 'relative rounded-lg border border-neutral-700 bg-neutral-900 py-1.5 text-sm text-neutral-200 transition hover:border-rose-500 hover:text-rose-300'
               }
             >
               {episode.episodeNo}
+              {watchedBefore.has(episode.episodeNo) && (
+                <span
+                  aria-label="已看"
+                  className="absolute right-1 top-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-black/55 text-[9px] leading-none text-emerald-300"
+                >
+                  ✓
+                </span>
+              )}
             </button>
           ))}
         </div>

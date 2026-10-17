@@ -12,9 +12,9 @@ AI Coding 现场实战题：开发一个类似「红果短剧」的简化版短�
 - 前后端及数据库必须**真实打通**，禁止用 mock 数据糊弄演示路径
 - 项目必须可在本地正常启动并现场演示
 
-## 当前状态（阶段4 体验加分项已并入 main，2026-10-17）
+## 当前状态（阶段5 体验收尾完成，里程碑6 全收口，2026-10-17）
 
-三工程 monorepo 就绪（阶段0）+ 数据底座（阶段1）+ 用户链路与核心演示路径（阶段2）+ 互动闭环与管理后台（阶段3）+ 体验加分项（阶段4，worktree 并行施工后合并，验收清单见 `docs/plan/第四阶段-体验加分项并行计划.md` 第六节，全部通过）。题目必含功能全部落地，里程碑 6 已完成 PL-01/02/04/05 后端/06，剩余 PL-03 已看标记、PL-05 历史前端页（等下一阶段）与联调彩排。当前能力：
+三工程 monorepo 就绪（阶段0）+ 数据底座（阶段1）+ 用户链路与核心演示路径（阶段2）+ 互动闭环与管理后台（阶段3）+ 体验加分项（阶段4，worktree 并行施工后合并）+ 体验收尾（阶段5，`docs/plan/第五阶段-体验收尾计划.md` 验收清单全部通过）。题目必含功能全部落地，里程碑 6（PRD 4.4 观看增强全部 6 个 PL）100% 收口；项目仅剩里程碑 7「联调彩排 + 演示脚本 + README 收尾」。当前能力：
 
 - 统一响应包体 `{code,message,data}`（成功 code=0；错误经 GlobalExceptionHandler，401/403 也是 JSON）；JWT HS384 72h（密钥 416bit 由 jjwt 按位宽自动映射）；前端 `client.ts` 响应拦截器统一拆包。
 - 互动写库：`POST /api/dramas/{id}/like|favorite` 幂等切换（乐观更新+响应校准+失败回滚），`GET /api/me/favorites` 倒序收藏列表；C 端新增 `/mine`（我的）与 `/mine/favorites`（我的收藏，RequireAuth 守卫）。
@@ -23,7 +23,9 @@ AI Coding 现场实战题：开发一个类似「红果短剧」的简化版短�
 - 观看进度与续播（阶段4）：`PUT /api/me/progress?dramaId=` 每用户每剧 upsert（截断/归属校验/唯一索引冲突收敛）+ `GET /api/me/history` 倒序；播放页 5s 节流上报 + 暂停/隐藏/切集/卸载补报，重进自动续播（`?ep=` 显式时 URL 优先，距片尾 <3s 从头播）。
 - 播放增强（阶段4）：滚轮/键盘（↓→↑←）/触摸滑动切集 + 首尾集边界提示；ended 自动连播（被浏览器拦时叠「继续下一集」按钮，末集停留提示）。
 - C 端搜索（阶段4）：`GET /api/dramas?keyword=` 标题模糊（忽略大小写），首页搜索框 300ms 防抖即输即搜、清空按钮、空结果文案区分、与分类筛选叠加。
-- 后端单测 35 个全绿（阶段3 27 + 阶段4 8）；断网演示项已验证（C 端首页/播放页/后台列表资源审计全部本机来源，源码无外链）。
+- 观看历史页（阶段5，PL-05）：`/mine/history`（RequireAuth），横向条目卡（封面缩略图+剧名+「看到第 X 集 · m 分 s 秒」+相对时间，本地格式化不引库），下架剧保留并叠「已下架」角标，点击整卡不带 `?ep=` 走记忆续播；MinePage 入口在「我的收藏」上方。
+- 选集已看标记（阶段5，PL-03）：推断式（`< 当前进度集` 或当前集看到距片尾 3s 内即标），选集按钮右上角 `✓` 角标与当前集高亮分离；已登录即拉一次 history 与续播分支共用（`?ep=` 显式时只供标记不跳集）；未登录零标记零请求。
+- 后端单测 35 个全绿（阶段3 27 + 阶段4 8；阶段5 零后端改动）；断网演示项已验证（C 端首页/播放页/后台列表资源审计全部本机来源，源码无外链）。
 
 施工日志见 `docs/devlog.md`。
 
@@ -42,7 +44,7 @@ AI Coding 现场实战题：开发一个类似「红果短剧」的简化版短�
 ### 目录结构与分层规则
 
 - `apps/api`：Spring Boot 3.5.16（Java 21、Maven mvnw）。包 `com.shortdrama.api` 分层：`config/`（SecurityConfig JWT 无状态鉴权 + 401/403 JSON、WebMvcConfig 映射 `/uploads/**`、DataSeeder 种子灌库）、`security/`（JwtService/JwtAuthFilter/AuthUser/UserDetailsServiceImpl）、`entity/`（User/Drama/Episode/Favorite/UserLike/WatchProgress，drama.status 取 ONLINE/OFFLINE）、`repository/`、`service/`（DramaService/AuthService/InteractionService+InteractionTxService 编排与事务分离/AdminDramaService/AdminEpisodeService）、`storage/`（StorageService 接口 + LocalStorageService）、`controller/`（`GET /api/ping`、`GET /api/dramas`、`GET /api/dramas/{id}`、`GET /api/dramas/{id}/episodes`、`POST /api/dramas/{id}/like|favorite`、`POST /api/auth/register|login`、`GET /api/auth/me`、`GET /api/me/favorites`、`/api/admin/dramas`+`episodes`+`files/upload` 全套）、`dto/`（含 ApiResponse 统一包体）、`exception/`（BusinessException + GlobalExceptionHandler）。鉴权规则：点赞/收藏/`/api/me/**` 需登录，`/api/admin/**` 需 ADMIN。
-- `apps/web`：C 端，Vite + React + TS + Tailwind v4 + react-router v7 + axios；路由 `/`（首页分类筛选+网格）、`/drama/:id`（详情）、`/drama/:id/play?ep=`（竖屏播放）、`/login`、`/register`、`/mine`、`/mine/favorites`；`api/client.ts` 统一带 token、解包体（code≠0 即 reject）与 401 跳转，`store/AuthContext.tsx` 全局登录态；`/api`、`/uploads` 经 Vite 代理转发 8080。
+- `apps/web`：C 端，Vite + React + TS + Tailwind v4 + react-router v7 + axios；路由 `/`（首页分类筛选+网格）、`/drama/:id`（详情）、`/drama/:id/play?ep=`（竖屏播放，选集区带已看标记）、`/login`、`/register`、`/mine`、`/mine/history`（观看历史）、`/mine/favorites`；`api/client.ts` 统一带 token、解包体（code≠0 即 reject）与 401 跳转，`store/AuthContext.tsx` 全局登录态；`/api`、`/uploads` 经 Vite 代理转发 8080。
 - `apps/admin`：管理后台，同栈 + Ant Design 6（仅 PC）；`api/client.ts` 用独立 `admin_token` localStorage 键（与 C 端 `token` 隔离）；路由 `/login`、`/`（列表）、`/dramas/new`、`/dramas/:id/edit`、`/dramas/:id/episodes`，RequireAdmin 守卫（非 ADMIN 登出拒入）；代理同上。
 - `apps/api/uploads/`：封面/视频本地存储目录（`/uploads/**` 静态服务）：`covers/`+`videos/` 为种子媒体（scripts 两个脚本重建）、`files/` 为后台运行期上传产物；均不入 git。
 - `docs/`：plan/（分阶段实施计划，现行计划唯一存放处）、devlog.md（施工日志）。
