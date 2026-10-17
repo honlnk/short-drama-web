@@ -35,7 +35,7 @@ public class DramaService {
     @Transactional(readOnly = true)
     public List<DramaSummary> listOnline() {
         return dramaRepository.findByStatusOrderByLikeCountDesc(DramaStatus.ONLINE).stream()
-                .map(DramaService::toSummary)
+                .map(DramaSummary::from)
                 .toList();
     }
 
@@ -74,19 +74,6 @@ public class DramaService {
         return dramaRepository.findById(id)
                 .filter(drama -> drama.getStatus() == DramaStatus.ONLINE)
                 .orElseThrow(() -> new BusinessException(404, "短剧不存在或已下架"));
-    }
-
-    private static DramaSummary toSummary(Drama drama) {
-        return new DramaSummary(
-                drama.getId(),
-                drama.getTitle(),
-                drama.getDescription(),
-                drama.getCategory(),
-                drama.getCoverUrl(),
-                drama.getLikeCount(),
-                drama.getStatus().name(),
-                drama.getEpisodes().size()
-        );
     }
 
     private static EpisodeSummary toEpisodeSummary(Episode episode) {

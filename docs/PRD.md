@@ -239,15 +239,19 @@ erDiagram
 ### 7.3 文件存储抽象
 
 - 业务代码只依赖 `StorageService` 接口（`store / delete / getUrl`），不知道文件落在哪。
-- 本期实现 `LocalStorageService`：文件写入服务端本地目录（如 `./data/files`），经 `/files/**` 静态映射对外提供访问。
+- 本期实现 `LocalStorageService`：文件写入 `apps/api/uploads/`，经 `/uploads/**` 静态映射对外提供访问。**与种子媒体同一目录同一映射**（种子内容占 `uploads/videos/`、`uploads/covers/`，后台上传占 `uploads/files/`，按子目录区分来源），全项目只有一套存储路径与一套 URL 形态，演示讲解一条线讲清。
 - 未来扩展 OSS 时新增 `OssStorageService` 实现并通过配置切换（`storage.type=local|oss`），业务代码与数据库中的 URL 结构保持不变。
+
+> 2026-10-16 修订：原稿为独立目录 `./data/files` + `/files/**` 映射，与第一阶段已落地的种子媒体存储（`apps/api/uploads/` + `/uploads/**`）双轨并存；经拍板统一为 uploads/ 单轨，StorageService 抽象与 OSS 扩展路径不变。
+
+**上传方式口径（2026-10-16 拍板）**：本期采用**单次直传**（multipart/form-data，上限 50MB），**不做分片/断点续传**。理由：演示场景为本地网络 + 小体积视频（种子集均 1MB 量级，上限 50MB），分片上传解决的「大文件 + 弱网 + 续传」问题在本场景不存在，且其实现（前端分片/并发/重传/秒传 hash + 后端分片接收/合并/孤儿清理）成本高、演示效果不可见。若未来面向真实大文件场景，扩展路径为基于 `StorageService` 抽象新增分片存储实现（含秒传与断点续传），业务代码与 URL 结构保持不变——抽象层的存在即为此预留。
 
 ```mermaid
 flowchart LR
     Biz["业务代码（剧集/封面上传）"] --> IF["StorageService 接口"]
     IF --> Local["LocalStorageService（本期实现）"]
     IF --> Oss["OssStorageService（未来扩展）"]
-    Local --> Disk["本地磁盘 ./data/files"]
+    Local --> Disk["本地磁盘 apps/api/uploads/"]
     Oss --> Aliyun["OSS 对象存储"]
 ```
 

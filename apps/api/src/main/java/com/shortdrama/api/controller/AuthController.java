@@ -1,5 +1,6 @@
 package com.shortdrama.api.controller;
 
+import com.shortdrama.api.dto.ApiResponse;
 import com.shortdrama.api.dto.AuthResponse;
 import com.shortdrama.api.dto.LoginRequest;
 import com.shortdrama.api.dto.RegisterRequest;
@@ -26,21 +27,21 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public AuthResponse register(@Valid @RequestBody RegisterRequest request) {
-        return authService.register(request);
+    public ApiResponse<AuthResponse> register(@Valid @RequestBody RegisterRequest request) {
+        return ApiResponse.ok(authService.register(request));
     }
 
     @PostMapping("/login")
-    public AuthResponse login(@Valid @RequestBody LoginRequest request) {
-        return authService.login(request);
+    public ApiResponse<AuthResponse> login(@Valid @RequestBody LoginRequest request) {
+        return ApiResponse.ok(authService.login(request));
     }
 
     /** 登录态校验：SecurityConfig 已拦截匿名访问，principal 为 null 仅作兜底。 */
     @GetMapping("/me")
-    public UserInfo me(@AuthenticationPrincipal AuthUser authUser) {
+    public ApiResponse<UserInfo> me(@AuthenticationPrincipal AuthUser authUser) {
         if (authUser == null) {
             throw new BusinessException(401, "未登录或登录已过期");
         }
-        return authService.getMe(authUser.getId());
+        return ApiResponse.ok(authService.getMe(authUser.getId()));
     }
 }

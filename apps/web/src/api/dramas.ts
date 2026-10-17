@@ -41,3 +41,22 @@ export function listEpisodes(id: number | string): Promise<EpisodeSummary[]> {
 export function formatLikes(count: number): string {
   return count >= 10000 ? `${(count / 10000).toFixed(1)}万` : count.toLocaleString()
 }
+
+export interface LikeToggleResult {
+  liked: boolean
+  likeCount: number
+}
+
+export interface FavoriteToggleResult {
+  favorited: boolean
+}
+
+/** 点赞幂等切换（IN-01）：返回切换后的最新状态与计数。 */
+export function toggleLike(id: number | string): Promise<LikeToggleResult> {
+  return client.post<LikeToggleResult>(`/api/dramas/${id}/like`).then((res) => res.data)
+}
+
+/** 收藏幂等切换（IN-02）：返回切换后的最新状态。 */
+export function toggleFavorite(id: number | string): Promise<FavoriteToggleResult> {
+  return client.post<FavoriteToggleResult>(`/api/dramas/${id}/favorite`).then((res) => res.data)
+}
