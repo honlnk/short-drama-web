@@ -11,10 +11,10 @@
 | 用户模块 | 注册 / 登录（JWT 会话保持）/ 退出 | ✅ 可用 |
 | 内容展示 | 首页推荐流、短剧详情、竖屏沉浸播放、分类浏览、响应式三档布局 | ✅ 可用 |
 | 互动 | 点赞 / 收藏 / 我的收藏 | ✅ 可用（写库、状态回显、未登录引导） |
-| 观看增强 | 滑动切集、自动连播、记忆续播、观看历史、搜索 | 规划中 |
+| 观看增强 | 滑动切集、自动连播、记忆续播、选集已看标记、观看历史、搜索 | ✅ 可用 |
 | 管理后台 | 短剧与剧集增删改查、上下架、文件上传（独立工程，仅 PC） | ✅ 可用（用户管理按 PRD 裁剪不做） |
 
-当前进度：里程碑 1「脚手架与数据底座」✅、里程碑 2+3「用户链路与核心演示路径」✅、里程碑 4+5「互动闭环与管理后台」✅ 均已过验收门禁——访客可浏览首页网格与详情播放，登录后点赞收藏写库并在「我的收藏」回看，管理员在后台完成短剧/剧集增删改查与文件上传，C 端实时生效；三个页面资源审计全部本机来源，断网可演示（见 [docs/plan/](docs/plan/) 与 [docs/devlog.md](docs/devlog.md)）。
+当前进度：PRD 里程碑 1~7 全部收口——脚手架与数据底座、用户链路与核心演示路径、互动闭环与管理后台、体验加分项、联调彩排均已过验收门禁。访客可浏览首页网格与详情播放；登录后点赞收藏写库、进度自动上报、重进续播、观看历史与我的收藏可回看；管理员在后台完成短剧/剧集增删改查与文件上传，C 端实时生效。三端关键页资源全部本机来源，断网可演示（见 [docs/plan/](docs/plan/) 与 [docs/devlog.md](docs/devlog.md)）。
 
 ## 技术栈
 
@@ -89,6 +89,8 @@ curl http://localhost:8080/api/ping   # {"message":"pong",...} 即后端与 MySQ
 | `demo` | `demo123` | USER | 普通用户 |
 
 > 账号由种子数据在空库首次启动时自动创建；登录功能已于里程碑 2 上线，可直接在 C 端登录（登录页提供快捷填充按钮）。
+>
+> 现场演示请照 [docs/demo-script.md](docs/demo-script.md) 执行（含完整动线、讲解点与兜底预案）。
 
 ## 数据库说明
 
@@ -101,7 +103,7 @@ curl http://localhost:8080/api/ping   # {"message":"pong",...} 即后端与 MySQ
 
 - `apps/` — 三个独立工程
   - `api/` — 后端服务（Spring Boot，包结构 `com.shortdrama.api`：`config` / `security` / `entity` / `repository` / `service` / `controller` / `dto` / `exception` 分层）
-  - `web/` — C 端（Vite + React + Tailwind；首页 / 详情 / 竖屏播放 / 登录注册四条路由已通）
+  - `web/` — C 端（Vite + React + Tailwind；路由：`/` 首页、`/drama/:id` 详情、`/drama/:id/play` 播放、`/login`、`/register`、`/mine`、`/mine/history`、`/mine/favorites`）
   - `admin/` — 管理后台（Vite + React + Ant Design）
 - `docs/` — 全部项目文档（见下表）
 - `scripts/` — `dev.sh` 一键启动；`fetch-seed-media.sh` + `allocate-seed-media.sh` 种子媒体下载与分配（幂等）
@@ -115,7 +117,8 @@ curl http://localhost:8080/api/ping   # {"message":"pong",...} 即后端与 MySQ
 | [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) | 题面原文（需求唯一来源） |
 | [docs/PRD.md](docs/PRD.md) | 产品需求文档（功能清单、页面结构、数据设计、接口草案、里程碑） |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | 架构决策（工程结构、技术栈、数据模型） |
-| [docs/plan/](docs/plan/) | 分阶段实施计划（现行计划唯一存放处；第一阶段：数据底座与种子资源） |
+| [docs/plan/](docs/plan/) | 分阶段实施计划（现行计划唯一存放处：阶段1 数据底座、阶段2 用户链路、阶段3 互动闭环与管理后台、阶段4 体验加分项、阶段5 体验收尾、阶段6 联调彩排） |
+| [docs/demo-script.md](docs/demo-script.md) | 现场演示脚本（动线 + 话术 + 兜底预案 + 演示前自检清单） |
 | [docs/devlog.md](docs/devlog.md) | 施工日志（每阶段门禁结论与偏差记录） |
 
 ## 开发进度（按 PRD 里程碑）
@@ -125,5 +128,5 @@ curl http://localhost:8080/api/ping   # {"message":"pong",...} 即后端与 MySQ
 3. 核心演示路径（首页 → 详情 → 播放、响应式布局）— ✅（2026-10-16 验收门禁通过）
 4. 互动闭环（点赞、收藏、我的收藏）— ✅（2026-10-16 验收门禁通过）
 5. 管理后台（登录、短剧/剧集 CRUD、上下架、文件上传）— ✅（2026-10-16 验收门禁通过；用户管理按 PRD 裁剪不做）
-6. 体验加分项（滑动切集、连播、续播、历史、搜索）— 待开工
-7. 联调彩排（全流程走查 + 演示脚本 + README 收尾）— 待开工
+6. 体验加分项（滑动切集、连播、续播、历史、搜索、选集已看标记）— ✅（2026-10-17 验收门禁通过）
+7. 联调彩排（全流程走查 + 演示脚本 + README 收尾）— ✅（2026-10-17 验收门禁通过）
