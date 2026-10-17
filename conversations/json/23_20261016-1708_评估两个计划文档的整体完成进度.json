@@ -1,0 +1,2756 @@
+{
+ "session": {
+  "id": "sess_b09cd339-7190-4a94-9745-2c58222cc1fc",
+  "title": "评估两个计划文档的整体完成进度",
+  "slug": "sess_b09cd339-7190-4a94-9745-2c58222cc1fc",
+  "task_type": "interactive",
+  "parent_id": null,
+  "directory": "/Users/honlnk/project/short-drama-web",
+  "version": "0.16.9",
+  "share_url": null,
+  "created": "2026-10-16 17:08:23",
+  "updated": "2026-10-16 17:18:11",
+  "compacting_at": null,
+  "message_count": 19,
+  "part_count": 54
+ },
+ "messages": [
+  {
+   "id": "msg_mvaqwd0f_e46bfd02-9e04-4e27-82f7-96f871ebde9b",
+   "sequence": 0,
+   "time_iso": "2026-10-16 17:08:24",
+   "data": {
+    "role": "user",
+    "time": {
+     "created": 1792141704160
+    },
+    "agent": "zcode-agent",
+    "modelSelection": {
+     "providerId": "new-provider",
+     "modelId": "kimi-k3",
+     "options": {
+      "reasoningLevel": "max"
+     }
+    },
+    "contextSnapshot": {
+     "envInfo": {
+      "cwd": "/Users/honlnk/project/short-drama-web",
+      "platform": "darwin",
+      "shell": "zsh",
+      "osVersion": "darwin 24.6.0 arm64",
+      "nodeVersion": "v24.14.0",
+      "isGitRepository": true,
+      "gitBranch": "main",
+      "gitMainBranch": "main",
+      "gitUser": "honlnk",
+      "gitStatus": "dirty",
+      "gitStatusLines": [
+       "M AGENTS.md",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/AuthController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/DramaController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/PingController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/dto/ApiResponse.java",
+       " M apps/api/src/main/java/com/shortdrama/api/dto/DramaSummary.java",
+       " M apps/api/src/main/java/com/shortdrama/api/repository/FavoriteRepository.java",
+       " M apps/api/src/main/java/com/shortdrama/api/repository/UserLikeRepository.java",
+       " M apps/api/src/main/java/com/shortdrama/api/security/JwtService.java",
+       " M apps/api/src/main/java/com/shortdrama/api/service/DramaService.java",
+       " M apps/api/src/main/resources/application.yml",
+       " M apps/web/src/api/client.ts",
+       " M docs/PRD.md",
+       " M docs/devlog.md",
+       " M docs/plan/第二阶段-用户链路与核心演示路径.md",
+       "?? apps/api/src/main/java/com/shortdrama/api/controller/InteractionController.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/controller/MeController.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/dto/FavoriteToggleResponse.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/dto/LikeToggleResponse.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/service/InteractionService.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/service/InteractionTxService.java",
+       "?? apps/api/src/test/java/com/shortdrama/api/service/",
+       "?? docs/plan/第三阶段-互动闭环与管理后台.md",
+       "?? docs/plan/第四阶段-体验加分项并行计划.md"
+      ],
+      "recentCommits": [
+       "e9bea5b feat: 阶段2 用户链路与核心演示路径——JWT 鉴权+注册登录+详情/竖屏播放页+点赞收藏状态回显，验收门禁全绿",
+       "77d755a docs: 计划文档口径修正——status 以 PRD §6 ONLINE/OFFLINE 为准、媒体重建两步、时长/点赞按实际落地口径标注",
+       "d408be7 feat: 阶段1 数据底座与种子资源——6 表实体+种子灌库+/api/dramas+C 端首页封面网格，验收门禁全绿",
+       "3e62109 feat: 种子媒体素材就绪——50 个 Mixkit 竖屏视频下载完成，素材线收口",
+       "b8a55e2 docs: 用户拍板收口——端口目录统一 apps/*+3000/3001，demo 口径定稿 demo123，PLAN.md 退役"
+      ]
+     }
+    },
+    "semantics": {
+     "origin": "real_user",
+     "kind": "user_prompt",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_d93eb81e-a5ef-4984-9118-57cc740e2d37",
+     "origin": "realUser",
+     "sourceCommandId": "01a143f8-3b0e-74e9-a2f5-cee9a08a1a13"
+    },
+    "tools": {
+     "Agent": true,
+     "AskUserQuestion": true,
+     "Bash": true,
+     "CronCreate": true,
+     "CronDelete": true,
+     "CronList": true,
+     "CronUpdate": true,
+     "Edit": true,
+     "EnterPlanMode": true,
+     "ExitPlanMode": true,
+     "Read": true,
+     "Skill": true,
+     "TaskOutput": true,
+     "TaskStop": true,
+     "TodoRead": true,
+     "TodoWrite": true,
+     "WebFetch": true,
+     "WebSearch": true,
+     "Write": true,
+     "OffPeakCreate": true,
+     "OffPeakList": true,
+     "SendMessage": true,
+     "ReadSessionContext": true,
+     "ReplyToChannel": true,
+     "CreateWorkflow": true,
+     "AmendWorkflow": true,
+     "SaveWorkflow": true,
+     "EvalWorkflowSnippet": true,
+     "ListWorkflowRuns": true,
+     "GetWorkflowRun": true,
+     "ResumeWorkflowRun": true,
+     "ResolveWorkflowQuestion": true,
+     "FillWorkflowHole": true,
+     "ListSavedWorkflows": true,
+     "ListModels": true
+    },
+    "metadata": {
+     "inputIntent": {
+      "inputOrigin": "desktop",
+      "sourceCommandId": "01a143f8-3b0e-74e9-a2f5-cee9a08a1a13",
+      "queueItemId": "queue_01a143f8-3b0e-74e9-a2f5-cee9a08a1a13",
+      "clientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb",
+      "kind": "sendText",
+      "text": "看一下 我们现在写完的 两个计划文档，已经写完了整体计划的 百分之 多少 的内容？",
+      "modelSelection": {
+       "providerId": "new-provider",
+       "modelId": "kimi-k3",
+       "options": {
+        "reasoningLevel": "max"
+       }
+      },
+      "mode": "yolo",
+      "planEnabled": false,
+      "admissionSeq": 1,
+      "admittedAt": 1792141703955,
+      "requestedDelivery": "startNow",
+      "admittedDelivery": "startNow"
+     },
+     "conversationInputIntent": {
+      "inputOrigin": "desktop",
+      "sourceCommandId": "01a143f8-3b0e-74e9-a2f5-cee9a08a1a13",
+      "queueItemId": "queue_01a143f8-3b0e-74e9-a2f5-cee9a08a1a13",
+      "clientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb",
+      "kind": "sendText",
+      "text": "看一下 我们现在写完的 两个计划文档，已经写完了整体计划的 百分之 多少 的内容？",
+      "attachments": [],
+      "modelSelection": {
+       "providerId": "new-provider",
+       "modelId": "kimi-k3",
+       "options": {
+        "reasoningLevel": "max"
+       }
+      },
+      "mode": "yolo",
+      "planEnabled": false,
+      "delivery": {
+       "requested": "startNow",
+       "admitted": "startNow"
+      },
+      "order": {
+       "admissionSeq": 1
+      },
+      "steer": {
+       "state": "notRequested"
+      },
+      "dispatch": {
+       "state": "drained"
+      },
+      "admittedAt": 1792141703955
+     },
+     "inputClientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb"
+    },
+    "model": {
+     "providerID": "new-provider",
+     "modelID": "kimi-k3",
+     "variant": "max"
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvaqwd0g_0b2b947b-746b-4362-ad7c-320a3ea69d22",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:08:24",
+     "data": {
+      "type": "text",
+      "text": "看一下 我们现在写完的 两个计划文档，已经写完了整体计划的 百分之 多少 的内容？",
+      "time": {
+       "start": 1792141704160,
+       "end": 1792141704160
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvaqwd1c_1a2a3133-5443-46d3-b7f4-5e7fa683dc74",
+   "sequence": 1,
+   "time_iso": "2026-10-16 17:08:24",
+   "data": {
+    "role": "user",
+    "time": {
+     "created": 1792141704192
+    },
+    "agent": "zcode-agent",
+    "metadata": {
+     "source": "agent_listing_delta",
+     "visibility": "model-only"
+    },
+    "modelSelection": {
+     "providerId": "new-provider",
+     "modelId": "kimi-k3",
+     "options": {
+      "reasoningLevel": "max"
+     }
+    },
+    "semantics": {
+     "origin": "agent_runtime",
+     "kind": "system_reminder",
+     "source": "agent_listing_delta",
+     "uiVisibility": "hidden",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "hidden"
+    },
+    "anchor": {
+     "turnId": "turn_d93eb81e-a5ef-4984-9118-57cc740e2d37",
+     "origin": "synthetic"
+    },
+    "source": "agent_listing_delta",
+    "synthetic": true,
+    "tools": {
+     "Agent": true,
+     "AskUserQuestion": true,
+     "Bash": true,
+     "CronCreate": true,
+     "CronDelete": true,
+     "CronList": true,
+     "CronUpdate": true,
+     "Edit": true,
+     "EnterPlanMode": true,
+     "ExitPlanMode": true,
+     "Read": true,
+     "Skill": true,
+     "TaskOutput": true,
+     "TaskStop": true,
+     "TodoRead": true,
+     "TodoWrite": true,
+     "WebFetch": true,
+     "WebSearch": true,
+     "Write": true,
+     "OffPeakCreate": true,
+     "OffPeakList": true,
+     "SendMessage": true,
+     "ReadSessionContext": true,
+     "ReplyToChannel": true,
+     "CreateWorkflow": true,
+     "AmendWorkflow": true,
+     "SaveWorkflow": true,
+     "EvalWorkflowSnippet": true,
+     "ListWorkflowRuns": true,
+     "GetWorkflowRun": true,
+     "ResumeWorkflowRun": true,
+     "ResolveWorkflowQuestion": true,
+     "FillWorkflowHole": true,
+     "ListSavedWorkflows": true,
+     "ListModels": true,
+     "mcp__plugin_image-search_image_search__search_image": true,
+     "mcp__linkseek__web_search": true,
+     "mcp__linkseek__web_fetch": true,
+     "mcp__linkseek__web_search_and_fetch": true,
+     "mcp__linkseek__get_result": true,
+     "mcp__linkseek__web_fetch_render": true,
+     "mcp__linkseek__list_models": true,
+     "mcp__linkseek__web_fetch_answer": true,
+     "mcp__linkseek__web_search_answer": true,
+     "mcp__linkseek__web_research": true,
+     "mcp__picsense__analyze_images": true,
+     "mcp__picsense__list_sessions": true,
+     "mcp__picsense__analyze_document": true,
+     "mcp__picsense__analyze_video": true,
+     "mcp__node_repl__js": true
+    },
+    "visibility": "model-only",
+    "model": {
+     "providerID": "new-provider",
+     "modelID": "kimi-k3",
+     "variant": "max"
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvaqwd1c_3f2be618-91d7-48cf-bd6f-c6c3b6453b0e",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:08:24",
+     "data": {
+      "type": "text",
+      "text": "Available agent types for the Agent tool:\n- documents:visual-judge: THE single visual acceptance pass for a rendered deliverable of these types only — pptx, docx, xlsx, pdf, poster, chart; for anything else, do not use it. Use it *instead of* looking at the page images yourself, never in addition: pick one gate — spawn visual-judge, or (only if visual-judge is unavailable) inspect the images yourself — and do not pre-screen the pages before dispatching, because a preliminary look followed by a visual-judge call duplicates the same review and wastes a full render pass. Its bar is user acceptance: it judges everything the user will see on its assigned pages — visual asset quality and layout & composition — and returns one JSON verdict line per page (pass/fail + evidence-backed issues; a clean programmatic/script check is no cover and no substitute). It is read-only and edits nothing; it can only Read pre-rendered page PNGs (never pptx/docx/HTML/PDF opened as images), so render the pages to PNG, hand visual-judge the paths, and act on its verdicts — those verdicts are the visual gate's result, not an input to your own re-judging. Dispatch grouping, what to pass in, and the repair loop follow the delivery protocol's visual gate in your system prompt. (Tools: Read, Bash)\n- Explore: Read-only search agent for broad fan-out searches - when answering means sweeping many files, directories, or naming conventions and you only need the conclusion, not the file dumps. It reads excerpts rather than whole files, so it locates code; it doesn't review or audit it. Specify search breadth: \"medium\" for moderate exploration, \"very thorough\" for multiple locations and naming conventions. (Tools: Read, Bash, WebFetch, WebSearch, TodoWrite)\n- general-purpose: General-purpose agent for researching complex questions, searching for code, and executing multi-step tasks. When you are searching for a keyword or file and are not confident that you will find the right match in the first few tries use this agent to perform the search for you. (Tools: *)\n- pdf:visual-judge: THE single visual acceptance pass for a rendered deliverable of these types only — pptx, docx, xlsx, pdf, poster, chart; for anything else, do not use it. Use it *instead of* looking at the page images yourself, never in addition: pick one gate — spawn visual-judge, or (only if visual-judge is unavailable) inspect the images yourself — and do not pre-screen the pages before dispatching, because a preliminary look followed by a visual-judge call duplicates the same review and wastes a full render pass. Its bar is user acceptance: it judges everything the user will see on its assigned pages — visual asset quality and layout & composition — and returns one JSON verdict line per page (pass/fail + evidence-backed issues; a clean programmatic/script check is no cover and no substitute). It is read-only and edits nothing; it can only Read pre-rendered page PNGs (never pptx/docx/HTML/PDF opened as images), so render the pages to PNG, hand visual-judge the paths, and act on its verdicts — those verdicts are the visual gate's result, not an input to your own re-judging. Dispatch grouping, what to pass in, and the repair loop follow the delivery protocol's visual gate in your system prompt. (Tools: Read, Bash)\n- presentations:visual-judge: THE single visual acceptance pass for a rendered deliverable of these types only — pptx, docx, xlsx, pdf, poster, chart; for anything else, do not use it. Use it *instead of* looking at the page images yourself, never in addition: pick one gate — spawn visual-judge, or (only if visual-judge is unavailable) inspect the images yourself — and do not pre-screen the pages before dispatching, because a preliminary look followed by a visual-judge call duplicates the same review and wastes a full render pass. Its bar is user acceptance: it judges everything the user will see on its assigned pages — visual asset quality and layout & composition — and returns one JSON verdict line per page (pass/fail + evidence-backed issues; a clean programmatic/script check is no cover and no substitute). It is read-only and edits nothing; it can only Read pre-rendered page PNGs (never pptx/docx/HTML/PDF opened as images), so render the pages to PNG, hand visual-judge the paths, and act on its verdicts — those verdicts are the visual gate's result, not an input to your own re-judging. Dispatch grouping, what to pass in, and the repair loop follow the delivery protocol's visual gate in your system prompt. (Tools: Read, Bash)\n- spreadsheets:visual-judge: THE single visual acceptance pass for a rendered deliverable of these types only — pptx, docx, xlsx, pdf, poster, chart; for anything else, do not use it. Use it *instead of* looking at the page images yourself, never in addition: pick one gate — spawn visual-judge, or (only if visual-judge is unavailable) inspect the images yourself — and do not pre-screen the pages before dispatching, because a preliminary look followed by a visual-judge call duplicates the same review and wastes a full render pass. Its bar is user acceptance: it judges everything the user will see on its assigned pages — visual asset quality and layout & composition — and returns one JSON verdict line per page (pass/fail + evidence-backed issues; a clean programmatic/script check is no cover and no substitute). It is read-only and edits nothing; it can only Read pre-rendered page PNGs (never pptx/docx/HTML/PDF opened as images), so render the pages to PNG, hand visual-judge the paths, and act on its verdicts — those verdicts are the visual gate's result, not an input to your own re-judging. Dispatch grouping, what to pass in, and the repair loop follow the delivery protocol's visual gate in your system prompt. (Tools: Read, Bash)\n\nWhen you launch multiple agents for independent work, send them in a single message with multiple tool uses so they run concurrently.",
+      "synthetic": true,
+      "time": {
+       "start": 1792141704192,
+       "end": 1792141704192
+      },
+      "metadata": {
+       "runtimeMessage": {
+        "source": "agent_listing_delta",
+        "agentListingDelta": {
+         "addedTypes": [
+          "documents:visual-judge",
+          "Explore",
+          "general-purpose",
+          "pdf:visual-judge",
+          "presentations:visual-judge",
+          "spreadsheets:visual-judge"
+         ],
+         "addedLines": [
+          "- documents:visual-judge: THE single visual acceptance pass for a rendered deliverable of these types only — pptx, docx, xlsx, pdf, poster, chart; for anything else, do not use it. Use it *instead of* looking at the page images yourself, never in addition: pick one gate — spawn visual-judge, or (only if visual-judge is unavailable) inspect the images yourself — and do not pre-screen the pages before dispatching, because a preliminary look followed by a visual-judge call duplicates the same review and wastes a full render pass. Its bar is user acceptance: it judges everything the user will see on its assigned pages — visual asset quality and layout & composition — and returns one JSON verdict line per page (pass/fail + evidence-backed issues; a clean programmatic/script check is no cover and no substitute). It is read-only and edits nothing; it can only Read pre-rendered page PNGs (never pptx/docx/HTML/PDF opened as images), so render the pages to PNG, hand visual-judge the paths, and act on its verdicts — those verdicts are the visual gate's result, not an input to your own re-judging. Dispatch grouping, what to pass in, and the repair loop follow the delivery protocol's visual gate in your system prompt. (Tools: Read, Bash)",
+          "- Explore: Read-only search agent for broad fan-out searches - when answering means sweeping many files, directories, or naming conventions and you only need the conclusion, not the file dumps. It reads excerpts rather than whole files, so it locates code; it doesn't review or audit it. Specify search breadth: \"medium\" for moderate exploration, \"very thorough\" for multiple locations and naming conventions. (Tools: Read, Bash, WebFetch, WebSearch, TodoWrite)",
+          "- general-purpose: General-purpose agent for researching complex questions, searching for code, and executing multi-step tasks. When you are searching for a keyword or file and are not confident that you will find the right match in the first few tries use this agent to perform the search for you. (Tools: *)",
+          "- pdf:visual-judge: THE single visual acceptance pass for a rendered deliverable of these types only — pptx, docx, xlsx, pdf, poster, chart; for anything else, do not use it. Use it *instead of* looking at the page images yourself, never in addition: pick one gate — spawn visual-judge, or (only if visual-judge is unavailable) inspect the images yourself — and do not pre-screen the pages before dispatching, because a preliminary look followed by a visual-judge call duplicates the same review and wastes a full render pass. Its bar is user acceptance: it judges everything the user will see on its assigned pages — visual asset quality and layout & composition — and returns one JSON verdict line per page (pass/fail + evidence-backed issues; a clean programmatic/script check is no cover and no substitute). It is read-only and edits nothing; it can only Read pre-rendered page PNGs (never pptx/docx/HTML/PDF opened as images), so render the pages to PNG, hand visual-judge the paths, and act on its verdicts — those verdicts are the visual gate's result, not an input to your own re-judging. Dispatch grouping, what to pass in, and the repair loop follow the delivery protocol's visual gate in your system prompt. (Tools: Read, Bash)",
+          "- presentations:visual-judge: THE single visual acceptance pass for a rendered deliverable of these types only — pptx, docx, xlsx, pdf, poster, chart; for anything else, do not use it. Use it *instead of* looking at the page images yourself, never in addition: pick one gate — spawn visual-judge, or (only if visual-judge is unavailable) inspect the images yourself — and do not pre-screen the pages before dispatching, because a preliminary look followed by a visual-judge call duplicates the same review and wastes a full render pass. Its bar is user acceptance: it judges everything the user will see on its assigned pages — visual asset quality and layout & composition — and returns one JSON verdict line per page (pass/fail + evidence-backed issues; a clean programmatic/script check is no cover and no substitute). It is read-only and edits nothing; it can only Read pre-rendered page PNGs (never pptx/docx/HTML/PDF opened as images), so render the pages to PNG, hand visual-judge the paths, and act on its verdicts — those verdicts are the visual gate's result, not an input to your own re-judging. Dispatch grouping, what to pass in, and the repair loop follow the delivery protocol's visual gate in your system prompt. (Tools: Read, Bash)",
+          "- spreadsheets:visual-judge: THE single visual acceptance pass for a rendered deliverable of these types only — pptx, docx, xlsx, pdf, poster, chart; for anything else, do not use it. Use it *instead of* looking at the page images yourself, never in addition: pick one gate — spawn visual-judge, or (only if visual-judge is unavailable) inspect the images yourself — and do not pre-screen the pages before dispatching, because a preliminary look followed by a visual-judge call duplicates the same review and wastes a full render pass. Its bar is user acceptance: it judges everything the user will see on its assigned pages — visual asset quality and layout & composition — and returns one JSON verdict line per page (pass/fail + evidence-backed issues; a clean programmatic/script check is no cover and no substitute). It is read-only and edits nothing; it can only Read pre-rendered page PNGs (never pptx/docx/HTML/PDF opened as images), so render the pages to PNG, hand visual-judge the paths, and act on its verdicts — those verdicts are the visual gate's result, not an input to your own re-judging. Dispatch grouping, what to pass in, and the repair loop follow the delivery protocol's visual gate in your system prompt. (Tools: Read, Bash)"
+         ],
+         "removedTypes": [],
+         "isInitial": true,
+         "showConcurrencyNote": true
+        }
+       },
+       "source": "agent_listing_delta",
+       "visibility": "model-only"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvaqwd1d_8a40b198-a37f-489c-bfa0-6b39b61d2341",
+   "sequence": 2,
+   "time_iso": "2026-10-16 17:08:24",
+   "data": {
+    "role": "assistant",
+    "time": {
+     "created": 1792141704193,
+     "completed": 1792141716037
+    },
+    "parentID": "msg_mvaqwd0f_e46bfd02-9e04-4e27-82f7-96f871ebde9b",
+    "modelId": "kimi-k3",
+    "providerId": "new-provider",
+    "mode": "yolo",
+    "planEnabled": false,
+    "agent": "zcode-agent",
+    "path": {
+     "cwd": "/Users/honlnk/project/short-drama-web",
+     "root": "/Users/honlnk/project/short-drama-web"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 28852,
+     "input": 28581,
+     "output": 271,
+     "reasoning": 143,
+     "cache": {
+      "read": 15872,
+      "write": 0
+     }
+    },
+    "finish": "tool-calls",
+    "semantics": {
+     "origin": "agent_runtime",
+     "kind": "assistant_response",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_d93eb81e-a5ef-4984-9118-57cc740e2d37"
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvaqwd1d_c207620d-871a-4eca-94c4-c6c04a1cf006",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:08:24",
+     "data": {
+      "type": "step-start"
+     }
+    },
+    {
+     "id": "part_mvaqwluu_6a1191c7-ca2f-4853-b75e-9a48d34019e6",
+     "sequence": 1,
+     "time_created": "2026-10-16 17:08:24",
+     "data": {
+      "type": "reasoning",
+      "text": "用户问的是：现在已经写完的两个计划文档，占整体计划的百分之多少。\n\n让我先看看 docs/plan/ 目录下有哪些计划文档，了解整体计划结构。从 git status 看：\n- docs/plan/第二阶段-用户链路与核心演示路径.md（修改）\n- docs/plan/第三阶段-互动闭环与管理后台.md（新增）\n- docs/plan/第四阶段-体验加分项并行计划.md（新增）\n\n用户说\"写完的两个计划文档\"——可能是指第三阶段和第四阶段这两个新写的计划文档。需要看整体计划有多少个阶段，以及这两个文档覆盖了多少内容。\n\n我需要先读取这些文档来回答。让我列出 plan 目录并读取相关文档。",
+      "time": {
+       "start": 1792141704193,
+       "end": 1792141715622
+      }
+     }
+    },
+    {
+     "id": "part_mvaqwluv_a9675dbe-9466-4126-9910-a28e13cc1ed7",
+     "sequence": 2,
+     "time_created": "2026-10-16 17:08:24",
+     "data": {
+      "type": "text",
+      "text": "我先看一下 `docs/plan/` 目录下的计划文档构成，再判断这两个新文档覆盖了多少。",
+      "time": {
+       "start": 1792141704193,
+       "end": 1792141715623
+      }
+     }
+    },
+    {
+     "id": "part_mvaqwluy_bc534eae-5be2-4dca-92f9-ed973f6aaa89",
+     "sequence": 3,
+     "time_created": "2026-10-16 17:08:35",
+     "data": {
+      "type": "tool",
+      "callID": "Bash_0_76e1ae77",
+      "declarationIndex": 0,
+      "tool": "Bash",
+      "state": {
+       "status": "completed",
+       "input": {
+        "command": "ls -la /Users/honlnk/project/short-drama-web/docs/plan/ && wc -l /Users/honlnk/project/short-drama-web/docs/plan/*.md",
+        "description": "List plan documents and count lines"
+       },
+       "output": "total 144\n-rw-r--r--@ 1 honlnk  staff  10669 Oct 16 16:18 第一阶段-数据底座与种子资源.md\n-rw-r--r--@ 1 honlnk  staff  20073 Oct 16 17:01 第三阶段-互动闭环与管理后台.md\n-rw-r--r--@ 1 honlnk  staff  15953 Oct 16 17:01 第二阶段-用户链路与核心演示路径.md\n-rw-r--r--@ 1 honlnk  staff  21494 Oct 16 16:57 第四阶段-体验加分项并行计划.md\ndrwxr-xr-x@ 6 honlnk  staff    192 Oct 16 17:01 .\ndrwxr-xr-x@ 7 honlnk  staff    224 Oct 16 17:01 ..\n     141 /Users/honlnk/project/short-drama-web/docs/plan/第一阶段-数据底座与种子资源.md\n     179 /Users/honlnk/project/short-drama-web/docs/plan/第三阶段-互动闭环与管理后台.md\n     196 /Users/honlnk/project/short-drama-web/docs/plan/第二阶段-用户链路与核心演示路径.md\n     194 /Users/honlnk/project/short-drama-web/docs/plan/第四阶段-体验加分项并行计划.md\n     710 total",
+       "title": "Bash",
+       "metadata": {
+        "schemaVersion": 1,
+        "serialization": {
+         "truncated": false,
+         "originalBytes": 909,
+         "returnedBytes": 909,
+         "budgetStrategy": "artifact"
+        }
+       },
+       "time": {
+        "start": 1792141715630,
+        "end": 1792141716036
+       }
+      }
+     }
+    },
+    {
+     "id": "part_mvaqwm6d_214a94c0-b831-401e-9f22-48d26422355e",
+     "sequence": 4,
+     "time_created": "2026-10-16 17:08:36",
+     "data": {
+      "type": "step-finish",
+      "reason": "tool-calls",
+      "cost": 0,
+      "tokens": {
+       "total": 28852,
+       "input": 28581,
+       "output": 271,
+       "reasoning": 143,
+       "cache": {
+        "read": 15872,
+        "write": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvaqwm6e_9ae47f35-f0c2-49d4-8eb7-bd8e87f4aa8c",
+   "sequence": 3,
+   "time_iso": "2026-10-16 17:08:36",
+   "data": {
+    "role": "assistant",
+    "time": {
+     "created": 1792141716038,
+     "completed": 1792141722793
+    },
+    "parentID": "msg_mvaqwd0f_e46bfd02-9e04-4e27-82f7-96f871ebde9b",
+    "modelId": "kimi-k3",
+    "providerId": "new-provider",
+    "mode": "yolo",
+    "planEnabled": false,
+    "agent": "zcode-agent",
+    "path": {
+     "cwd": "/Users/honlnk/project/short-drama-web",
+     "root": "/Users/honlnk/project/short-drama-web"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 29194,
+     "input": 29041,
+     "output": 153,
+     "reasoning": 0,
+     "cache": {
+      "read": 28416,
+      "write": 0
+     }
+    },
+    "finish": "tool-calls",
+    "semantics": {
+     "origin": "agent_runtime",
+     "kind": "assistant_response",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_d93eb81e-a5ef-4984-9118-57cc740e2d37"
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvaqwm6e_799bd444-4454-48b6-b13e-62d0627cfd6b",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:08:36",
+     "data": {
+      "type": "step-start"
+     }
+    },
+    {
+     "id": "part_mvaqwrde_117c547d-56f7-43f7-adb6-540237d75589",
+     "sequence": 1,
+     "time_created": "2026-10-16 17:08:42",
+     "data": {
+      "type": "tool",
+      "callID": "Read_1_2260fa41",
+      "declarationIndex": 0,
+      "tool": "Read",
+      "state": {
+       "status": "completed",
+       "input": {
+        "file_path": "/Users/honlnk/project/short-drama-web/docs/plan/第三阶段-互动闭环与管理后台.md"
+       },
+       "output": "1\t# 第三阶段计划：互动闭环与管理后台\n2\t\n3\t| 项目 | 内容 |\n4\t|---|---|\n5\t| 文档版本 | v1.0 |\n6\t| 创建日期 | 2026-10-16 |\n7\t| 对应里程碑 | PRD 第十章里程碑 4「互动闭环」+ 里程碑 5「管理后台」（合并施工） |\n8\t| 上游文档 | [REQUIREMENTS.md](../REQUIREMENTS.md)、[PRD.md](../PRD.md)（含 2026-10-16 §7.3 修订）、[ARCHITECTURE.md](../ARCHITECTURE.md)、[第一阶段计划](第一阶段-数据底座与种子资源.md)、[第二阶段计划](第二阶段-用户链路与核心演示路径.md) |\n9\t| 前置状态 | 第二阶段已收口（假设口径）：JWT 无状态鉴权贯通、注册/登录/me 接口、详情与剧集接口（含 liked/favorited 回显）、C 端路由 + AuthContext + 首页/详情/播放三页、SecurityConfig 已配好 `/api/admin/**` 需 ADMIN、`RequireAuth` 守卫组件已备好 |\n10\t\n11\t## 一、本阶段目标\n12\t\n13\t验收标准一句话：**demo 账号在详情页点赞、收藏真实写库且刷新后状态仍在，「我的」页能看到收藏列表；admin 账号登录后台完成「新增一部短剧 + 上传封面 + 加一集视频」，C 端首页与播放页立刻可见可播。**\n14\t\n15\t达成后，题目规定的全部必含功能（注册/登录、内容展示、点赞、收藏、管理后台增删改查）100% 集齐，项目达到「即使砍掉里程碑 6 也完整可交付」的状态；剩余工作（切集手势、连播、续播、历史、搜索、彩排）全部为体验加分项。\n16\t\n17\t## 二、为什么 4+5 合并（已拍板）\n18\t\n19\t- 里程碑 4 体量单薄：第二阶段已把鉴权规则（`/api/dramas/*/like` 等需登录）、`FavoriteRepository` / `UserLikeRepository`、详情页按钮 UI 与状态回显全部备好，M4 实际是「写库填坑」，单独成阶段立不起一份计划的门禁分量。\n20\t- 两个里程碑共享同一批后端基础：统一响应包体 `{code,message,data}`、全局异常处理、SecurityConfig 鉴权规则均在第二阶段就位，拆开做会重复过一遍「接口规范对齐」流程——与 M2+M3 合并同款逻辑。\n21\t- 演示叙事连贯：「用户侧互动写库」+「运营侧后台造内容」是「前后端真实打通」的一体两面，合并收口后演示脚本可以当场双向验证（前台点赞 → 数据库可查；后台新剧 → 前台可见）。\n22\t\n23\t## 三、与第二阶段的衔接\n24\t\n25\t| 已有成果 | 本阶段怎么用 |\n26\t|---|---|\n27\t| `UserLikeRepository` / `FavoriteRepository`（含 `existsByUserIdAndDramaId`） | 互动接口直接注入使用，另补写库所需方法 |\n28\t| 详情接口已返回 `liked` / `favorited` | 前端写库成功后用响应值刷新，字段契约不变 |\n29\t| 详情页点赞/收藏按钮（未登录跳登录、已登录占位提示） | 占位提示替换为真实调用 |\n30\t| SecurityConfig 已配 `/api/admin/**` 需 `ROLE_ADMIN` | 后台接口直接落在该前缀下，规则零改动 |\n31\t| `AuthUser` + `@AuthenticationPrincipal` 注入 | 互动接口与后台接口取当前用户同一套写法 |\n32\t| `apps/admin` 占位工程（Vite + React + AntD + 代理 8080） | 本阶段替换占位页，脚手架不动 |\n33\t| `{code,message,data}` 响应包体 + 全局异常处理 | 新接口沿用，不发明新结构（**2026-10-16 review 修正**：阶段2 实际只落地了错误侧包体与 ping，成功响应为裸数据，与 PRD「统一响应结构」相悖；阶段3 任务1 施工中已补齐——后端全部成功返回包 `ApiResponse.ok(data)`，web 端 axios 响应拦截器统一拆包，页面层消费形状不变） |\n34\t\n35\t本阶段**不改**第一、二阶段已交付的接口契约与页面行为，只新增与替换占位。\n36\t\n37\t## 四、技术决策（已拍死，无开放选择题）\n38\t\n39\t| 决策点 | 定案 | 理由 |\n40\t|---|---|---|\n41\t| 点赞/收藏语义 | **幂等切换**：已赞再调 = 取消，返回最新状态 `{liked: true/false}`；收藏同构 | PRD IN-01/02 明文「幂等切换」；前端单按钮来回切，无需两个端点 |\n42\t| 幂等兜底 | 数据库唯一索引 `(user_id, drama_id)` 兜底并发/重试，捕获 `DataIntegrityViolationException` 按「已存在」处理 | PRD §6 约束说明已定；唯一索引第一阶段建表时已随实体落地 |\n43\t| like_count 维护 | 点赞/取消时同事务 `drama.like_count ± 1`，下限 0 | 首页与详情展示的就是这个冗余字段，必须随写库同步；事务保证不出负数 |\n44\t| 收藏列表 | `GET /api/me/favorites` 返回 DramaSummary 列表（复用首页 DTO），按收藏时间倒序 | IN-03；复用 DTO 不新造结构，前端收藏页卡片与首页同款 |\n45\t| 观看进度/历史 | **本阶段不做**（PL-04/05 属里程碑 6），`PUT /api/me/progress`、`GET /api/me/history` 端点不建 | 明确边界；WATCH_PROGRESS 表已存在但本阶段不写不读 |\n46\t| StorageService 落地 | 接口 `store(MultipartFile, subdir)` / `delete(url)` / `getUrl(path)`；`LocalStorageService` 写 `apps/api/uploads/files/`，URL 形态 `/uploads/files/<uuid>.<ext>` | PRD §7.3（2026-10-16 修订）：与种子媒体同目录同映射单轨制；uuid 文件名避免碰撞与中文名问题 |\n47\t| 上传校验 | 封面：jpg/jpeg/png/webp，≤5MB；视频：mp4，≤50MB；类型白名单 + 大小上限，超限返回明确错误 | 演示规模够用；白名单防止任意文件上传，现场讲解可提「安全意识」 |\n48\t| 后台短剧删除 | **二次确认 + 级联清理**：删除剧时同事务删除其剧集、点赞、收藏、观看进度记录；被引用的媒体文件**不删磁盘**（仅解引用） | PRD AD-04「级联处理」；种子媒体文件被多集共享引用，误删文件会破坏其他数据，演示期保留文件最安全 |\n49\t| 下架语义 | `status=OFFLINE` 时 C 端详情/剧集接口返回 404（第二阶段已实现的口径），列表接口本就不返回；后台列表照常可见可编辑 | PRD AD-04「下架剧前台隐藏但保留数据」；与第二阶段详情接口行为一致 |\n50\t| 剧集删除 | 允许删除任意集；删除后**不自动重排**集数，由管理员在编辑表单里自己维护 `episodeNo`（加唯一约束 `(drama_id, episode_no)` 防重复） | 排序交互（拖拽/上移下移）是 PRD 裁剪预案明示可砍的「次要交互」；唯一约束保住数据底线 |\n51\t| 后台登录 | 独立登录页走同一个 `POST /api/auth/login`；前端校验 `user.role === 'ADMIN'` 才放行进入，非管理员提示「无后台权限」并登出 | PRD 5.2「仅接受管理员角色令牌」；后端 `/api/admin/**` 的 ROLE_ADMIN 才是硬闸门，前端校验只是体验层 |\n52\t| 后台 token | 与 C 端同一 localStorage key 体系**隔离**：后台用 `admin_token`，互不串登录态 | 两工程不同端口本就不共享存储，但同浏览器演示时 key 隔离让「C 端 demo、后台 admin」双线并存不互踢 |\n53\t| 后台技术栈 | Ant Design 5：`Layout` + `Table` + `Form` + `Upload` + `Modal` + `message`，不做视觉定制，仅 PC | PRD 5.2 明文口径；演示重点在「真实 CRUD」不在颜值 |\n54\t| 分页 | 后台短剧列表服务端分页（`page`/`size`，默认 size=10）；C 端收藏列表数据量小，全量返回不分页 | PRD §9「列表接口加分页即可」；收藏演示最多个位数记录 |\n55\t\n56\t## 五、工作拆解\n57\t\n58\t### 任务 1：后端互动接口（里程碑 4 后端）\n59\t\n60\t1. **点赞/收藏切换**（`InteractionController` 或并入 `DramaController`，实现时自选并在交付说明记录）：\n61\t   - `POST /api/dramas/{id}/like`：需登录。查 `user_like` 存在则删记录、`like_count - 1`（下限 0）、返回 `{liked:false, likeCount}`；不存在则插记录、`like_count + 1`、返回 `{liked:true, likeCount}`。整段 `@Transactional`，剧不存在或 OFFLINE → 404。\n62\t   - `POST /api/dramas/{id}/favorite`：同构，返回 `{favorited: true/false}`（收藏无计数展示需求，不返 count）。\n63\t   - Repository 增补：`UserLikeRepository.deleteByUserIdAndDramaId`、`FavoriteRepository.deleteByUserIdAndDramaId` 与 `findByUserIdOrderByCreatedAtDesc`。\n64\t   - 唯一索引冲突（并发双击）捕获后按最终状态返回，不抛 500。\n65\t2. **我的收藏列表**：`GET /api/me/favorites` 需登录，按收藏时间倒序返回 DramaSummary 列表（字段与首页一致：id/title/category/coverUrl/episodeCount/likeCount）。\n66\t3. **回归**：详情接口的 liked/favorited 回显此时应为真实数据——种子用户 demo 的点赞收藏写库后，`GET /api/dramas/{id}` 带 demo token 回显 true。\n67\t\n68\t**门禁（curl 全绿）**：\n69\t- 无 token 调 like/favorite/favorites → 401 JSON（第二阶段鉴权规则已配，此处验证生效）。\n70\t- demo token 点赞剧 1 → `{liked:true, likeCount:+1}`；再调一次 → `{liked:false, likeCount:回原值}`；连续并发双击不产重复记录（查库验证）。\n71\t- 收藏剧 1、剧 2 后 `GET /api/me/favorites` → 2 条、倒序正确。\n72\t- 写库后带 token 查详情 → liked/favorited 与操作一致；退出再查（不带 token）→ false。\n73\t- `./mvnw test` 全绿（为切换逻辑补 Service 层单测：切换往返、唯一索引冲突路径）。\n74\t\n75\t### 任务 2：前端互动闭环（里程碑 4 前端）\n76\t\n77\t1. **详情页按钮接通**（`DramaDetailPage`）：\n78\t   - 已登录点击点赞/收藏 → 调接口，用响应 `{liked, likeCount}` / `{favorited}` 直接更新本地状态（不发二次详情请求）；失败 `message` 提示并回滚。\n79\t   - 未登录点击 → 跳 `/login?from=/drama/{id}`（沿用第二阶段 401 拦截器的 from 回跳口径）。\n80\t   - 替换第二阶段「里程碑 4 实现」占位提示——**该占位文案随本任务删除，不并存**。\n81\t2. **「我的」页与收藏列表**：\n82\t   - 路由：`/mine`（MinePage，需登录，用第二阶段备好的 `RequireAuth` 守卫）、`/mine/favorites`（我的收藏）。\n83\t   - MinePage：展示当前用户信息（username/nickname/role）+ 入口卡片「我的收藏」+「退出登录」按钮（US-04：清 token 跳首页，退出后点赞收藏重新要求登录）。\n84\t   - FavoritesPage：调 `/api/me/favorites`，卡片网格复用首页卡片样式，点击进详情；空态文案「还没有收藏，去首页逛逛」；未登录被守卫拦到登录页。\n85\t   - 导航：首页顶部（PC）/底部 Tab（手机，按 PRD 5.3 断点规则）加「我的」入口，未登录点击同样进守卫流程。\n86\t\n87\t**门禁**：\n88\t- demo 登录 → 详情页点赞（按钮态与计数即时变化）→ 收藏 → 刷新页面状态仍在 → `/mine/favorites` 见该剧 → 详情页再次点击取消收藏 → 收藏列表为空态。\n89\t- 未登录点收藏 → 跳登录页 → 登录成功自动回跳详情页。\n90\t- 退出登录 → 点赞按钮回到未登录引导态。\n91\t- `pnpm exec tsc -b`（web）通过。\n92\t\n93\t### 任务 3：后端管理接口 + StorageService（里程碑 5 后端）\n94\t\n95\t1. **StorageService**（`storage/` 包）：\n96\t   - **先做前置配置**：application.yml 显式配置 `spring.servlet.multipart.max-file-size=50MB`、`spring.servlet.multipart.max-request-size=50MB`（Spring Boot 默认 1MB/10MB 必拦视频上传，不配则任务门禁必挂）。\n97\t   - `StorageService` 接口：`store(MultipartFile file, String subdir)` 返回 URL、`delete(String url)`、`getUrl(String path)`。\n98\t   - `LocalStorageService`：落盘 `apps/api/uploads/files/`（启动时 `Files.createDirectories` 保证存在），文件名 `UUID.randomUUID() + 原扩展名`，URL 拼 `/uploads/files/<name>`；类型/大小白名单校验在 Service 入口统一做（封面 4 种图片 ≤5MB，视频 mp4 ≤50MB），不合规抛业务异常（400 + 明确文案）。\n99\t   - 配置项 `storage.type=local` 写入 application.yml（仅占位与讲解用，本期无第二实现）。\n100\t2. **文件上传接口**：`POST /api/admin/files/upload`（ADMIN，`multipart/form-data`，字段 `file` + `type=cover|video`），返回 `{url}`。\n101\t3. **短剧管理**（`AdminDramaController`，全部 `/api/admin/**` + ADMIN）：\n102\t   - `GET /api/admin/dramas?page=&size=&keyword=`：分页列表（含 OFFLINE），返回 `Page<AdminDramaRow>`（id/title/category/episodeCount/status/likeCount/createdAt/coverUrl）；keyword 模糊匹配剧名（为后台检索顺手提供，C 端搜索仍是里程碑 6）。\n103\t   - `POST /api/admin/dramas`：新增（title/description/category/coverUrl/status 必填校验，coverUrl 须为 `/uploads/` 开头——只允许本服务上传产物的 URL，防外链失效破坏「断网可演示」底线）。\n104\t   - `PUT /api/admin/dramas/{id}`：编辑任意字段，同校验。\n105\t   - `DELETE /api/admin/dramas/{id}`：同事务级联删 episodes + user_like + favorite + watch_progress；不删磁盘文件。\n106\t4. **剧集管理**（`AdminEpisodeController`）：\n107\t   - `GET /api/admin/dramas/{id}/episodes`：后台剧集列表（含 videoUrl、durationSec）。\n108\t   - `POST /api/admin/dramas/{id}/episodes`：新增（episodeNo/title/videoUrl/durationSec 必填；`(drama_id, episode_no)` 冲突 → 400「集数已存在」）。\n109\t   - `PUT /api/admin/episodes/{id}`、`DELETE /api/admin/episodes/{id}`：编辑/删除（同唯一约束；删除不级联文件）。\n110\t\n111\t**门禁（curl 全绿）**：\n112\t- admin token 上传一张封面 → 返回 `/uploads/files/<uuid>.jpg`，浏览器（8080 直连与 3000/3001 代理两路）可打开；上传 51MB 假 mp4 → 400 明确提示；上传 `.txt` 改后缀伪装 → 400。\n113\t- demo token（USER）调任意 `/api/admin/**` → 403；无 token → 401。\n114\t- 新增短剧（用刚上传的封面）→ 后台列表可见、C 端 `GET /api/dramas` 含该剧 → 加两集（上传视频）→ C 端详情/剧集接口可见、播放页可播。\n115\t- 编辑剧名 → C 端详情实时变；下架（status=OFFLINE）→ C 端详情 404、列表消失，后台仍可见；再上架恢复。\n116\t- 删除该剧 → 后台列表消失，关联剧集/点赞/收藏/进度记录查库确认清空；`uploads/` 下文件仍在（符合决策）。\n117\t- 新增剧集 episodeNo 与已有重复 → 400「集数已存在」。\n118\t- `./mvnw test` 全绿（StorageService 白名单、级联删除、唯一约束冲突路径各补测试）。\n119\t\n120\t### 任务 4：管理后台前端（里程碑 5 前端，`apps/admin`）\n121\t\n122\t替换占位页，建四个页面 + 基础设施：\n123\t\n124\t1. **基础设施**：axios 实例（baseURL 走代理，拦截器读 `admin_token`、401 清 token 跳登录页）；`AuthContext` 精简版（user/token/login/logout）；路由守卫（无 token 跳 `/login`，user.role≠ADMIN 拒绝进入）。\n125\t2. **登录页**：居中卡片表单；登录成功校验 role==ADMIN，非管理员 `message.error('该账号无后台权限')` 并清 token；页面上预填提示 `admin / admin123`（演示友好，与 C 端登录页同风格）。\n126\t3. **短剧管理页**（默认页）：AntD `Table` 分页（封面缩略图/剧名/分类/集数/状态 Tag/点赞数/创建时间），顶部「新增短剧」按钮 + 剧名搜索框；行操作「编辑 / 剧集管理 / 下架或上架 / 删除」；删除走 `Popconfirm` 二次确认（PRD AD-04 硬性要求）。\n127\t4. **短剧表单页**（新增/编辑共用，`/dramas/new`、`/dramas/:id/edit`）：AntD `Form` 必填校验；封面用 `Upload` 组件直传 `/api/admin/files/upload?type=cover`，成功后回显缩略图并把返回 URL 填入表单；状态下拉 ONLINE/OFFLINE。\n128\t5. **剧集管理页**（`/dramas/:id/episodes`）：剧集 `Table`（集数/标题/时长/视频可点预览）+ 新增/编辑弹窗 `Modal`（episodeNo 数字输入、标题、视频 `Upload` 传 `type=video`、上传后自动尝试读视频时长填 durationSec，读不到则手填）+ 删除确认。\n129\t\n130\t**门禁**：\n131\t- admin 登录后台 → 走完整演示链：新增短剧（上传封面）→ 加两集（上传视频）→ C 端首页出现该剧、播放页可播 → 后台下架 → C 端消失 → 上架恢复 → 删除（二次确认）→ C 端消失。\n132\t- demo 账号登后台 → 明确拒绝并退回登录页；直接访问 `/dramas` 无 token → 跳登录。\n133\t- 表格分页翻页正确（种子 6 剧 + 新增可造到 11 条以上翻页）；表单必填校验拦截空提交。\n134\t- `pnpm exec tsc -b`（admin）通过。\n135\t\n136\t## 六、验收清单（全部可执行）\n137\t\n138\t- [ ] 点赞/收藏幂等切换 curl 全绿：往返切换、计数同步、并发双击无重复记录、无 token 401\n139\t- [ ] `GET /api/me/favorites` 倒序正确；写库后详情 liked/favorited 真实回显\n140\t- [ ] 前端：详情页按钮接通无占位文案残留；登录回跳 from 正确；/mine 守卫生效；退出登录后回到引导态\n141\t- [ ] 上传接口：封面/视频成功返 URL 且可访问（两路代理 + 直连）；超限/伪后缀 400；USER 调后台接口 403\n142\t- [ ] 后台短剧 CRUD curl 全绿：新增后 C 端可见、编辑实时生效、下架 404、删除级联清空且文件保留、episodeNo 冲突 400\n143\t- [ ] 后台前端完整演示链通过（任务 4 门禁第一条全步骤）\n144\t- [ ] `./mvnw test`（含新增单测）与 web/admin 两端 `pnpm exec tsc -b` 全绿\n145\t- [ ] 断网（停外网）演示路径无外部资源缺失（含后台新增内容的封面/视频）\n146\t\n147\t## 七、明确不做（本阶段排除）\n148\t\n149\t- 滑动/滚轮/键盘切集（PL-01）、自动连播（PL-02）、选集面板的已看标记（PL-03） → 里程碑 6\n150\t- 记忆续播（PL-04）、观看历史（PL-05）、`watch_progress` 表的读写 → 里程碑 6（本阶段仅删除剧时级联清理该表）\n151\t- C 端搜索（PL-06） → 里程碑 6（后台列表的 keyword 参数是后台检索，不是 C 端搜索页）\n152\t- 剧集拖拽排序/上移下移按钮（PRD 裁剪预案明示可砍的次要交互；本阶段以集数唯一约束 + 手工改集数兜底）\n153\t- 删除内容时清理磁盘媒体文件（演示期保留，防误删共享素材）\n154\t- OSS 实现（`storage.type=oss`）、视频转码/HLS/倍速\n155\t- 后台的用户管理、数据看板（PRD 未要求）\n156\t\n157\t## 八、风险与兜底\n158\t\n159\t| 风险 | 概率 | 兜底 |\n160\t|---|---|---|\n161\t| 第二阶段遗留偏差（接口字段与计划不符）导致本阶段对接返工 | 中 | 开工先跑第二阶段验收清单回归，偏差当场记入 devlog 并以其**实际契约**为准修订本计划再动工 |\n162\t| like_count 并发下计数漂移 | 低 | 演示规模个位数并发；事务 + 唯一索引已够；门禁含双击用例 |\n163\t| 上传大视频时 Spring 默认 multipart 上限拦截（默认 1MB/10MB） | ~~高（必踩）~~ 已消除 | 已从风险转为施工步骤：任务 3 第一条即要求显式配置 50MB 上限 |\n164\t| 级联删除误伤种子数据 | 低 | 门禁规定删除演示只用「本阶段新建的剧」；种子剧演示下架而非删除 |\n165\t| 后台 AntD 表格/表单开发超时挤压收口 | 中 | 严格按 PRD 5.2「不追求视觉定制」执行；任何样式打磨冲动记入 devlog 后放弃 |\n166\t| uploads/ 体积膨胀拖慢演示机 | 低 | 上传上限 50MB；演示前可用 `du -sh apps/api/uploads/` 自检 |\n167\t\n168\t## 九、文档同步计划\n169\t\n170\t- 门禁通过时：更新 `docs/devlog.md`（日期 + 阶段 + 验收结论 + 偏差记录）；回填 AGENTS.md「当前状态」一节（里程碑 4、5 收口口径）；README「开发进度」里程碑 4、5 打勾并补后台启动与演示账号说明。\n171\t- 若施工中对第二阶段契约有任何修订：同步回改 `第二阶段计划.md` 相应小节并注明日期，不让两份计划互相打架。\n172\t- 文档类提交收齐到本阶段结项一笔完成（沿用项目既定纪律）。\n173\t\n174\t## 十、已拍板事项（开工前确认，无遗留）\n175\t\n176\t1. ~~阶段范围~~：M4+M5 合并（2026-10-16 拍板）；M6 体验项与 M7 彩排留待第四阶段。\n177\t2. ~~上传存储口径~~：统一 `apps/api/uploads/` + `/uploads/**` 单轨，后台上传占 `uploads/files/` 子目录（2026-10-16 拍板，PRD §7.3 已同步修订）。\n178\t3. ~~点赞语义~~：幂等切换单端点，返回最新状态与计数（对齐 PRD IN-01）。\n179\t4. ~~删除级联~~：数据级联清理、磁盘文件保留（演示期安全口径）。\n180\t",
+       "title": "Read",
+       "metadata": {
+        "schemaVersion": 1,
+        "serialization": {
+         "truncated": false,
+         "originalBytes": 20685,
+         "returnedBytes": 20685,
+         "budgetStrategy": "truncate"
+        },
+        "readFileState": {
+         "schemaVersion": 1,
+         "tool": "Read",
+         "path": "/Users/honlnk/project/short-drama-web/docs/plan/第三阶段-互动闭环与管理后台.md",
+         "content": "# 第三阶段计划：互动闭环与管理后台\n\n| 项目 | 内容 |\n|---|---|\n| 文档版本 | v1.0 |\n| 创建日期 | 2026-10-16 |\n| 对应里程碑 | PRD 第十章里程碑 4「互动闭环」+ 里程碑 5「管理后台」（合并施工） |\n| 上游文档 | [REQUIREMENTS.md](../REQUIREMENTS.md)、[PRD.md](../PRD.md)（含 2026-10-16 §7.3 修订）、[ARCHITECTURE.md](../ARCHITECTURE.md)、[第一阶段计划](第一阶段-数据底座与种子资源.md)、[第二阶段计划](第二阶段-用户链路与核心演示路径.md) |\n| 前置状态 | 第二阶段已收口（假设口径）：JWT 无状态鉴权贯通、注册/登录/me 接口、详情与剧集接口（含 liked/favorited 回显）、C 端路由 + AuthContext + 首页/详情/播放三页、SecurityConfig 已配好 `/api/admin/**` 需 ADMIN、`RequireAuth` 守卫组件已备好 |\n\n## 一、本阶段目标\n\n验收标准一句话：**demo 账号在详情页点赞、收藏真实写库且刷新后状态仍在，「我的」页能看到收藏列表；admin 账号登录后台完成「新增一部短剧 + 上传封面 + 加一集视频」，C 端首页与播放页立刻可见可播。**\n\n达成后，题目规定的全部必含功能（注册/登录、内容展示、点赞、收藏、管理后台增删改查）100% 集齐，项目达到「即使砍掉里程碑 6 也完整可交付」的状态；剩余工作（切集手势、连播、续播、历史、搜索、彩排）全部为体验加分项。\n\n## 二、为什么 4+5 合并（已拍板）\n\n- 里程碑 4 体量单薄：第二阶段已把鉴权规则（`/api/dramas/*/like` 等需登录）、`FavoriteRepository` / `UserLikeRepository`、详情页按钮 UI 与状态回显全部备好，M4 实际是「写库填坑」，单独成阶段立不起一份计划的门禁分量。\n- 两个里程碑共享同一批后端基础：统一响应包体 `{code,message,data}`、全局异常处理、SecurityConfig 鉴权规则均在第二阶段就位，拆开做会重复过一遍「接口规范对齐」流程——与 M2+M3 合并同款逻辑。\n- 演示叙事连贯：「用户侧互动写库」+「运营侧后台造内容」是「前后端真实打通」的一体两面，合并收口后演示脚本可以当场双向验证（前台点赞 → 数据库可查；后台新剧 → 前台可见）。\n\n## 三、与第二阶段的衔接\n\n| 已有成果 | 本阶段怎么用 |\n|---|---|\n| `UserLikeRepository` / `FavoriteRepository`（含 `existsByUserIdAndDramaId`） | 互动接口直接注入使用，另补写库所需方法 |\n| 详情接口已返回 `liked` / `favorited` | 前端写库成功后用响应值刷新，字段契约不变 |\n| 详情页点赞/收藏按钮（未登录跳登录、已登录占位提示） | 占位提示替换为真实调用 |\n| SecurityConfig 已配 `/api/admin/**` 需 `ROLE_ADMIN` | 后台接口直接落在该前缀下，规则零改动 |\n| `AuthUser` + `@AuthenticationPrincipal` 注入 | 互动接口与后台接口取当前用户同一套写法 |\n| `apps/admin` 占位工程（Vite + React + AntD + 代理 8080） | 本阶段替换占位页，脚手架不动 |\n| `{code,message,data}` 响应包体 + 全局异常处理 | 新接口沿用，不发明新结构（**2026-10-16 review 修正**：阶段2 实际只落地了错误侧包体与 ping，成功响应为裸数据，与 PRD「统一响应结构」相悖；阶段3 任务1 施工中已补齐——后端全部成功返回包 `ApiResponse.ok(data)`，web 端 axios 响应拦截器统一拆包，页面层消费形状不变） |\n\n本阶段**不改**第一、二阶段已交付的接口契约与页面行为，只新增与替换占位。\n\n## 四、技术决策（已拍死，无开放选择题）\n\n| 决策点 | 定案 | 理由 |\n|---|---|---|\n| 点赞/收藏语义 | **幂等切换**：已赞再调 = 取消，返回最新状态 `{liked: true/false}`；收藏同构 | PRD IN-01/02 明文「幂等切换」；前端单按钮来回切，无需两个端点 |\n| 幂等兜底 | 数据库唯一索引 `(user_id, drama_id)` 兜底并发/重试，捕获 `DataIntegrityViolationException` 按「已存在」处理 | PRD §6 约束说明已定；唯一索引第一阶段建表时已随实体落地 |\n| like_count 维护 | 点赞/取消时同事务 `drama.like_count ± 1`，下限 0 | 首页与详情展示的就是这个冗余字段，必须随写库同步；事务保证不出负数 |\n| 收藏列表 | `GET /api/me/favorites` 返回 DramaSummary 列表（复用首页 DTO），按收藏时间倒序 | IN-03；复用 DTO 不新造结构，前端收藏页卡片与首页同款 |\n| 观看进度/历史 | **本阶段不做**（PL-04/05 属里程碑 6），`PUT /api/me/progress`、`GET /api/me/history` 端点不建 | 明确边界；WATCH_PROGRESS 表已存在但本阶段不写不读 |\n| StorageService 落地 | 接口 `store(MultipartFile, subdir)` / `delete(url)` / `getUrl(path)`；`LocalStorageService` 写 `apps/api/uploads/files/`，URL 形态 `/uploads/files/<uuid>.<ext>` | PRD §7.3（2026-10-16 修订）：与种子媒体同目录同映射单轨制；uuid 文件名避免碰撞与中文名问题 |\n| 上传校验 | 封面：jpg/jpeg/png/webp，≤5MB；视频：mp4，≤50MB；类型白名单 + 大小上限，超限返回明确错误 | 演示规模够用；白名单防止任意文件上传，现场讲解可提「安全意识」 |\n| 后台短剧删除 | **二次确认 + 级联清理**：删除剧时同事务删除其剧集、点赞、收藏、观看进度记录；被引用的媒体文件**不删磁盘**（仅解引用） | PRD AD-04「级联处理」；种子媒体文件被多集共享引用，误删文件会破坏其他数据，演示期保留文件最安全 |\n| 下架语义 | `status=OFFLINE` 时 C 端详情/剧集接口返回 404（第二阶段已实现的口径），列表接口本就不返回；后台列表照常可见可编辑 | PRD AD-04「下架剧前台隐藏但保留数据」；与第二阶段详情接口行为一致 |\n| 剧集删除 | 允许删除任意集；删除后**不自动重排**集数，由管理员在编辑表单里自己维护 `episodeNo`（加唯一约束 `(drama_id, episode_no)` 防重复） | 排序交互（拖拽/上移下移）是 PRD 裁剪预案明示可砍的「次要交互」；唯一约束保住数据底线 |\n| 后台登录 | 独立登录页走同一个 `POST /api/auth/login`；前端校验 `user.role === 'ADMIN'` 才放行进入，非管理员提示「无后台权限」并登出 | PRD 5.2「仅接受管理员角色令牌」；后端 `/api/admin/**` 的 ROLE_ADMIN 才是硬闸门，前端校验只是体验层 |\n| 后台 token | 与 C 端同一 localStorage key 体系**隔离**：后台用 `admin_token`，互不串登录态 | 两工程不同端口本就不共享存储，但同浏览器演示时 key 隔离让「C 端 demo、后台 admin」双线并存不互踢 |\n| 后台技术栈 | Ant Design 5：`Layout` + `Table` + `Form` + `Upload` + `Modal` + `message`，不做视觉定制，仅 PC | PRD 5.2 明文口径；演示重点在「真实 CRUD」不在颜值 |\n| 分页 | 后台短剧列表服务端分页（`page`/`size`，默认 size=10）；C 端收藏列表数据量小，全量返回不分页 | PRD §9「列表接口加分页即可」；收藏演示最多个位数记录 |\n\n## 五、工作拆解\n\n### 任务 1：后端互动接口（里程碑 4 后端）\n\n1. **点赞/收藏切换**（`InteractionController` 或并入 `DramaController`，实现时自选并在交付说明记录）：\n   - `POST /api/dramas/{id}/like`：需登录。查 `user_like` 存在则删记录、`like_count - 1`（下限 0）、返回 `{liked:false, likeCount}`；不存在则插记录、`like_count + 1`、返回 `{liked:true, likeCount}`。整段 `@Transactional`，剧不存在或 OFFLINE → 404。\n   - `POST /api/dramas/{id}/favorite`：同构，返回 `{favorited: true/false}`（收藏无计数展示需求，不返 count）。\n   - Repository 增补：`UserLikeRepository.deleteByUserIdAndDramaId`、`FavoriteRepository.deleteByUserIdAndDramaId` 与 `findByUserIdOrderByCreatedAtDesc`。\n   - 唯一索引冲突（并发双击）捕获后按最终状态返回，不抛 500。\n2. **我的收藏列表**：`GET /api/me/favorites` 需登录，按收藏时间倒序返回 DramaSummary 列表（字段与首页一致：id/title/category/coverUrl/episodeCount/likeCount）。\n3. **回归**：详情接口的 liked/favorited 回显此时应为真实数据——种子用户 demo 的点赞收藏写库后，`GET /api/dramas/{id}` 带 demo token 回显 true。\n\n**门禁（curl 全绿）**：\n- 无 token 调 like/favorite/favorites → 401 JSON（第二阶段鉴权规则已配，此处验证生效）。\n- demo token 点赞剧 1 → `{liked:true, likeCount:+1}`；再调一次 → `{liked:false, likeCount:回原值}`；连续并发双击不产重复记录（查库验证）。\n- 收藏剧 1、剧 2 后 `GET /api/me/favorites` → 2 条、倒序正确。\n- 写库后带 token 查详情 → liked/favorited 与操作一致；退出再查（不带 token）→ false。\n- `./mvnw test` 全绿（为切换逻辑补 Service 层单测：切换往返、唯一索引冲突路径）。\n\n### 任务 2：前端互动闭环（里程碑 4 前端）\n\n1. **详情页按钮接通**（`DramaDetailPage`）：\n   - 已登录点击点赞/收藏 → 调接口，用响应 `{liked, likeCount}` / `{favorited}` 直接更新本地状态（不发二次详情请求）；失败 `message` 提示并回滚。\n   - 未登录点击 → 跳 `/login?from=/drama/{id}`（沿用第二阶段 401 拦截器的 from 回跳口径）。\n   - 替换第二阶段「里程碑 4 实现」占位提示——**该占位文案随本任务删除，不并存**。\n2. **「我的」页与收藏列表**：\n   - 路由：`/mine`（MinePage，需登录，用第二阶段备好的 `RequireAuth` 守卫）、`/mine/favorites`（我的收藏）。\n   - MinePage：展示当前用户信息（username/nickname/role）+ 入口卡片「我的收藏」+「退出登录」按钮（US-04：清 token 跳首页，退出后点赞收藏重新要求登录）。\n   - FavoritesPage：调 `/api/me/favorites`，卡片网格复用首页卡片样式，点击进详情；空态文案「还没有收藏，去首页逛逛」；未登录被守卫拦到登录页。\n   - 导航：首页顶部（PC）/底部 Tab（手机，按 PRD 5.3 断点规则）加「我的」入口，未登录点击同样进守卫流程。\n\n**门禁**：\n- demo 登录 → 详情页点赞（按钮态与计数即时变化）→ 收藏 → 刷新页面状态仍在 → `/mine/favorites` 见该剧 → 详情页再次点击取消收藏 → 收藏列表为空态。\n- 未登录点收藏 → 跳登录页 → 登录成功自动回跳详情页。\n- 退出登录 → 点赞按钮回到未登录引导态。\n- `pnpm exec tsc -b`（web）通过。\n\n### 任务 3：后端管理接口 + StorageService（里程碑 5 后端）\n\n1. **StorageService**（`storage/` 包）：\n   - **先做前置配置**：application.yml 显式配置 `spring.servlet.multipart.max-file-size=50MB`、`spring.servlet.multipart.max-request-size=50MB`（Spring Boot 默认 1MB/10MB 必拦视频上传，不配则任务门禁必挂）。\n   - `StorageService` 接口：`store(MultipartFile file, String subdir)` 返回 URL、`delete(String url)`、`getUrl(String path)`。\n   - `LocalStorageService`：落盘 `apps/api/uploads/files/`（启动时 `Files.createDirectories` 保证存在），文件名 `UUID.randomUUID() + 原扩展名`，URL 拼 `/uploads/files/<name>`；类型/大小白名单校验在 Service 入口统一做（封面 4 种图片 ≤5MB，视频 mp4 ≤50MB），不合规抛业务异常（400 + 明确文案）。\n   - 配置项 `storage.type=local` 写入 application.yml（仅占位与讲解用，本期无第二实现）。\n2. **文件上传接口**：`POST /api/admin/files/upload`（ADMIN，`multipart/form-data`，字段 `file` + `type=cover|video`），返回 `{url}`。\n3. **短剧管理**（`AdminDramaController`，全部 `/api/admin/**` + ADMIN）：\n   - `GET /api/admin/dramas?page=&size=&keyword=`：分页列表（含 OFFLINE），返回 `Page<AdminDramaRow>`（id/title/category/episodeCount/status/likeCount/createdAt/coverUrl）；keyword 模糊匹配剧名（为后台检索顺手提供，C 端搜索仍是里程碑 6）。\n   - `POST /api/admin/dramas`：新增（title/description/category/coverUrl/status 必填校验，coverUrl 须为 `/uploads/` 开头——只允许本服务上传产物的 URL，防外链失效破坏「断网可演示」底线）。\n   - `PUT /api/admin/dramas/{id}`：编辑任意字段，同校验。\n   - `DELETE /api/admin/dramas/{id}`：同事务级联删 episodes + user_like + favorite + watch_progress；不删磁盘文件。\n4. **剧集管理**（`AdminEpisodeController`）：\n   - `GET /api/admin/dramas/{id}/episodes`：后台剧集列表（含 videoUrl、durationSec）。\n   - `POST /api/admin/dramas/{id}/episodes`：新增（episodeNo/title/videoUrl/durationSec 必填；`(drama_id, episode_no)` 冲突 → 400「集数已存在」）。\n   - `PUT /api/admin/episodes/{id}`、`DELETE /api/admin/episodes/{id}`：编辑/删除（同唯一约束；删除不级联文件）。\n\n**门禁（curl 全绿）**：\n- admin token 上传一张封面 → 返回 `/uploads/files/<uuid>.jpg`，浏览器（8080 直连与 3000/3001 代理两路）可打开；上传 51MB 假 mp4 → 400 明确提示；上传 `.txt` 改后缀伪装 → 400。\n- demo token（USER）调任意 `/api/admin/**` → 403；无 token → 401。\n- 新增短剧（用刚上传的封面）→ 后台列表可见、C 端 `GET /api/dramas` 含该剧 → 加两集（上传视频）→ C 端详情/剧集接口可见、播放页可播。\n- 编辑剧名 → C 端详情实时变；下架（status=OFFLINE）→ C 端详情 404、列表消失，后台仍可见；再上架恢复。\n- 删除该剧 → 后台列表消失，关联剧集/点赞/收藏/进度记录查库确认清空；`uploads/` 下文件仍在（符合决策）。\n- 新增剧集 episodeNo 与已有重复 → 400「集数已存在」。\n- `./mvnw test` 全绿（StorageService 白名单、级联删除、唯一约束冲突路径各补测试）。\n\n### 任务 4：管理后台前端（里程碑 5 前端，`apps/admin`）\n\n替换占位页，建四个页面 + 基础设施：\n\n1. **基础设施**：axios 实例（baseURL 走代理，拦截器读 `admin_token`、401 清 token 跳登录页）；`AuthContext` 精简版（user/token/login/logout）；路由守卫（无 token 跳 `/login`，user.role≠ADMIN 拒绝进入）。\n2. **登录页**：居中卡片表单；登录成功校验 role==ADMIN，非管理员 `message.error('该账号无后台权限')` 并清 token；页面上预填提示 `admin / admin123`（演示友好，与 C 端登录页同风格）。\n3. **短剧管理页**（默认页）：AntD `Table` 分页（封面缩略图/剧名/分类/集数/状态 Tag/点赞数/创建时间），顶部「新增短剧」按钮 + 剧名搜索框；行操作「编辑 / 剧集管理 / 下架或上架 / 删除」；删除走 `Popconfirm` 二次确认（PRD AD-04 硬性要求）。\n4. **短剧表单页**（新增/编辑共用，`/dramas/new`、`/dramas/:id/edit`）：AntD `Form` 必填校验；封面用 `Upload` 组件直传 `/api/admin/files/upload?type=cover`，成功后回显缩略图并把返回 URL 填入表单；状态下拉 ONLINE/OFFLINE。\n5. **剧集管理页**（`/dramas/:id/episodes`）：剧集 `Table`（集数/标题/时长/视频可点预览）+ 新增/编辑弹窗 `Modal`（episodeNo 数字输入、标题、视频 `Upload` 传 `type=video`、上传后自动尝试读视频时长填 durationSec，读不到则手填）+ 删除确认。\n\n**门禁**：\n- admin 登录后台 → 走完整演示链：新增短剧（上传封面）→ 加两集（上传视频）→ C 端首页出现该剧、播放页可播 → 后台下架 → C 端消失 → 上架恢复 → 删除（二次确认）→ C 端消失。\n- demo 账号登后台 → 明确拒绝并退回登录页；直接访问 `/dramas` 无 token → 跳登录。\n- 表格分页翻页正确（种子 6 剧 + 新增可造到 11 条以上翻页）；表单必填校验拦截空提交。\n- `pnpm exec tsc -b`（admin）通过。\n\n## 六、验收清单（全部可执行）\n\n- [ ] 点赞/收藏幂等切换 curl 全绿：往返切换、计数同步、并发双击无重复记录、无 token 401\n- [ ] `GET /api/me/favorites` 倒序正确；写库后详情 liked/favorited 真实回显\n- [ ] 前端：详情页按钮接通无占位文案残留；登录回跳 from 正确；/mine 守卫生效；退出登录后回到引导态\n- [ ] 上传接口：封面/视频成功返 URL 且可访问（两路代理 + 直连）；超限/伪后缀 400；USER 调后台接口 403\n- [ ] 后台短剧 CRUD curl 全绿：新增后 C 端可见、编辑实时生效、下架 404、删除级联清空且文件保留、episodeNo 冲突 400\n- [ ] 后台前端完整演示链通过（任务 4 门禁第一条全步骤）\n- [ ] `./mvnw test`（含新增单测）与 web/admin 两端 `pnpm exec tsc -b` 全绿\n- [ ] 断网（停外网）演示路径无外部资源缺失（含后台新增内容的封面/视频）\n\n## 七、明确不做（本阶段排除）\n\n- 滑动/滚轮/键盘切集（PL-01）、自动连播（PL-02）、选集面板的已看标记（PL-03） → 里程碑 6\n- 记忆续播（PL-04）、观看历史（PL-05）、`watch_progress` 表的读写 → 里程碑 6（本阶段仅删除剧时级联清理该表）\n- C 端搜索（PL-06） → 里程碑 6（后台列表的 keyword 参数是后台检索，不是 C 端搜索页）\n- 剧集拖拽排序/上移下移按钮（PRD 裁剪预案明示可砍的次要交互；本阶段以集数唯一约束 + 手工改集数兜底）\n- 删除内容时清理磁盘媒体文件（演示期保留，防误删共享素材）\n- OSS 实现（`storage.type=oss`）、视频转码/HLS/倍速\n- 后台的用户管理、数据看板（PRD 未要求）\n\n## 八、风险与兜底\n\n| 风险 | 概率 | 兜底 |\n|---|---|---|\n| 第二阶段遗留偏差（接口字段与计划不符）导致本阶段对接返工 | 中 | 开工先跑第二阶段验收清单回归，偏差当场记入 devlog 并以其**实际契约**为准修订本计划再动工 |\n| like_count 并发下计数漂移 | 低 | 演示规模个位数并发；事务 + 唯一索引已够；门禁含双击用例 |\n| 上传大视频时 Spring 默认 multipart 上限拦截（默认 1MB/10MB） | ~~高（必踩）~~ 已消除 | 已从风险转为施工步骤：任务 3 第一条即要求显式配置 50MB 上限 |\n| 级联删除误伤种子数据 | 低 | 门禁规定删除演示只用「本阶段新建的剧」；种子剧演示下架而非删除 |\n| 后台 AntD 表格/表单开发超时挤压收口 | 中 | 严格按 PRD 5.2「不追求视觉定制」执行；任何样式打磨冲动记入 devlog 后放弃 |\n| uploads/ 体积膨胀拖慢演示机 | 低 | 上传上限 50MB；演示前可用 `du -sh apps/api/uploads/` 自检 |\n\n## 九、文档同步计划\n\n- 门禁通过时：更新 `docs/devlog.md`（日期 + 阶段 + 验收结论 + 偏差记录）；回填 AGENTS.md「当前状态」一节（里程碑 4、5 收口口径）；README「开发进度」里程碑 4、5 打勾并补后台启动与演示账号说明。\n- 若施工中对第二阶段契约有任何修订：同步回改 `第二阶段计划.md` 相应小节并注明日期，不让两份计划互相打架。\n- 文档类提交收齐到本阶段结项一笔完成（沿用项目既定纪律）。\n\n## 十、已拍板事项（开工前确认，无遗留）\n\n1. ~~阶段范围~~：M4+M5 合并（2026-10-16 拍板）；M6 体验项与 M7 彩排留待第四阶段。\n2. ~~上传存储口径~~：统一 `apps/api/uploads/` + `/uploads/**` 单轨，后台上传占 `uploads/files/` 子目录（2026-10-16 拍板，PRD §7.3 已同步修订）。\n3. ~~点赞语义~~：幂等切换单端点，返回最新状态与计数（对齐 PRD IN-01）。\n4. ~~删除级联~~：数据级联清理、磁盘文件保留（演示期安全口径）。\n",
+         "isPartialView": false,
+         "readAtMs": 1792141722789,
+         "revisionId": "mtime:1792141283303:size:20073",
+         "mtimeMs": 1792141283303,
+         "sizeBytes": 20073
+        }
+       },
+       "time": {
+        "start": 1792141722774,
+        "end": 1792141722789
+       }
+      }
+     }
+    },
+    {
+     "id": "part_mvaqwrdi_4a60045a-0650-4dc2-aac4-ec1ac4db6c7d",
+     "sequence": 2,
+     "time_created": "2026-10-16 17:08:42",
+     "data": {
+      "type": "tool",
+      "callID": "Read_2_ca522a04",
+      "declarationIndex": 1,
+      "tool": "Read",
+      "state": {
+       "status": "completed",
+       "input": {
+        "file_path": "/Users/honlnk/project/short-drama-web/docs/plan/第四阶段-体验加分项并行计划.md"
+       },
+       "output": "1\t# 第四阶段计划：体验加分项（进度闭环 + 搜索 + 播放增强）\n2\t\n3\t| 项目 | 内容 |\n4\t|---|---|\n5\t| 文档版本 | v1.0 |\n6\t| 创建日期 | 2026-10-16 |\n7\t| 对应里程碑 | PRD 第十章里程碑 6「体验加分项」中的 PL-01/02/04/05 后端 + PL-06（搜索），不含 PL-03 已看标记与 PL-05 前端页面 |\n8\t| 上游文档 | [REQUIREMENTS.md](../REQUIREMENTS.md)、[PRD.md](../PRD.md)、[ARCHITECTURE.md](../ARCHITECTURE.md)、[第三阶段计划](第三阶段-互动闭环与管理后台.md) |\n9\t| 前置状态 | 第二阶段已收口（main@e9bea5b）；第三阶段正在 main 工作区施工（互动接口 + 管理后台），本阶段在**独立 git worktree** 并行开发，不与第三阶段同工作区 |\n10\t| 施工方式 | worktree 并行：`git worktree add ../short-drama-web-m4 -b feat/m4-experience`，收口后合并回 main |\n11\t\n12\t## 一、本阶段目标\n13\t\n14\t验收标准一句话：**demo 账号在播放页看片，进度自动上报服务端；换浏览器标签页重新打开该剧，自动从上次集数与进度续播；首页搜索框输入关键词实时过滤短剧；播放页支持滚轮/键盘/手势切集与自动连播。**\n15\t\n16\t达成后，PRD 第八章接口清单中 C 端接口 100% 集齐（`/api/me/progress`、`/api/me/history` 落地），里程碑 6 的「前后端真实打通现场证据」（换标签页进度仍在，PRD PL-04 验收标准原话）就绪；剩余工作只剩 PL-03 已看标记、PL-05 观看历史前端页（等第三阶段 `/mine` 落地后挂载，半天量）、里程碑 7 联调彩排。\n17\t\n18\t## 二、为什么这些项合并 + 为什么用 worktree 并行\n19\t\n20\t### 范围选择（不把 M6 剩余项全包进来）\n21\t\n22\t按用户拍板，本阶段**不把里程碑 6 剩余的全部内容都计划进去**，入选标准只有一条：**与第三阶段的文件交集为零或接近零，可并行不等待**。逐项对照：\n23\t\n24\t| M6 候选项 | 与第三阶段的交集 | 结论 |\n25\t|---|---|---|\n26\t| PL-04 记忆续播后端（`PUT /api/me/progress`、`GET /api/me/history`） | 零交集：第三阶段计划§四明示「本阶段不做」这两端点， watch_progress 表本阶段不写不读 | ✅ 并入 |\n27\t| PL-06 搜索 | 零交集：后端改 `DramaService.listOnline`（第三阶段未动此方法，其后台 keyword 加在未开工的 AdminDramaController）；前端只动 `HomePage.tsx`（第三阶段前端动 DramaDetailPage/MinePage/FavoritesPage） | ✅ 并入 |\n28\t| PL-01 滑动/滚轮/键盘切集 + PL-02 自动连播 | 零交集：只动 `PlayerPage.tsx`（第三阶段不碰播放页）；纯前端，可独立验证 | ✅ 并入 |\n29\t| PL-04 前端续播（进播放页恢复进度 + 定时上报） | 零交集：同只动 `PlayerPage.tsx`；依赖本阶段任务 1 的后端接口，同 worktree 内自洽 | ✅ 并入 |\n30\t| PL-05 观看历史**前端页** | **硬冲突**：页面必须挂在第三阶段正在建的 `/mine` 路由与导航下，并行必撞 router/Layout | ❌ 留给第五阶段 |\n31\t| PL-03 选集面板已看/当前集标记 | 当前集标记第二阶段已有；「已看」标记依赖进度数据做集级状态，演示价值低、规则模糊（看到多少算已看） | ❌ 留给第五阶段（与历史页一起做） |\n32\t\n33\t### 为什么 worktree 并行\n34\t\n35\t第三阶段正在 main 工作区施工（InteractionController/MeController/DramaService 等未提交改动在途）。本阶段若在同一工作区动工，两个施工方的未提交改动会混在一棵工作树里，门禁回归与提交切分都说不清。worktree 让本阶段拥有独立工作目录与分支，与第三阶段各自跑门禁、各自提交，收口时 git 合并——按上表文件交集分析，合并冲突面最多 `DramaService.java` 一处（若第三阶段收口时动了它），大概率自动合并成功。\n36\t\n37\t## 三、与第三阶段的并行边界（硬性纪律）\n38\t\n39\t| 类别 | 本阶段可以动 | 本阶段不许动 |\n40\t|---|---|---|\n41\t| 后端 | 新增 `ProgressController`/`ProgressService`/`WatchProgressRepository`/进度 DTO；`DramaService.listOnline` 加 keyword 参数；`DramaController.listOnline` 加参数透传 | `MeController`（第三阶段正在写）、`InteractionService`、`SecurityConfig`（`/api/me/**` 鉴权规则第二阶段已配好，零改动）、`pom.xml`、任何 `/api/admin/**` |\n42\t| 前端 web | `PlayerPage.tsx`、`HomePage.tsx`、新增 `api/progress.ts` | `router/index.tsx`、`Layout.tsx`、`AuthContext`（第三阶段正在加 `/mine` 与导航）、`DramaDetailPage.tsx`、`apps/admin` 全部 |\n43\t| 数据库 | watch_progress 表读写（实体已存在，不加字段不改约束） | 其他 5 张表 |\n44\t| 配置 | 无 | `application.yml`、vite.config（第三阶段可能加 multipart 上限；vite 代理用环境变量覆盖，不改文件） |\n45\t\n46\t**端口冲突规避**：第三阶段占用 8080/3000/3001。本阶段 worktree 自测时后端用 `./mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=8081`，前端用 `pnpm dev --port 3002`，vite 代理目标用 `VITE_PROXY_TARGET` 环境变量指向 8081——**先检查 vite.config.ts 是否支持该环境变量，不支持则本阶段给 vite.config.ts 加 `process.env.VITE_PROXY_TARGET ?? 'http://localhost:8080'` 一行**（此行与第三阶段无冲突：它不动 vite.config）。\n47\t\n48\t**数据库共享**：worktree 后端连同一个 `short_drama` 库。本阶段不改表结构（ddl-auto=update 无新增），与第三阶段互不干扰。唯一注意：两边后端**不要同时跑**同一份种子判断以外的写逻辑——实际上进度写库按 `(user_id, drama_id)` upsert，演示数据隔离。\n49\t\n50\t## 四、技术决策（已拍死，无开放选择题）\n51\t\n52\t| 决策点 | 定案 | 理由 |\n53\t|---|---|---|\n54\t| 进度上报语义 | **upsert**：`PUT /api/me/progress` 按 `(user_id, drama_id)` 唯一索引，存在则更新 episode_id/progress_sec/updated_at，不存在则插入；返回 `{updated: true}` | PRD §6 约束说明明文「每部剧只保留最新一条进度」；唯一索引第一阶段已建 |\n55\t| 上报节流 | 播放中每 **5 秒**上报一次 + 切集/暂停/页面卸载（`visibilitychange`）时立即上报一次；未登录不上报、不报错 | 演示规模个位数并发，5s 节流够稀疏；暂停/卸载补刀保证「换标签页进度仍在」的验收场景必现 |\n56\t| 进度合法性 | `progressSec` 下限 0，上限该集 `durationSec`（超出截断）；`episodeId` 必须属于该 drama，否则 400 | 防脏数据；集不属于剧说明前端串数据了，明确报错 |\n57\t| 观看历史 | `GET /api/me/history` 返回进度列表，按 `updated_at` 倒序，每条含 DramaSummary 全字段 + `episodeId/episodeNo/episodeTitle/progressSec/updatedAt`；**不过滤 OFFLINE 剧**（历史是用户私有数据，下架剧保留记录但前端点击时会撞详情 404，属正常口径） | PRD PL-05「与 PL-04 共用同一份进度数据」；倒序即最近观看在前 |\n58\t| 续播入口 | 进播放页时：已登录则 `GET /api/me/history` 找该剧进度，有记录且 `?ep=` 缺省时跳到记录的集并从 `progressSec` 起播；`?ep=` 显式存在则以 URL 为准（用户点选集优先于记忆） | PRD PL-04「再次进入该剧自动从上次集数与进度续播」；URL 优先保证分享链接/选集点击不被覆盖 |\n59\t| 起播偏移 | `video.currentTime = progressSec` 在 `loadedmetadata` 后设置；若 progressSec 距片尾 <3 秒则从头播（视为已看完） | 看完的集重进从 0 开始是直觉行为；<3s 阈值防「差一秒没看完永远从结尾起播」 |\n60\t| 搜索实现 | `GET /api/dramas?keyword=` 后端 `title LIKE %kw%`（trim 后空串视为无参数）；前端首页搜索框 `onChange` 即搜（受控输入 + 300ms 防抖），搜索结果与分类筛选**共存**（先按 keyword 过滤接口返回，再按分类前端过滤）；空结果提示「没有找到相关短剧」 | PRD PL-06「模糊匹配，空结果有提示」；数据量小，LIKE 够用；防抖防每击键一请求 |\n61\t| 搜索框位置 | 首页顶栏右侧（PC）/ 分类条上方独立一行（手机）；不清空分类筛选状态 | PRD 5.1 首页结构含搜索入口；与分类筛选正交互补 |\n62\t| 滚轮/键盘切集 | PC/平板：播放区聚焦时滚轮向下=下一集、向上=上一集（节流 500ms），键盘 ↓/→ 下一集、↑/← 上一集；手机：竖向触摸滑动（touchstart/touchend 位移 >50px 判定）；首集往前/末集往后不跳转并提示「已经是第一集/最后一集」；切换复用现有 `selectEpisode`（`setSearchParams`），URL 天然同步 | PRD PL-01「切换流畅，URL 与当前集同步」——现有实现已用 `?ep=` 驱动当前集，手势只是新增触发源 |\n63\t| 自动连播 | 视频 `ended` 事件：有下一集则 `selectEpisode(next)` 自动续播（浏览器自动播放策略下 `autoPlay` 已带 muted 风险——**连播时用 `video.play()` 显式触发，被浏览器拦则在播放区叠「点击继续下一集」按钮**）；末集结束停留当前页并提示「已看完最后一集」 | PRD PL-02 验收标准明文「最后一集结束后停留在选集或返回提示」 |\n64\t| 进度接口鉴权 | `/api/me/**` 第二阶段已配 `authenticated()`，零改动；控制器沿用第三阶段 MeController 同款 `authUser == null → 401` 防御写法 | 与既有风格一致 |\n65\t| worktree 合并时机 | 第三阶段收口（提交上 main）后，本阶段 rebase/merge main 解冲突再合并回 main；若本阶段先完工，**不抢先合并**，等第三阶段落地 | 第三阶段是必含功能收尾，优先级高于加分项；抢先合并会让第三阶段的回归门禁面对陌生改动 |\n66\t\n67\t## 五、工作拆解\n68\t\n69\t### 任务 0：worktree 与端口环境（前置，10 分钟）\n70\t\n71\t1. main 工作区先提交当前未提交的第三阶段施工产物（由用户/第三阶段会话处理，本计划不强求）；本阶段开工只要求 main 分支上有 `e9bea5b`。\n72\t2. `git worktree add ../short-drama-web-m4 -b feat/m4-experience`（基 main 当前 HEAD）。\n73\t3. worktree 内：`apps/web` 与 `apps/api` 依赖安装（`pnpm install`、`./mvnw` 首次拉依赖）。\n74\t4. 检查并补 `apps/web/vite.config.ts` 的 `VITE_PROXY_TARGET` 支持（见 §三端口规避）。\n75\t5. 验证：`./mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=8081` 启动成功 + `pnpm dev --port 3002` 首页渲染——与第三阶段服务（8080/3000）**并存不抢端口**。\n76\t\n77\t### 任务 1：后端进度接口（PL-04/05 后端）\n78\t\n79\t新增文件（全部新文件，零改动既有文件）：\n80\t\n81\t1. `repository/WatchProgressRepository.java`：`findByUserIdAndDramaId(userId, dramaId)`、`findByUserIdOrderByUpdatedAtDesc(userId)`。\n82\t2. `dto/`：`ProgressReportRequest(episodeId, progressSec)`、`HistoryItem(DramaSummary 全字段平铺 + episodeId/episodeNo/episodeTitle/progressSec/updatedAt)`。\n83\t3. `service/ProgressService.java`：\n84\t   - `report(userId, dramaId, request)`：剧须存在（**ONLINE/OFFLINE 均可**——用户对下架剧的历史进度仍可写，与历史不过滤 OFFLINE 口径一致；剧不存在 → 404）；episode 须属于该剧否则 400；progressSec 截断到 `[0, episode.durationSec]`；按 `(user_id, drama_id)` 查记录，有则更新四字段（episode/progress/updatedAt），无则新建；`@Transactional`；唯一索引冲突（并发双击）捕获 `DataIntegrityViolationException` 后重查返回，不抛 500。\n85\t   - `history(userId)`：`findByUserIdOrderByUpdatedAtDesc` 联表取 Drama + Episode 组装 HistoryItem；Drama/Episode 被删的脏记录跳过（防第三阶段级联删除遗漏）。\n86\t4. `controller/ProgressController.java`（`@RequestMapping(\"/api/me\")`，与第三阶段 MeController **同前缀不同文件**，互不包含对方端点）：\n87\t   - `PUT /api/me/progress?dramaId=`（body ProgressReportRequest）→ `{updated:true}`\n88\t   - `GET /api/me/history` → `List<HistoryItem>`\n89\t   - 均沿用 `authUser == null → BusinessException(401)` 防御写法。\n90\t5. **单测**：ProgressService——upsert 往返（新建→更新同剧换集）、progressSec 截断、episode 不属于该剧 400、剧不存在 404、history 倒序与脏记录跳过。\n91\t\n92\t**门禁（curl 全绿）**：\n93\t- 无 token 调两接口 → 401 JSON（第二阶段鉴权规则回归）。\n94\t- demo token 上报剧 1 第 2 集 35s → `{updated:true}`；查库 `watch_progress` 一条记录；再上报同剧第 3 集 8s → 库中仍一条、episode_id 与 progress_sec 已更新（upsert 验证）。\n95\t- 上报 progressSec=9999（超时长）→ 库中存截断值；上报不属于该剧的 episodeId → 400。\n96\t- `GET /api/me/history` → 含刚上报的剧，字段齐全；再上报剧 2 后 history 倒序剧 2 在前。\n97\t- `./mvnw test` 全绿（含新单测）。\n98\t\n99\t### 任务 2：后端搜索 + 前端首页搜索（PL-06）\n100\t\n101\t1. **后端**（改两个既有方法的签名，行为向后兼容）：\n102\t   - `DramaService.listOnline(String keyword)`：keyword trim 后非空时走 `dramaRepository.findByStatusAndTitleContainingIgnoreCaseOrderByLikeCountDesc(ONLINE, kw)`（Repository 新增该派生查询），否则走原查询。\n103\t   - `DramaController.listOnline(@RequestParam(required=false) String keyword)` 透传。无参调用行为与现状完全一致（回归门禁保底）。\n104\t2. **前端**：\n105\t   - `api/dramas.ts`：`listDramas(keyword?: string)` 追加可选参数，拼 `?keyword=`（encodeURIComponent）。\n106\t   - `HomePage.tsx`：顶部加受控搜索框（占位「搜索短剧」），`onChange` 更新输入态 + 300ms 防抖触发请求；请求与分类筛选各自独立（keyword 走后端、category 走前端过滤）；空结果文案「没有找到相关短剧」（区分于分类空态「该分类暂无短剧」）；搜索框右侧加清空按钮（有内容时显示）。\n107\t\n108\t**门禁**：\n109\t- `curl '/api/dramas?keyword=豪门'` → 只含《闪婚老公是豪门》；`?keyword=不存在的词` → 空数组 200；无 keyword → 全量 6 剧（回归）。\n110\t- 前端：首页输入「甜」防抖后只剩甜宠分类两部剧；清空恢复全量；搜索态下点分类筛选仍生效（两条件叠加）。\n111\t- `pnpm exec tsc -b`（web）通过。\n112\t\n113\t### 任务 3：播放页切集手势 + 自动连播 + 记忆续播（PL-01/02/04 前端）\n114\t\n115\t只改 `PlayerPage.tsx` + 新增 `api/progress.ts`（`reportProgress(dramaId, episodeId, progressSec)`、`getHistory()`）。\n116\t\n117\t1. **进度上报**：\n118\t   - 已登录（`useAuth().user` 非空）才启用；`useEffect` 监听播放：`timeupdate` 事件距上次上报 ≥5s 时上报；`pause`/`visibilitychange(hidden)`/切集前各补报一次。\n119\t   - 未登录：零调用零提示。\n120\t2. **记忆续播入口**：\n121\t   - 进播放页：已登录且 `?ep=` 缺省 → `getHistory()` 找该剧记录，有则 `setSearchParams({ep: 记录集数})` 并记 `resumeSec`；`loadedmetadata` 后 `video.currentTime = resumeSec`（距片尾 <3s 归 0）。\n122\t   - `?ep=` 显式存在：跳过恢复（URL 优先）。\n123\t   - 首屏提示：发生续播时在视频下方短暂显示「已为你续播到第 X 集」（3s 淡出，演示时可指着讲）。\n124\t3. **滚轮/键盘/手势切集**：\n125\t   - `wheel`（播放区容器，节流 500ms）：deltaY>0 下一集、<0 上一集；`keydown`（页面级）：↓/→ 下一集、↑/← 上一集；`touchstart/touchend`（播放区）：纵向位移 >50px 判定，上滑下一集、下滑上一集。\n126\t   - 边界：首集向前/末集向后 → 顶部提示「已经是第一集/最后一集」（复用 hint 模式，1.5s 淡出）。\n127\t   - 切集统一走现有 `selectEpisode`（URL 同步天然满足 PL-01 验收）。\n128\t4. **自动连播**：\n129\t   - `ended`：非末集 → `selectEpisode(下一集)`，`video.play()` 显式触发，被浏览器拦截则播放区中央叠「▶ 继续下一集」按钮（点击即播）；末集 → 提示「已看完最后一集」停留当前页。\n130\t\n131\t**门禁**（浏览器手测 + 脚本断言并用）：\n132\t- demo 登录 → 播放剧 1 第 1 集拖到 10s → 等 5s+（或暂停触发上报）→ 关标签页重开该剧播放页（不带 `?ep=`）→ 自动从第 1 集 10s 附近起播并显示续播提示（PRD PL-04 验收场景原样复现）。\n133\t- 带 `?ep=3` 进播放页 → 播第 3 集且不恢复进度（URL 优先验证）。\n134\t- 播放页滚轮向下 → 切下一集且 URL `?ep=` 同步；键盘 ↑ 回到上一集；首集滚轮向上 → 提示「已经是第一集」。\n135\t- 播放到末集结束 → 自动停在末集并提示「已看完最后一集」；非末集结束 → 自动进下一集续播。\n136\t- 未登录进播放页 → 不报进度（DevTools Network 无 `/api/me/progress` 请求）、不恢复进度。\n137\t- `pnpm exec tsc -b`（web）通过。\n138\t\n139\t### 任务 4：回归 + 合并准备\n140\t\n141\t1. worktree 内完整回归：第二阶段验收清单全量过一遍（重点：详情 liked/favorited 回显、播放页选集刷新续停——确认本阶段改动无回归）。\n142\t2. `./mvnw test` + `pnpm exec tsc -b`（web）全绿。\n143\t3. `git add` 本阶段全部改动，提交信息前缀 `feat: 阶段4 …`（沿用项目提交风格），**不合并回 main**——等第三阶段收口后由收口方（或用户）执行合并，合并冲突（预期最多 `DramaService.java` 一处）当场解。\n144\t4. worktree 保留不删（`git worktree list` 可查），合并完成后清理。\n145\t\n146\t## 六、验收清单（全部可执行）\n147\t\n148\t- [ ] worktree 与主工作区服务并存（8081/3002 vs 8080/3000/3001），互不抢端口\n149\t- [ ] `PUT /api/me/progress` upsert 语义 curl 验证（新建→更新不换行、截断、400、404、401）\n150\t- [ ] `GET /api/me/history` 倒序正确、字段齐全、脏记录跳过\n151\t- [ ] 换标签页重开自动续播（PL-04 验收场景）现场可演示\n152\t- [ ] `?ep=` 显式存在时 URL 优先于记忆进度\n153\t- [ ] 搜索后端 keyword 参数三态（命中/空/无参回归）curl 全绿；前端防抖搜索 + 分类叠加 + 清空恢复\n154\t- [ ] 滚轮/键盘/触摸切集 + URL 同步 + 首尾集边界提示\n155\t- [ ] 自动连播（非末集续播、末集停留提示）\n156\t- [ ] 未登录零进度上报、零续播\n157\t- [ ] `./mvnw test`（含 ProgressService 单测）与 `pnpm exec tsc -b`（web）全绿\n158\t- [ ] 第二阶段验收清单回归无劣化（重点详情回显、播放选集刷新）\n159\t- [ ] worktree 提交完成且未合并 main（等第三阶段收口）\n160\t\n161\t## 七、明确不做（本阶段排除）\n162\t\n163\t- PL-05 观看历史**前端页面**（依赖第三阶段 `/mine` 路由，留给第五阶段挂载）\n164\t- PL-03 选集面板「已看」标记（规则模糊、演示价值低，与历史页一并评估）\n165\t- 里程碑 7 联调彩排、README 收尾、演示脚本\n166\t- `/mine` 路由、导航改造、`DramaDetailPage`、`apps/admin` 一切（第三阶段领土）\n167\t- watch_progress 表结构变更（实体不加字段不改约束）\n168\t- 进度条拖动时的打点上报优化、播放倍速、HLS\n169\t- 手机端真实设备手势验证（桌面 DevTools 模拟触摸即可，现场演示以 PC 为主）\n170\t\n171\t## 八、风险与兜底\n172\t\n173\t| 风险 | 概率 | 兜底 |\n174\t|---|---|---|\n175\t| 第三阶段收口改动 `DramaService`/`DramaController` 与本阶段搜索冲突 | 中 | 合并时手工解：搜索的 keyword 参数与第三阶段改动正交，冲突通常是签名行，保留双方即可；收口门禁要求回归「无 keyword 全量返回」 |\n176\t| 浏览器自动播放策略拦截连播 | 高（Chrome 默认拦有声自动播放） | 已在决策表定案：`play()` 被拦时叠「点击继续下一集」按钮，演示时顺手讲「浏览器策略兼容」反而加分 |\n177\t| 续播恢复与手势切集状态纠缠（currentTime 设置时机早于 metadata） | 中 | 决策表已定 `loadedmetadata` 后设置；门禁含「URL 优先」负例验证 |\n178\t| worktree 内后端首启触发 DataSeeder 重复灌库 | 零 | DataSeeder 以用户表非空跳过，库已有数据 |\n179\t| 进度上报 401 刷屏（token 过期） | 低 | axios 拦截器已有 401 清 token 跳登录；上报失败静默（不弹 toast 打扰观看） |\n180\t| 并行期间第三阶段改了 vite.config.ts | 低 | 本阶段对 vite.config 的改动是一行环境变量默认值，合并时保留双方 |\n181\t\n182\t## 九、文档同步计划\n183\t\n184\t- 本阶段门禁通过时：更新 `docs/devlog.md`（日期 + 阶段 + 验收结论 + 偏差记录）；**不回填 AGENTS.md「当前状态」**——worktree 未合并前 main 状态以第三阶段口径为准，合并后统一回填里程碑 6 进度。\n185\t- 若施工中对第二阶段契约有任何触动（预期无）：同步回改对应计划文档并注明日期。\n186\t- 文档类提交随本阶段 worktree 分支收齐一笔完成；合并回 main 时文档随同进入。\n187\t\n188\t## 十、已拍板事项（开工前确认，无遗留）\n189\t\n190\t1. ~~阶段范围~~：PL-01/02/04（前后端）+ PL-05 后端 + PL-06；PL-03 与 PL-05 前端留第五阶段（2026-10-16 用户拍板：「不把剩余全都计划进去，把合适的计划进去」）。\n191\t2. ~~施工方式~~：独立 worktree `../short-drama-web-m4` + 分支 `feat/m4-experience`，不抢 main 工作区；端口 8081/3002 规避。\n192\t3. ~~合并时机~~：第三阶段收口上 main 后再合并，本阶段不抢先。\n193\t4. ~~进度语义~~：upsert 按 `(user_id, drama_id)` 唯一索引，5s 节流 + 暂停/卸载补报，URL `?ep=` 优先于记忆进度。\n194\t5. ~~搜索形态~~：后端 LIKE 模糊 + 前端 300ms 防抖即输即搜，与分类筛选叠加。\n195\t",
+       "title": "Read",
+       "metadata": {
+        "schemaVersion": 1,
+        "serialization": {
+         "truncated": false,
+         "originalBytes": 22166,
+         "returnedBytes": 22166,
+         "budgetStrategy": "truncate"
+        },
+        "readFileState": {
+         "schemaVersion": 1,
+         "tool": "Read",
+         "path": "/Users/honlnk/project/short-drama-web/docs/plan/第四阶段-体验加分项并行计划.md",
+         "content": "# 第四阶段计划：体验加分项（进度闭环 + 搜索 + 播放增强）\n\n| 项目 | 内容 |\n|---|---|\n| 文档版本 | v1.0 |\n| 创建日期 | 2026-10-16 |\n| 对应里程碑 | PRD 第十章里程碑 6「体验加分项」中的 PL-01/02/04/05 后端 + PL-06（搜索），不含 PL-03 已看标记与 PL-05 前端页面 |\n| 上游文档 | [REQUIREMENTS.md](../REQUIREMENTS.md)、[PRD.md](../PRD.md)、[ARCHITECTURE.md](../ARCHITECTURE.md)、[第三阶段计划](第三阶段-互动闭环与管理后台.md) |\n| 前置状态 | 第二阶段已收口（main@e9bea5b）；第三阶段正在 main 工作区施工（互动接口 + 管理后台），本阶段在**独立 git worktree** 并行开发，不与第三阶段同工作区 |\n| 施工方式 | worktree 并行：`git worktree add ../short-drama-web-m4 -b feat/m4-experience`，收口后合并回 main |\n\n## 一、本阶段目标\n\n验收标准一句话：**demo 账号在播放页看片，进度自动上报服务端；换浏览器标签页重新打开该剧，自动从上次集数与进度续播；首页搜索框输入关键词实时过滤短剧；播放页支持滚轮/键盘/手势切集与自动连播。**\n\n达成后，PRD 第八章接口清单中 C 端接口 100% 集齐（`/api/me/progress`、`/api/me/history` 落地），里程碑 6 的「前后端真实打通现场证据」（换标签页进度仍在，PRD PL-04 验收标准原话）就绪；剩余工作只剩 PL-03 已看标记、PL-05 观看历史前端页（等第三阶段 `/mine` 落地后挂载，半天量）、里程碑 7 联调彩排。\n\n## 二、为什么这些项合并 + 为什么用 worktree 并行\n\n### 范围选择（不把 M6 剩余项全包进来）\n\n按用户拍板，本阶段**不把里程碑 6 剩余的全部内容都计划进去**，入选标准只有一条：**与第三阶段的文件交集为零或接近零，可并行不等待**。逐项对照：\n\n| M6 候选项 | 与第三阶段的交集 | 结论 |\n|---|---|---|\n| PL-04 记忆续播后端（`PUT /api/me/progress`、`GET /api/me/history`） | 零交集：第三阶段计划§四明示「本阶段不做」这两端点， watch_progress 表本阶段不写不读 | ✅ 并入 |\n| PL-06 搜索 | 零交集：后端改 `DramaService.listOnline`（第三阶段未动此方法，其后台 keyword 加在未开工的 AdminDramaController）；前端只动 `HomePage.tsx`（第三阶段前端动 DramaDetailPage/MinePage/FavoritesPage） | ✅ 并入 |\n| PL-01 滑动/滚轮/键盘切集 + PL-02 自动连播 | 零交集：只动 `PlayerPage.tsx`（第三阶段不碰播放页）；纯前端，可独立验证 | ✅ 并入 |\n| PL-04 前端续播（进播放页恢复进度 + 定时上报） | 零交集：同只动 `PlayerPage.tsx`；依赖本阶段任务 1 的后端接口，同 worktree 内自洽 | ✅ 并入 |\n| PL-05 观看历史**前端页** | **硬冲突**：页面必须挂在第三阶段正在建的 `/mine` 路由与导航下，并行必撞 router/Layout | ❌ 留给第五阶段 |\n| PL-03 选集面板已看/当前集标记 | 当前集标记第二阶段已有；「已看」标记依赖进度数据做集级状态，演示价值低、规则模糊（看到多少算已看） | ❌ 留给第五阶段（与历史页一起做） |\n\n### 为什么 worktree 并行\n\n第三阶段正在 main 工作区施工（InteractionController/MeController/DramaService 等未提交改动在途）。本阶段若在同一工作区动工，两个施工方的未提交改动会混在一棵工作树里，门禁回归与提交切分都说不清。worktree 让本阶段拥有独立工作目录与分支，与第三阶段各自跑门禁、各自提交，收口时 git 合并——按上表文件交集分析，合并冲突面最多 `DramaService.java` 一处（若第三阶段收口时动了它），大概率自动合并成功。\n\n## 三、与第三阶段的并行边界（硬性纪律）\n\n| 类别 | 本阶段可以动 | 本阶段不许动 |\n|---|---|---|\n| 后端 | 新增 `ProgressController`/`ProgressService`/`WatchProgressRepository`/进度 DTO；`DramaService.listOnline` 加 keyword 参数；`DramaController.listOnline` 加参数透传 | `MeController`（第三阶段正在写）、`InteractionService`、`SecurityConfig`（`/api/me/**` 鉴权规则第二阶段已配好，零改动）、`pom.xml`、任何 `/api/admin/**` |\n| 前端 web | `PlayerPage.tsx`、`HomePage.tsx`、新增 `api/progress.ts` | `router/index.tsx`、`Layout.tsx`、`AuthContext`（第三阶段正在加 `/mine` 与导航）、`DramaDetailPage.tsx`、`apps/admin` 全部 |\n| 数据库 | watch_progress 表读写（实体已存在，不加字段不改约束） | 其他 5 张表 |\n| 配置 | 无 | `application.yml`、vite.config（第三阶段可能加 multipart 上限；vite 代理用环境变量覆盖，不改文件） |\n\n**端口冲突规避**：第三阶段占用 8080/3000/3001。本阶段 worktree 自测时后端用 `./mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=8081`，前端用 `pnpm dev --port 3002`，vite 代理目标用 `VITE_PROXY_TARGET` 环境变量指向 8081——**先检查 vite.config.ts 是否支持该环境变量，不支持则本阶段给 vite.config.ts 加 `process.env.VITE_PROXY_TARGET ?? 'http://localhost:8080'` 一行**（此行与第三阶段无冲突：它不动 vite.config）。\n\n**数据库共享**：worktree 后端连同一个 `short_drama` 库。本阶段不改表结构（ddl-auto=update 无新增），与第三阶段互不干扰。唯一注意：两边后端**不要同时跑**同一份种子判断以外的写逻辑——实际上进度写库按 `(user_id, drama_id)` upsert，演示数据隔离。\n\n## 四、技术决策（已拍死，无开放选择题）\n\n| 决策点 | 定案 | 理由 |\n|---|---|---|\n| 进度上报语义 | **upsert**：`PUT /api/me/progress` 按 `(user_id, drama_id)` 唯一索引，存在则更新 episode_id/progress_sec/updated_at，不存在则插入；返回 `{updated: true}` | PRD §6 约束说明明文「每部剧只保留最新一条进度」；唯一索引第一阶段已建 |\n| 上报节流 | 播放中每 **5 秒**上报一次 + 切集/暂停/页面卸载（`visibilitychange`）时立即上报一次；未登录不上报、不报错 | 演示规模个位数并发，5s 节流够稀疏；暂停/卸载补刀保证「换标签页进度仍在」的验收场景必现 |\n| 进度合法性 | `progressSec` 下限 0，上限该集 `durationSec`（超出截断）；`episodeId` 必须属于该 drama，否则 400 | 防脏数据；集不属于剧说明前端串数据了，明确报错 |\n| 观看历史 | `GET /api/me/history` 返回进度列表，按 `updated_at` 倒序，每条含 DramaSummary 全字段 + `episodeId/episodeNo/episodeTitle/progressSec/updatedAt`；**不过滤 OFFLINE 剧**（历史是用户私有数据，下架剧保留记录但前端点击时会撞详情 404，属正常口径） | PRD PL-05「与 PL-04 共用同一份进度数据」；倒序即最近观看在前 |\n| 续播入口 | 进播放页时：已登录则 `GET /api/me/history` 找该剧进度，有记录且 `?ep=` 缺省时跳到记录的集并从 `progressSec` 起播；`?ep=` 显式存在则以 URL 为准（用户点选集优先于记忆） | PRD PL-04「再次进入该剧自动从上次集数与进度续播」；URL 优先保证分享链接/选集点击不被覆盖 |\n| 起播偏移 | `video.currentTime = progressSec` 在 `loadedmetadata` 后设置；若 progressSec 距片尾 <3 秒则从头播（视为已看完） | 看完的集重进从 0 开始是直觉行为；<3s 阈值防「差一秒没看完永远从结尾起播」 |\n| 搜索实现 | `GET /api/dramas?keyword=` 后端 `title LIKE %kw%`（trim 后空串视为无参数）；前端首页搜索框 `onChange` 即搜（受控输入 + 300ms 防抖），搜索结果与分类筛选**共存**（先按 keyword 过滤接口返回，再按分类前端过滤）；空结果提示「没有找到相关短剧」 | PRD PL-06「模糊匹配，空结果有提示」；数据量小，LIKE 够用；防抖防每击键一请求 |\n| 搜索框位置 | 首页顶栏右侧（PC）/ 分类条上方独立一行（手机）；不清空分类筛选状态 | PRD 5.1 首页结构含搜索入口；与分类筛选正交互补 |\n| 滚轮/键盘切集 | PC/平板：播放区聚焦时滚轮向下=下一集、向上=上一集（节流 500ms），键盘 ↓/→ 下一集、↑/← 上一集；手机：竖向触摸滑动（touchstart/touchend 位移 >50px 判定）；首集往前/末集往后不跳转并提示「已经是第一集/最后一集」；切换复用现有 `selectEpisode`（`setSearchParams`），URL 天然同步 | PRD PL-01「切换流畅，URL 与当前集同步」——现有实现已用 `?ep=` 驱动当前集，手势只是新增触发源 |\n| 自动连播 | 视频 `ended` 事件：有下一集则 `selectEpisode(next)` 自动续播（浏览器自动播放策略下 `autoPlay` 已带 muted 风险——**连播时用 `video.play()` 显式触发，被浏览器拦则在播放区叠「点击继续下一集」按钮**）；末集结束停留当前页并提示「已看完最后一集」 | PRD PL-02 验收标准明文「最后一集结束后停留在选集或返回提示」 |\n| 进度接口鉴权 | `/api/me/**` 第二阶段已配 `authenticated()`，零改动；控制器沿用第三阶段 MeController 同款 `authUser == null → 401` 防御写法 | 与既有风格一致 |\n| worktree 合并时机 | 第三阶段收口（提交上 main）后，本阶段 rebase/merge main 解冲突再合并回 main；若本阶段先完工，**不抢先合并**，等第三阶段落地 | 第三阶段是必含功能收尾，优先级高于加分项；抢先合并会让第三阶段的回归门禁面对陌生改动 |\n\n## 五、工作拆解\n\n### 任务 0：worktree 与端口环境（前置，10 分钟）\n\n1. main 工作区先提交当前未提交的第三阶段施工产物（由用户/第三阶段会话处理，本计划不强求）；本阶段开工只要求 main 分支上有 `e9bea5b`。\n2. `git worktree add ../short-drama-web-m4 -b feat/m4-experience`（基 main 当前 HEAD）。\n3. worktree 内：`apps/web` 与 `apps/api` 依赖安装（`pnpm install`、`./mvnw` 首次拉依赖）。\n4. 检查并补 `apps/web/vite.config.ts` 的 `VITE_PROXY_TARGET` 支持（见 §三端口规避）。\n5. 验证：`./mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=8081` 启动成功 + `pnpm dev --port 3002` 首页渲染——与第三阶段服务（8080/3000）**并存不抢端口**。\n\n### 任务 1：后端进度接口（PL-04/05 后端）\n\n新增文件（全部新文件，零改动既有文件）：\n\n1. `repository/WatchProgressRepository.java`：`findByUserIdAndDramaId(userId, dramaId)`、`findByUserIdOrderByUpdatedAtDesc(userId)`。\n2. `dto/`：`ProgressReportRequest(episodeId, progressSec)`、`HistoryItem(DramaSummary 全字段平铺 + episodeId/episodeNo/episodeTitle/progressSec/updatedAt)`。\n3. `service/ProgressService.java`：\n   - `report(userId, dramaId, request)`：剧须存在（**ONLINE/OFFLINE 均可**——用户对下架剧的历史进度仍可写，与历史不过滤 OFFLINE 口径一致；剧不存在 → 404）；episode 须属于该剧否则 400；progressSec 截断到 `[0, episode.durationSec]`；按 `(user_id, drama_id)` 查记录，有则更新四字段（episode/progress/updatedAt），无则新建；`@Transactional`；唯一索引冲突（并发双击）捕获 `DataIntegrityViolationException` 后重查返回，不抛 500。\n   - `history(userId)`：`findByUserIdOrderByUpdatedAtDesc` 联表取 Drama + Episode 组装 HistoryItem；Drama/Episode 被删的脏记录跳过（防第三阶段级联删除遗漏）。\n4. `controller/ProgressController.java`（`@RequestMapping(\"/api/me\")`，与第三阶段 MeController **同前缀不同文件**，互不包含对方端点）：\n   - `PUT /api/me/progress?dramaId=`（body ProgressReportRequest）→ `{updated:true}`\n   - `GET /api/me/history` → `List<HistoryItem>`\n   - 均沿用 `authUser == null → BusinessException(401)` 防御写法。\n5. **单测**：ProgressService——upsert 往返（新建→更新同剧换集）、progressSec 截断、episode 不属于该剧 400、剧不存在 404、history 倒序与脏记录跳过。\n\n**门禁（curl 全绿）**：\n- 无 token 调两接口 → 401 JSON（第二阶段鉴权规则回归）。\n- demo token 上报剧 1 第 2 集 35s → `{updated:true}`；查库 `watch_progress` 一条记录；再上报同剧第 3 集 8s → 库中仍一条、episode_id 与 progress_sec 已更新（upsert 验证）。\n- 上报 progressSec=9999（超时长）→ 库中存截断值；上报不属于该剧的 episodeId → 400。\n- `GET /api/me/history` → 含刚上报的剧，字段齐全；再上报剧 2 后 history 倒序剧 2 在前。\n- `./mvnw test` 全绿（含新单测）。\n\n### 任务 2：后端搜索 + 前端首页搜索（PL-06）\n\n1. **后端**（改两个既有方法的签名，行为向后兼容）：\n   - `DramaService.listOnline(String keyword)`：keyword trim 后非空时走 `dramaRepository.findByStatusAndTitleContainingIgnoreCaseOrderByLikeCountDesc(ONLINE, kw)`（Repository 新增该派生查询），否则走原查询。\n   - `DramaController.listOnline(@RequestParam(required=false) String keyword)` 透传。无参调用行为与现状完全一致（回归门禁保底）。\n2. **前端**：\n   - `api/dramas.ts`：`listDramas(keyword?: string)` 追加可选参数，拼 `?keyword=`（encodeURIComponent）。\n   - `HomePage.tsx`：顶部加受控搜索框（占位「搜索短剧」），`onChange` 更新输入态 + 300ms 防抖触发请求；请求与分类筛选各自独立（keyword 走后端、category 走前端过滤）；空结果文案「没有找到相关短剧」（区分于分类空态「该分类暂无短剧」）；搜索框右侧加清空按钮（有内容时显示）。\n\n**门禁**：\n- `curl '/api/dramas?keyword=豪门'` → 只含《闪婚老公是豪门》；`?keyword=不存在的词` → 空数组 200；无 keyword → 全量 6 剧（回归）。\n- 前端：首页输入「甜」防抖后只剩甜宠分类两部剧；清空恢复全量；搜索态下点分类筛选仍生效（两条件叠加）。\n- `pnpm exec tsc -b`（web）通过。\n\n### 任务 3：播放页切集手势 + 自动连播 + 记忆续播（PL-01/02/04 前端）\n\n只改 `PlayerPage.tsx` + 新增 `api/progress.ts`（`reportProgress(dramaId, episodeId, progressSec)`、`getHistory()`）。\n\n1. **进度上报**：\n   - 已登录（`useAuth().user` 非空）才启用；`useEffect` 监听播放：`timeupdate` 事件距上次上报 ≥5s 时上报；`pause`/`visibilitychange(hidden)`/切集前各补报一次。\n   - 未登录：零调用零提示。\n2. **记忆续播入口**：\n   - 进播放页：已登录且 `?ep=` 缺省 → `getHistory()` 找该剧记录，有则 `setSearchParams({ep: 记录集数})` 并记 `resumeSec`；`loadedmetadata` 后 `video.currentTime = resumeSec`（距片尾 <3s 归 0）。\n   - `?ep=` 显式存在：跳过恢复（URL 优先）。\n   - 首屏提示：发生续播时在视频下方短暂显示「已为你续播到第 X 集」（3s 淡出，演示时可指着讲）。\n3. **滚轮/键盘/手势切集**：\n   - `wheel`（播放区容器，节流 500ms）：deltaY>0 下一集、<0 上一集；`keydown`（页面级）：↓/→ 下一集、↑/← 上一集；`touchstart/touchend`（播放区）：纵向位移 >50px 判定，上滑下一集、下滑上一集。\n   - 边界：首集向前/末集向后 → 顶部提示「已经是第一集/最后一集」（复用 hint 模式，1.5s 淡出）。\n   - 切集统一走现有 `selectEpisode`（URL 同步天然满足 PL-01 验收）。\n4. **自动连播**：\n   - `ended`：非末集 → `selectEpisode(下一集)`，`video.play()` 显式触发，被浏览器拦截则播放区中央叠「▶ 继续下一集」按钮（点击即播）；末集 → 提示「已看完最后一集」停留当前页。\n\n**门禁**（浏览器手测 + 脚本断言并用）：\n- demo 登录 → 播放剧 1 第 1 集拖到 10s → 等 5s+（或暂停触发上报）→ 关标签页重开该剧播放页（不带 `?ep=`）→ 自动从第 1 集 10s 附近起播并显示续播提示（PRD PL-04 验收场景原样复现）。\n- 带 `?ep=3` 进播放页 → 播第 3 集且不恢复进度（URL 优先验证）。\n- 播放页滚轮向下 → 切下一集且 URL `?ep=` 同步；键盘 ↑ 回到上一集；首集滚轮向上 → 提示「已经是第一集」。\n- 播放到末集结束 → 自动停在末集并提示「已看完最后一集」；非末集结束 → 自动进下一集续播。\n- 未登录进播放页 → 不报进度（DevTools Network 无 `/api/me/progress` 请求）、不恢复进度。\n- `pnpm exec tsc -b`（web）通过。\n\n### 任务 4：回归 + 合并准备\n\n1. worktree 内完整回归：第二阶段验收清单全量过一遍（重点：详情 liked/favorited 回显、播放页选集刷新续停——确认本阶段改动无回归）。\n2. `./mvnw test` + `pnpm exec tsc -b`（web）全绿。\n3. `git add` 本阶段全部改动，提交信息前缀 `feat: 阶段4 …`（沿用项目提交风格），**不合并回 main**——等第三阶段收口后由收口方（或用户）执行合并，合并冲突（预期最多 `DramaService.java` 一处）当场解。\n4. worktree 保留不删（`git worktree list` 可查），合并完成后清理。\n\n## 六、验收清单（全部可执行）\n\n- [ ] worktree 与主工作区服务并存（8081/3002 vs 8080/3000/3001），互不抢端口\n- [ ] `PUT /api/me/progress` upsert 语义 curl 验证（新建→更新不换行、截断、400、404、401）\n- [ ] `GET /api/me/history` 倒序正确、字段齐全、脏记录跳过\n- [ ] 换标签页重开自动续播（PL-04 验收场景）现场可演示\n- [ ] `?ep=` 显式存在时 URL 优先于记忆进度\n- [ ] 搜索后端 keyword 参数三态（命中/空/无参回归）curl 全绿；前端防抖搜索 + 分类叠加 + 清空恢复\n- [ ] 滚轮/键盘/触摸切集 + URL 同步 + 首尾集边界提示\n- [ ] 自动连播（非末集续播、末集停留提示）\n- [ ] 未登录零进度上报、零续播\n- [ ] `./mvnw test`（含 ProgressService 单测）与 `pnpm exec tsc -b`（web）全绿\n- [ ] 第二阶段验收清单回归无劣化（重点详情回显、播放选集刷新）\n- [ ] worktree 提交完成且未合并 main（等第三阶段收口）\n\n## 七、明确不做（本阶段排除）\n\n- PL-05 观看历史**前端页面**（依赖第三阶段 `/mine` 路由，留给第五阶段挂载）\n- PL-03 选集面板「已看」标记（规则模糊、演示价值低，与历史页一并评估）\n- 里程碑 7 联调彩排、README 收尾、演示脚本\n- `/mine` 路由、导航改造、`DramaDetailPage`、`apps/admin` 一切（第三阶段领土）\n- watch_progress 表结构变更（实体不加字段不改约束）\n- 进度条拖动时的打点上报优化、播放倍速、HLS\n- 手机端真实设备手势验证（桌面 DevTools 模拟触摸即可，现场演示以 PC 为主）\n\n## 八、风险与兜底\n\n| 风险 | 概率 | 兜底 |\n|---|---|---|\n| 第三阶段收口改动 `DramaService`/`DramaController` 与本阶段搜索冲突 | 中 | 合并时手工解：搜索的 keyword 参数与第三阶段改动正交，冲突通常是签名行，保留双方即可；收口门禁要求回归「无 keyword 全量返回」 |\n| 浏览器自动播放策略拦截连播 | 高（Chrome 默认拦有声自动播放） | 已在决策表定案：`play()` 被拦时叠「点击继续下一集」按钮，演示时顺手讲「浏览器策略兼容」反而加分 |\n| 续播恢复与手势切集状态纠缠（currentTime 设置时机早于 metadata） | 中 | 决策表已定 `loadedmetadata` 后设置；门禁含「URL 优先」负例验证 |\n| worktree 内后端首启触发 DataSeeder 重复灌库 | 零 | DataSeeder 以用户表非空跳过，库已有数据 |\n| 进度上报 401 刷屏（token 过期） | 低 | axios 拦截器已有 401 清 token 跳登录；上报失败静默（不弹 toast 打扰观看） |\n| 并行期间第三阶段改了 vite.config.ts | 低 | 本阶段对 vite.config 的改动是一行环境变量默认值，合并时保留双方 |\n\n## 九、文档同步计划\n\n- 本阶段门禁通过时：更新 `docs/devlog.md`（日期 + 阶段 + 验收结论 + 偏差记录）；**不回填 AGENTS.md「当前状态」**——worktree 未合并前 main 状态以第三阶段口径为准，合并后统一回填里程碑 6 进度。\n- 若施工中对第二阶段契约有任何触动（预期无）：同步回改对应计划文档并注明日期。\n- 文档类提交随本阶段 worktree 分支收齐一笔完成；合并回 main 时文档随同进入。\n\n## 十、已拍板事项（开工前确认，无遗留）\n\n1. ~~阶段范围~~：PL-01/02/04（前后端）+ PL-05 后端 + PL-06；PL-03 与 PL-05 前端留第五阶段（2026-10-16 用户拍板：「不把剩余全都计划进去，把合适的计划进去」）。\n2. ~~施工方式~~：独立 worktree `../short-drama-web-m4` + 分支 `feat/m4-experience`，不抢 main 工作区；端口 8081/3002 规避。\n3. ~~合并时机~~：第三阶段收口上 main 后再合并，本阶段不抢先。\n4. ~~进度语义~~：upsert 按 `(user_id, drama_id)` 唯一索引，5s 节流 + 暂停/卸载补报，URL `?ep=` 优先于记忆进度。\n5. ~~搜索形态~~：后端 LIKE 模糊 + 前端 300ms 防抖即输即搜，与分类筛选叠加。\n",
+         "isPartialView": false,
+         "readAtMs": 1792141722790,
+         "revisionId": "mtime:1792141070548:size:21494",
+         "mtimeMs": 1792141070548,
+         "sizeBytes": 21494
+        }
+       },
+       "time": {
+        "start": 1792141722777,
+        "end": 1792141722790
+       }
+      }
+     }
+    },
+    {
+     "id": "part_mvaqwrdp_496c401f-d216-44ee-9aac-4e92eec41ad7",
+     "sequence": 3,
+     "time_created": "2026-10-16 17:08:36",
+     "data": {
+      "type": "text",
+      "text": "计划目录一共 4 份阶段文档。我看一下第三、第四阶段这两份新文档的内容范围，再对照需求确认整体计划的完整度。",
+      "time": {
+       "start": 1792141716038,
+       "end": 1792141722781
+      }
+     }
+    },
+    {
+     "id": "part_mvaqwre1_a5740d7d-a578-491e-aa24-3866738ff66e",
+     "sequence": 4,
+     "time_created": "2026-10-16 17:08:42",
+     "data": {
+      "type": "step-finish",
+      "reason": "tool-calls",
+      "cost": 0,
+      "tokens": {
+       "total": 29194,
+       "input": 29041,
+       "output": 153,
+       "reasoning": 0,
+       "cache": {
+        "read": 28416,
+        "write": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvaqwre2_f9ecc577-bfda-44e0-a40f-ad94a7b75692",
+   "sequence": 4,
+   "time_iso": "2026-10-16 17:08:42",
+   "data": {
+    "role": "assistant",
+    "time": {
+     "created": 1792141722794,
+     "completed": 1792141739955
+    },
+    "parentID": "msg_mvaqwd0f_e46bfd02-9e04-4e27-82f7-96f871ebde9b",
+    "modelId": "kimi-k3",
+    "providerId": "new-provider",
+    "mode": "yolo",
+    "planEnabled": false,
+    "agent": "zcode-agent",
+    "path": {
+     "cwd": "/Users/honlnk/project/short-drama-web",
+     "root": "/Users/honlnk/project/short-drama-web"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 41175,
+     "input": 41054,
+     "output": 121,
+     "reasoning": 0,
+     "cache": {
+      "read": 28928,
+      "write": 0
+     }
+    },
+    "finish": "tool-calls",
+    "semantics": {
+     "origin": "agent_runtime",
+     "kind": "assistant_response",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_d93eb81e-a5ef-4984-9118-57cc740e2d37"
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvaqwre3_5f4d9889-8ca2-41a4-8f06-c93abbeaf21e",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:08:42",
+     "data": {
+      "type": "step-start"
+     }
+    },
+    {
+     "id": "part_mvaqx4ls_9a23764c-5ef7-46b1-8f1e-ccefae68fc3c",
+     "sequence": 1,
+     "time_created": "2026-10-16 17:08:42",
+     "data": {
+      "type": "text",
+      "text": "现在对照 PRD 的里程碑清单，确认整体计划的全貌。",
+      "time": {
+       "start": 1792141722794,
+       "end": 1792141739920
+      }
+     }
+    },
+    {
+     "id": "part_mvaqx4lv_5a123291-1c3e-4765-9aa1-2fbde6a4f376",
+     "sequence": 2,
+     "time_created": "2026-10-16 17:08:59",
+     "data": {
+      "type": "tool",
+      "callID": "Bash_3_6ac11c02",
+      "declarationIndex": 0,
+      "tool": "Bash",
+      "state": {
+       "status": "completed",
+       "input": {
+        "command": "grep -n \"里程碑\\|M[1-7]\\|PL-0\" /Users/honlnk/project/short-drama-web/docs/PRD.md | head -60",
+        "description": "Find milestone definitions in PRD"
+       },
+       "output": "76:| PL-01 | 上下滑动/滚轮切集 | 手机端触摸滑动切集；平板、PC 端支持滚轮与键盘方向键切集 | 切换流畅，URL 与当前集同步 |\n77:| PL-02 | 自动连播 | 当前集播放结束自动进入下一集 | 最后一集结束后停留在选集或返回提示 |\n78:| PL-03 | 选集列表 | 播放页可拉出选集面板，标记已看/当前集 | 跳集后播放进度正确 |\n79:| PL-04 | 记忆续播 | 播放进度定时/暂停时上报服务端；再次进入该剧自动从上次集数与进度续播 | 换浏览器标签页重新打开，进度仍在；讲解时作为「前后端真实打通」的现场证据 |\n80:| PL-05 | 观看历史 | 个人中心「观看历史」列表，点击直接续播 | 与 PL-04 共用同一份进度数据 |\n81:| PL-06 | 搜索 | 首页按剧名关键词搜索 | 模糊匹配，空结果有提示 |\n297:## 十、开发里程碑",
+       "title": "Bash",
+       "metadata": {
+        "schemaVersion": 1,
+        "serialization": {
+         "truncated": false,
+         "originalBytes": 897,
+         "returnedBytes": 897,
+         "budgetStrategy": "artifact"
+        }
+       },
+       "time": {
+        "start": 1792141739926,
+        "end": 1792141739953
+       }
+      }
+     }
+    },
+    {
+     "id": "part_mvaqx4mr_45c5e353-3ac8-40c1-a808-9af65e4829c4",
+     "sequence": 3,
+     "time_created": "2026-10-16 17:08:59",
+     "data": {
+      "type": "step-finish",
+      "reason": "tool-calls",
+      "cost": 0,
+      "tokens": {
+       "total": 41175,
+       "input": 41054,
+       "output": 121,
+       "reasoning": 0,
+       "cache": {
+        "read": 28928,
+        "write": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvaqx4ms_94b9ba37-2be4-44de-a398-05ff627af484",
+   "sequence": 5,
+   "time_iso": "2026-10-16 17:08:59",
+   "data": {
+    "role": "assistant",
+    "time": {
+     "created": 1792141739956,
+     "completed": 1792141745779
+    },
+    "parentID": "msg_mvaqwd0f_e46bfd02-9e04-4e27-82f7-96f871ebde9b",
+    "modelId": "kimi-k3",
+    "providerId": "new-provider",
+    "mode": "yolo",
+    "planEnabled": false,
+    "agent": "zcode-agent",
+    "path": {
+     "cwd": "/Users/honlnk/project/short-drama-web",
+     "root": "/Users/honlnk/project/short-drama-web"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 41541,
+     "input": 41448,
+     "output": 93,
+     "reasoning": 0,
+     "cache": {
+      "read": 40960,
+      "write": 0
+     }
+    },
+    "finish": "tool-calls",
+    "semantics": {
+     "origin": "agent_runtime",
+     "kind": "assistant_response",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_d93eb81e-a5ef-4984-9118-57cc740e2d37"
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvaqx4ms_8c61898c-1d7f-4f47-ad0d-fc105db2f4b5",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:08:59",
+     "data": {
+      "type": "step-start"
+     }
+    },
+    {
+     "id": "part_mvaqx945_31c7e314-f690-4739-b490-5e5fb58405f7",
+     "sequence": 1,
+     "time_created": "2026-10-16 17:09:05",
+     "data": {
+      "type": "tool",
+      "callID": "Read_4_4e5fc785",
+      "declarationIndex": 0,
+      "tool": "Read",
+      "state": {
+       "status": "completed",
+       "input": {
+        "file_path": "/Users/honlnk/project/short-drama-web/docs/PRD.md",
+        "limit": 40,
+        "offset": 297
+       },
+       "output": "297\t## 十、开发里程碑\n298\t\n299\t按演示路径优先级排序，每阶段结束都保证主线可运行：\n300\t\n301\t1. **脚手架与数据底座**：三个工程（server / web / admin）骨架 + 建表 + 种子数据 + StorageService 本地实现，首页能渲染出真实数据。\n302\t2. **用户链路**：注册、登录、JWT 鉴权贯通（C 端与后台共用认证）。\n303\t3. **核心演示路径**：首页 → 详情 → 播放页打通，视频可播；C 端三档响应式布局落地。\n304\t4. **互动闭环**：点赞、收藏。\n305\t5. **管理后台**：独立工程登录 + 短剧与剧集 CRUD + 文件上传完整可用。\n306\t6. **体验加分项**：滑动/滚轮切集、自动连播、记忆续播、观看历史、搜索。\n307\t7. **联调彩排**：三端全流程走查 + 演示脚本演练 + README 收尾。\n308\t\n309\t裁剪预案：若时间紧张，优先砍搜索与观看历史页面，保住滑动切集与记忆续播（演示价值最高）；管理后台可删减剧集排序等次要交互，但增删改查四项必须完整。\n310\t",
+       "title": "Read",
+       "metadata": {
+        "schemaVersion": 1,
+        "serialization": {
+         "truncated": false,
+         "originalBytes": 1081,
+         "returnedBytes": 1081,
+         "budgetStrategy": "truncate"
+        },
+        "readFileState": {
+         "schemaVersion": 1,
+         "tool": "Read",
+         "path": "/Users/honlnk/project/short-drama-web/docs/PRD.md",
+         "content": "## 十、开发里程碑\n\n按演示路径优先级排序，每阶段结束都保证主线可运行：\n\n1. **脚手架与数据底座**：三个工程（server / web / admin）骨架 + 建表 + 种子数据 + StorageService 本地实现，首页能渲染出真实数据。\n2. **用户链路**：注册、登录、JWT 鉴权贯通（C 端与后台共用认证）。\n3. **核心演示路径**：首页 → 详情 → 播放页打通，视频可播；C 端三档响应式布局落地。\n4. **互动闭环**：点赞、收藏。\n5. **管理后台**：独立工程登录 + 短剧与剧集 CRUD + 文件上传完整可用。\n6. **体验加分项**：滑动/滚轮切集、自动连播、记忆续播、观看历史、搜索。\n7. **联调彩排**：三端全流程走查 + 演示脚本演练 + README 收尾。\n\n裁剪预案：若时间紧张，优先砍搜索与观看历史页面，保住滑动切集与记忆续播（演示价值最高）；管理后台可删减剧集排序等次要交互，但增删改查四项必须完整。\n",
+         "offset": 297,
+         "limit": 40,
+         "isPartialView": false,
+         "readAtMs": 1792141745777,
+         "revisionId": "mtime:1792139813811:size:18362",
+         "mtimeMs": 1792139813811,
+         "sizeBytes": 18362
+        }
+       },
+       "time": {
+        "start": 1792141745768,
+        "end": 1792141745777
+       }
+      }
+     }
+    },
+    {
+     "id": "part_mvaqx94j_41533ce0-92f2-4f6b-822a-ad27e5c35f45",
+     "sequence": 2,
+     "time_created": "2026-10-16 17:09:05",
+     "data": {
+      "type": "step-finish",
+      "reason": "tool-calls",
+      "cost": 0,
+      "tokens": {
+       "total": 41541,
+       "input": 41448,
+       "output": 93,
+       "reasoning": 0,
+       "cache": {
+        "read": 40960,
+        "write": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvaqx94k_47186066-0eff-41fe-bd41-7abb6f0a65ac",
+   "sequence": 6,
+   "time_iso": "2026-10-16 17:09:05",
+   "data": {
+    "role": "assistant",
+    "time": {
+     "created": 1792141745780,
+     "completed": 1792141766656
+    },
+    "parentID": "msg_mvaqwd0f_e46bfd02-9e04-4e27-82f7-96f871ebde9b",
+    "modelId": "kimi-k3",
+    "providerId": "new-provider",
+    "mode": "yolo",
+    "planEnabled": false,
+    "agent": "zcode-agent",
+    "path": {
+     "cwd": "/Users/honlnk/project/short-drama-web",
+     "root": "/Users/honlnk/project/short-drama-web"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 42392,
+     "input": 41845,
+     "output": 547,
+     "reasoning": 0,
+     "cache": {
+      "read": 41216,
+      "write": 0
+     }
+    },
+    "finish": "stop",
+    "semantics": {
+     "origin": "agent_runtime",
+     "kind": "assistant_response",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_d93eb81e-a5ef-4984-9118-57cc740e2d37",
+     "historyRoundCount": 5,
+     "orderedMessageIds": [
+      "msg_mvaqwd0f_e46bfd02-9e04-4e27-82f7-96f871ebde9b",
+      "msg_mvaqwd1c_1a2a3133-5443-46d3-b7f4-5e7fa683dc74",
+      "msg_mvaqwd1d_8a40b198-a37f-489c-bfa0-6b39b61d2341",
+      "msg_mvaqwm6e_9ae47f35-f0c2-49d4-8eb7-bd8e87f4aa8c",
+      "msg_mvaqwre2_f9ecc577-bfda-44e0-a40f-ad94a7b75692",
+      "msg_mvaqx4ms_94b9ba37-2be4-44de-a398-05ff627af484",
+      "msg_mvaqx94k_47186066-0eff-41fe-bd41-7abb6f0a65ac"
+     ],
+     "boundaryMessageId": "msg_mvaqx94k_47186066-0eff-41fe-bd41-7abb6f0a65ac",
+     "goalBoundary": {
+      "kind": "none"
+     }
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvaqx94k_d5529eec-10b1-4300-815d-4d80979ae5e9",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:09:05",
+     "data": {
+      "type": "step-start"
+     }
+    },
+    {
+     "id": "part_mvaqxp8b_4991faa2-1883-4991-80c0-e5fe2ade70bb",
+     "sequence": 1,
+     "time_created": "2026-10-16 17:09:05",
+     "data": {
+      "type": "text",
+      "text": "对照 PRD 第十章的 7 个里程碑，四份阶段计划的覆盖情况如下：\n\n## 结论：整体计划已覆盖约 **85%~90%**\n\nPRD 共 7 个里程碑，目前已有计划文档的情况：\n\n| PRD 里程碑 | 对应计划文档 | 状态 |\n|---|---|---|\n| M1 脚手架与数据底座 | 阶段一 ✅（已完工） | 已覆盖 |\n| M2 用户链路 + M3 核心演示路径 | 阶段二 ✅（已完工，M2+M3 合并） | 已覆盖 |\n| M4 互动闭环 + M5 管理后台 | **阶段三**（本次新写，M4+M5 合并） | 已覆盖，正在施工 |\n| M6 体验加分项（PL-01/02/04/05后端/06） | **阶段四**（本次新写，worktree 并行） | 大部分覆盖 |\n| M7 联调彩排 | ❌ 无计划文档 | **未覆盖** |\n\n**两个明确缺口**（两份文档里都各自声明留给「第五阶段」）：\n\n1. **PL-05 观看历史的前端页面** —— 第四阶段计划§二明确排除，因为页面必须挂在第三阶段正在建的 `/mine` 路由下，并行必撞车，留给第五阶段挂载（半天量）。\n2. **PL-03 选集面板的「已看」标记** —— 第四阶段计划§二明确排除，规则模糊、演示价值低，与历史页一并评估。\n3. **M7 联调彩排**（三端全流程走查 + 演示脚本演练 + README 收尾）—— 两份文档都在「明确不做」里排除了，还没有独立的阶段五计划。\n\n**按里程碑数量算**：7 个里程碑中 5.5 个已有计划 ≈ **79%**；但 M1~M5 是重头（必含功能 100% 都落在前五），剩余缺口都是轻量收尾项，**按工作量估算约 85%~90%**。\n\n按两份文档自己的口径：阶段三收口后「即使砍掉 M6 也完整可交付」，阶段四收口后「C 端接口 100% 集齐，剩余工作只剩 PL-03、PL-05 前端页（半天量）、M7 彩排」——所以下一份要写的计划就是**第五阶段（历史页挂载 + 已看标记 + 联调彩排收口）**，写完即 100%。",
+      "time": {
+       "start": 1792141745780,
+       "end": 1792141766651
+      }
+     }
+    },
+    {
+     "id": "part_mvaqxp8f_c00a1bc3-de5b-4cdf-b5e7-5ab3e4fc80f4",
+     "sequence": 2,
+     "time_created": "2026-10-16 17:09:26",
+     "data": {
+      "type": "step-finish",
+      "reason": "stop",
+      "cost": 0,
+      "tokens": {
+       "total": 42392,
+       "input": 41845,
+       "output": 547,
+       "reasoning": 0,
+       "cache": {
+        "read": 41216,
+        "write": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvaqy3r2_440c3742-d51e-463a-ba2a-9e032564bf80",
+   "sequence": 7,
+   "time_iso": "2026-10-16 17:09:45",
+   "data": {
+    "role": "user",
+    "time": {
+     "created": 1792141785471
+    },
+    "agent": "zcode-agent",
+    "modelSelection": {
+     "providerId": "new-provider",
+     "modelId": "kimi-k3",
+     "options": {
+      "reasoningLevel": "max"
+     }
+    },
+    "contextSnapshot": {
+     "envInfo": {
+      "cwd": "/Users/honlnk/project/short-drama-web",
+      "platform": "darwin",
+      "shell": "zsh",
+      "osVersion": "darwin 24.6.0 arm64",
+      "nodeVersion": "v24.14.0",
+      "isGitRepository": true,
+      "gitBranch": "main",
+      "gitMainBranch": "main",
+      "gitUser": "honlnk",
+      "gitStatus": "dirty",
+      "gitStatusLines": [
+       "M AGENTS.md",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/AuthController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/DramaController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/PingController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/dto/ApiResponse.java",
+       " M apps/api/src/main/java/com/shortdrama/api/dto/DramaSummary.java",
+       " M apps/api/src/main/java/com/shortdrama/api/repository/FavoriteRepository.java",
+       " M apps/api/src/main/java/com/shortdrama/api/repository/UserLikeRepository.java",
+       " M apps/api/src/main/java/com/shortdrama/api/security/JwtService.java",
+       " M apps/api/src/main/java/com/shortdrama/api/service/DramaService.java",
+       " M apps/api/src/main/resources/application.yml",
+       " M apps/web/src/api/client.ts",
+       " M docs/PRD.md",
+       " M docs/devlog.md",
+       " M docs/plan/第二阶段-用户链路与核心演示路径.md",
+       "?? apps/api/src/main/java/com/shortdrama/api/controller/InteractionController.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/controller/MeController.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/dto/FavoriteToggleResponse.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/dto/LikeToggleResponse.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/service/InteractionService.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/service/InteractionTxService.java",
+       "?? apps/api/src/test/java/com/shortdrama/api/service/",
+       "?? docs/plan/第三阶段-互动闭环与管理后台.md",
+       "?? docs/plan/第四阶段-体验加分项并行计划.md"
+      ],
+      "recentCommits": [
+       "e9bea5b feat: 阶段2 用户链路与核心演示路径——JWT 鉴权+注册登录+详情/竖屏播放页+点赞收藏状态回显，验收门禁全绿",
+       "77d755a docs: 计划文档口径修正——status 以 PRD §6 ONLINE/OFFLINE 为准、媒体重建两步、时长/点赞按实际落地口径标注",
+       "d408be7 feat: 阶段1 数据底座与种子资源——6 表实体+种子灌库+/api/dramas+C 端首页封面网格，验收门禁全绿",
+       "3e62109 feat: 种子媒体素材就绪——50 个 Mixkit 竖屏视频下载完成，素材线收口",
+       "b8a55e2 docs: 用户拍板收口——端口目录统一 apps/*+3000/3001，demo 口径定稿 demo123，PLAN.md 退役"
+      ]
+     }
+    },
+    "semantics": {
+     "origin": "real_user",
+     "kind": "user_prompt",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_5610ecdb-d6e1-4375-a140-8ee48de45fd7",
+     "origin": "realUser",
+     "sourceCommandId": "01a143f9-7977-7dec-9bfb-ec72ae781e2f"
+    },
+    "tools": {
+     "Agent": true,
+     "AskUserQuestion": true,
+     "Bash": true,
+     "CronCreate": true,
+     "CronDelete": true,
+     "CronList": true,
+     "CronUpdate": true,
+     "Edit": true,
+     "EnterPlanMode": true,
+     "ExitPlanMode": true,
+     "Read": true,
+     "Skill": true,
+     "TaskOutput": true,
+     "TaskStop": true,
+     "TodoRead": true,
+     "TodoWrite": true,
+     "WebFetch": true,
+     "WebSearch": true,
+     "Write": true,
+     "OffPeakCreate": true,
+     "OffPeakList": true,
+     "SendMessage": true,
+     "ReadSessionContext": true,
+     "ReplyToChannel": true,
+     "CreateWorkflow": true,
+     "AmendWorkflow": true,
+     "SaveWorkflow": true,
+     "EvalWorkflowSnippet": true,
+     "ListWorkflowRuns": true,
+     "GetWorkflowRun": true,
+     "ResumeWorkflowRun": true,
+     "ResolveWorkflowQuestion": true,
+     "FillWorkflowHole": true,
+     "ListSavedWorkflows": true,
+     "ListModels": true,
+     "mcp__plugin_image-search_image_search__search_image": true,
+     "mcp__linkseek__web_search": true,
+     "mcp__linkseek__web_fetch": true,
+     "mcp__linkseek__web_search_and_fetch": true,
+     "mcp__linkseek__get_result": true,
+     "mcp__linkseek__web_fetch_render": true,
+     "mcp__linkseek__list_models": true,
+     "mcp__linkseek__web_fetch_answer": true,
+     "mcp__linkseek__web_search_answer": true,
+     "mcp__linkseek__web_research": true,
+     "mcp__picsense__analyze_images": true,
+     "mcp__picsense__list_sessions": true,
+     "mcp__picsense__analyze_document": true,
+     "mcp__picsense__analyze_video": true,
+     "mcp__node_repl__js": true
+    },
+    "metadata": {
+     "inputIntent": {
+      "inputOrigin": "desktop",
+      "sourceCommandId": "01a143f9-7977-7dec-9bfb-ec72ae781e2f",
+      "queueItemId": "queue_01a143f9-7977-7dec-9bfb-ec72ae781e2f",
+      "clientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb",
+      "kind": "sendText",
+      "text": "看一下 当前项目 从开始到现在 大概花费了多长时间",
+      "modelSelection": {
+       "providerId": "new-provider",
+       "modelId": "kimi-k3",
+       "options": {
+        "reasoningLevel": "max"
+       }
+      },
+      "mode": "yolo",
+      "planEnabled": false,
+      "admissionSeq": 2,
+      "admittedAt": 1792141785468,
+      "requestedDelivery": "startNow",
+      "admittedDelivery": "startNow"
+     },
+     "conversationInputIntent": {
+      "inputOrigin": "desktop",
+      "sourceCommandId": "01a143f9-7977-7dec-9bfb-ec72ae781e2f",
+      "queueItemId": "queue_01a143f9-7977-7dec-9bfb-ec72ae781e2f",
+      "clientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb",
+      "kind": "sendText",
+      "text": "看一下 当前项目 从开始到现在 大概花费了多长时间",
+      "attachments": [],
+      "modelSelection": {
+       "providerId": "new-provider",
+       "modelId": "kimi-k3",
+       "options": {
+        "reasoningLevel": "max"
+       }
+      },
+      "mode": "yolo",
+      "planEnabled": false,
+      "delivery": {
+       "requested": "startNow",
+       "admitted": "startNow"
+      },
+      "order": {
+       "admissionSeq": 2
+      },
+      "steer": {
+       "state": "notRequested"
+      },
+      "dispatch": {
+       "state": "drained"
+      },
+      "admittedAt": 1792141785468
+     },
+     "inputClientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb"
+    },
+    "model": {
+     "providerID": "new-provider",
+     "modelID": "kimi-k3",
+     "variant": "max"
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvaqy3r3_41c4ff51-26b8-4bee-8f90-559f65dcbde5",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:09:45",
+     "data": {
+      "type": "text",
+      "text": "看一下 当前项目 从开始到现在 大概花费了多长时间",
+      "time": {
+       "start": 1792141785471,
+       "end": 1792141785471
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvaqy3r5_54037603-08a2-4932-a661-b88d5168771d",
+   "sequence": 8,
+   "time_iso": "2026-10-16 17:09:45",
+   "data": {
+    "role": "assistant",
+    "time": {
+     "created": 1792141785473,
+     "completed": 1792141794059
+    },
+    "parentID": "msg_mvaqy3r2_440c3742-d51e-463a-ba2a-9e032564bf80",
+    "modelId": "kimi-k3",
+    "providerId": "new-provider",
+    "mode": "yolo",
+    "planEnabled": false,
+    "agent": "zcode-agent",
+    "path": {
+     "cwd": "/Users/honlnk/project/short-drama-web",
+     "root": "/Users/honlnk/project/short-drama-web"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 42647,
+     "input": 42424,
+     "output": 223,
+     "reasoning": 60,
+     "cache": {
+      "read": 41728,
+      "write": 0
+     }
+    },
+    "finish": "tool-calls",
+    "semantics": {
+     "origin": "agent_runtime",
+     "kind": "assistant_response",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_5610ecdb-d6e1-4375-a140-8ee48de45fd7"
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvaqy3r6_d4c6d3d0-a2a9-408c-badb-bc33ba937a71",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:09:45",
+     "data": {
+      "type": "step-start"
+     }
+    },
+    {
+     "id": "part_mvaqyabw_2f16564a-93d0-48f1-996f-0f3e48bea702",
+     "sequence": 1,
+     "time_created": "2026-10-16 17:09:53",
+     "data": {
+      "type": "tool",
+      "callID": "Read_6_947ce049",
+      "declarationIndex": 1,
+      "tool": "Read",
+      "state": {
+       "status": "completed",
+       "input": {
+        "file_path": "/Users/honlnk/project/short-drama-web/docs/devlog.md"
+       },
+       "output": "1\t# 施工日志（devlog）\n2\t\n3\t格式：日期 + 阶段 + 验收结论 + 偏差记录。每阶段门禁时更新。\n4\t\n5\t## 2026-10-16 · 阶段0 脚手架（进行中）\n6\t\n7\t- 环境核实：Java 21.0.9 (Temurin) / Maven 3.9.11 / Node v24.11.0 / pnpm 10.21.0 / git 2.51.2；start.spring.io 与 npm registry 均可达。\n8\t- `git init -b main` 完成；计划定稿写入 `docs/PLAN.md`，含与 PRD 的冲突裁定（目录端口按 apps/* + 3000/3001；演示账号 demo 按 demo123）。\n9\t- 待办：apps/api（Spring Initializr）、apps/web、apps/admin（Vite 模板）、scripts/dev.sh、三服务门禁验收。\n10\t\n11\t## 2026-10-16 15:40 · 阶段0 门禁通过（含一次中途技术决策变更）\n12\t\n13\t### 变更与偏差记录\n14\t\n15\t1. **数据库 H2 → 本机 MySQL（用户中途决策，已遵照执行）**：施工期间用户并行修改了 ARCHITECTURE.md / PRD.md / docs/PLAN.md，数据库从「H2 file 模式（零外部依赖）」改为「本机 MySQL 26.7（homebrew，127.0.0.1:3306，非容器）专用库 short_drama，utf8mb4」；用户在会话中提供凭据 root/root123。脚手架随之切换：pom 依赖 h2 → mysql-connector-j、application.yml 数据源改 MySQL、SecurityConfig 移除 h2-console 相关配置。H2 不再是本项目数据库路径；原计划中 3307 docker MySQL 备选方案作废。影响：演示前置条件从「无」变为「本机 mysqld 需在运行」（homebrew services 可设开机自启）。\n16\t2. **start.spring.io 已不再提供 3.5.x**（当前默认 4.1.1，仅 4.x 可选）：按 Initializr 生成骨架后手工将 parent 钉到 Maven Central 最新 3.5.16，并把 Boot4 新依赖名（spring-boot-starter-webmvc 等）换回 3.5 命名（spring-boot-starter-web 等）。计划钉 3.5.x 的意图保持不变。\n17\t3. **dev.sh 首版即败**：`set -u` 下 `$LOG_DIR` 后紧跟全角「（」，bash 将多字节字符部分字节并入变量名导致 unbound 退出。修复：脚本内变量展开一律 `${}`。已重测通过。\n18\t4. **文档冲突裁定**（详见 docs/PLAN.md 执行补记）：目录/端口按计划 apps/* + 3000/3001（PRD 7.2 的 server+5173/5174 为概要性表述）；demo 账号密码按 PRD 用 demo/demo123（计划中的 123456 作废），阶段1 落地。\n19\t\n20\t### 门禁结论（MySQL 模式，全绿）\n21\t\n22\t- `./mvnw package` 构建通过（Java 21 / Boot 3.5.16）。\n23\t- `./scripts/dev.sh` 一键启动：api :8080 `/api/ping` 200（日志确认 HikariPool 真实建立 `com.mysql.cj.jdbc.ConnectionImpl` 连接，启动 1.1s）；web :3000、admin :3001 均 200。\n24\t- 双前端经 Vite 代理访问 `/api/ping` 均正常返回 pong（前后端链路真实连通，非 mock）。\n25\t- 双前端 `tsc -b` 类型检查通过；`short_drama` 库确认为 utf8mb4_unicode_ci。\n26\t- 停止验证：dev.sh 退出后 8080/3000/3001 三端口全部释放。\n27\t\n28\t### 下一步\n29\t\n30\t阶段1 后端：实体 → JWT/Security → 服务 → 控制器 → 种子数据（admin/admin123、demo/demo123）→ `scripts/api-test.sh` curl 验收全绿。\n31\t\n32\t## 2026-10-16 15:45 · 文档归档 + README（脚手架会话）\n33\t\n34\t- 根目录归档：REQUIREMENTS.md / PRD.md / ARCHITECTURE.md → docs/（git mv 保留历史）；根目录只留 README.md 与 AGENTS.md（后者供 AI 工具读取，必须固定在根）。\n35\t- 引用修复：AGENTS.md 需求来源路径、docs/ARCHITECTURE.md 目录树（顺带把 ASCII 树改为嵌套列表，符合文档表达规范）、docs/plan/第一阶段计划的上游文档相对链接。\n36\t- 新增根目录 README.md：功能概览、技术栈、Mermaid 架构图、快速开始、演示账号、数据库说明、文档索引、里程碑进度。\n37\t- 发现并行会话新产出 docs/plan/第一阶段-数据底座与种子资源.md（种子数据线），其对脚手架会话的接口约定已对齐：application.yml 凭据改为 `${DB_USERNAME:root}` / `${DB_PASSWORD:root123}` 占位符写法（默认值即本机实际，演示零配置），改后已实测后端启动 + MySQL 连接正常。\n38\t- 该第一阶段计划的「待用户拍板 #1（MySQL 凭证）」已由用户在本会话提供 root/root123 并验证可用，记录于此供其会话取用。\n39\t\n40\t## 2026-10-16 15:55 · 用户拍板收口：端口/目录统一、demo 口径定稿、PLAN.md 退役（脚手架会话）\n41\t\n42\t用户明确拍板三项，本会话已落实：\n43\t\n44\t1. **目录/端口**：全仓统一为 apps/api(8080) + apps/web(3000) + apps/admin(3001)。PRD 已同步改写：5.2 节「如 5174」→「3001」，7.2 表 server/web/admin+5173/5174 → apps/*+3000/3001。此前的「PRD 与计划冲突」就此消解，PRD 现与实际一致。\n45\t2. **demo 账号**：定稿 `demo / demo123`（admin/admin123 不变）。与 docs/plan/第一阶段 文档口径一致，无代码需改（种子数据未落地）。\n46\t3. **docs/PLAN.md 退役**：用户删除该文件，现行计划唯一存放处为 docs/plan/ 目录。README 文档索引、ARCHITECTURE.md 目录结构、AGENTS.md 的相关引用已同步清理。\n47\t\n48\t注：工作树中 .gitignore（seed-assets/ 忽略）与 scripts/fetch-seed-media.sh、scripts/mixkit-*.txt 为第一阶段会话的新增施工物，本会话未纳入提交，由其自行收口。\n49\t\n50\t## 2026-10-16 16:05 · 种子素材就绪（第一阶段·本会话）\n51\t\n52\t- 素材拍板落地：Mixkit 竖屏真人素材方案（替代原横屏测试视频占位方案）。\n53\t- 下载完成：50 个视频入 `seed-assets/videos/`（54MB，50/50 成功零失败；单文件 470K~2.1M、时长 8~28 秒；抽查 4 个浏览器实测均 360×640 竖屏）。\n54\t- 交付物：`scripts/fetch-seed-media.sh`（幂等下载，带失败清单）、`scripts/mixkit-ids.txt`（243 个候选 ID，前 50 个即已下载集）、`scripts/mixkit-titles.txt`（366 条 ID→标题映射，供按分类选片）、`seed-assets/README.md`（50 个素材清单 + 五分类匹配建议 + License 提示，随素材不入 git）。\n55\t- git：`seed-assets/` 已加入 `.gitignore`（`git check-ignore` 验证生效）。\n56\t- 计划同步：`docs/plan/第一阶段-数据底座与种子资源.md` 任务 2 已由「写下载脚本」改写为「素材已就绪，仅剩按分类选片复制到 uploads/」；第九节素材拍板项标记已定稿。\n57\t- 已知缺口：素材库中无直接对应「古装」分类的内容，施工时用氛围素材顶替并在演示话术说明（详见 seed-assets/README.md 分类说明）。\n58\t- 衔接脚手架：本会话拍板 #1（MySQL 凭证）已由脚手架会话记录为 root/root123 并验证可用，本线任务 1（建库 short_drama）已由脚手架门禁确认 utf8mb4_unicode_ci 就绪，不再重复执行。\n59\t\n60\t## 2026-10-16 19:30 · 阶段1 门禁通过：数据底座与种子资源全线落地（第一阶段·本会话）\n61\t\n62\t验收标准一句话达成：**C 端首页用后端真实接口渲染出 6 部短剧封面网格，数据来自 MySQL，视频与封面全部本地资源。**\n63\t\n64\t### 交付物\n65\t\n66\t- 实体 6 张表：`User`（表名 `` `user` `` 避保留字）、`Drama`（status ONLINE/OFFLINE）、`Episode`、`Favorite`、`UserLike`（各带 user_id+drama_id 唯一约束）、`WatchProgress`（user_id+drama_id 唯一）；仓储 `UserRepository` / `DramaRepository`（@EntityGraph 一次取 episodes）/ `EpisodeRepository`。\n67\t- `DataSeeder`（CommandLineRunner，用户表为空才灌库）：6 剧 × 4 集 + admin/admin123（ADMIN）+ demo/demo123（USER），密码 BCrypt。\n68\t- 接口 `GET /api/dramas`：上线剧按点赞降序，DTO `DramaSummary` 含集数统计。\n69\t- 媒体分配：`scripts/allocate-seed-media.sh`（新增，幂等，已重跑两遍验证）从 seed-assets 按分类选片复制 24 个 mp4 至 `uploads/videos/drama-{01..06}/ep-{01..04}.mp4`，生成 6 张分类配色 SVG 封面 `uploads/covers/drama-{01..06}.svg`，输出校验报告（数量/体积/mdls 时长）。`uploads/` 30 文件共 24MB。\n70\t- C 端首页（apps/web/App.tsx 重写）：axios 调 `/api/dramas`，暗色主题响应式网格（2/3/4/6 列），卡片含封面、分类角标、点赞（万格式化）、集数；loading/error 态齐全，无任何写死数据。\n71\t\n72\t### 门禁实证（全绿）\n73\t\n74\t- 空库启动自动建 6 表并灌种子；二次启动日志「数据已存在，跳过种子导入」，行数不变（6/24/2）。\n75\t- `./mvnw test` 绿；web `tsc -b` 绿。\n76\t- `curl /api/dramas` 返回 6 剧 JSON 字段完整；mp4 直连 200 + Range 206（video/mp4）。\n77\t- 浏览器验收：首页 DOM 快照 6 张卡片与种子数据逐项一致；截图视觉核验通过（SVG 封面、角标、点赞、集数齐全无错位）；页面内 `<video>` 实际解码 ep-01：readyState=4、20.5s、360×640，3000 代理与 8080 直连两路均通。\n78\t- 幂等复验：`fetch-seed-media.sh` 重跑 50 个全跳过 0 失败。\n79\t\n80\t### 偏差记录\n81\t\n82\t1. **drama.status 取值 ONLINE/OFFLINE，非计划的 PUBLISHED**：上游 PRD §6 数据设计即为 ONLINE/OFFLINE，以 PRD 为准（PRD 是需求唯一来源），计划措辞作废。\n83\t2. **媒体重建路径拆成两步**：计划写「uploads 由 fetch-seed-media.sh 一键重建」，实际拆为 fetch（下载 50 素材）+ allocate（选片复制 + 封面生成）两个脚本串行，README 已按两步写。\n84\t3. **episode.duration_sec 按素材实际时长（8~28s 整数）填**，非计划的「填 5 或 10」；like_count 用固定值（963~3258）非随机——两者都更真实，不影响验收。\n85\t4. **插曲：幽灵 `users` 表**——一次测试运行后 SHOW TABLES 列出 `users` 但访问报不存在（遗留元数据残影），drop 全部表后干净重建，6 张表准确无冗余，未复现。\n86\t5. mdls 首次跑 allocation 时 Spotlight 未索引返回 null，重跑即正常（时长数据已在报告中，无需依赖）。\n87\t\n88\t### 下一步\n89\t\n90\t阶段2（里程碑 2）：注册/登录/JWT 贯通 → 阶段3 C 端详情页与播放页 → 阶段4 点赞收藏 → 阶段5 管理后台。\n91\t\n92\t## 2026-10-16 16:40 · 阶段2 门禁通过：用户链路与核心演示路径全线落地（第二阶段·本会话）\n93\t\n94\t按《第二阶段计划》完成里程碑 2+3 合并施工。验收标准一句话达成：**访客打开 C 端首页看到真实短剧网格，注册登录后进入详情页看到点赞收藏状态回显，点集进入竖屏播放页正常播放，三档宽度布局无错位；受保护接口无 token 返回 401。**\n95\t\n96\t### 交付物\n97\t\n98\t**后端（apps/api，第一阶段实体与列表接口未动，只新增）**：\n99\t\n100\t- `security/` 包：`JwtService`（HS384 签发/解析——52 字符密钥 416bit，jjwt `signWith(key)` 按位宽自动选最强算法；原口径写 HS256 系笔误，阶段3 review 修正，载荷 sub=userId + username + role，72h）、`JwtAuthFilter`（Bearer 解析入 SecurityContext，非法/过期放行交授权规则兜底；非 bean，由 SecurityConfig 显式构造避免 Boot 全局 Filter 双注册）、`AuthUser`（UserDetails，供 @AuthenticationPrincipal）、`UserDetailsServiceImpl`（桥接 Security 基础设施，登录本身走 AuthService 直查仓储）。\n101\t- SecurityConfig 替换全量放行：公开 `/api/auth/**`（`/me` 除外，靠规则顺序）、`/api/ping`、`/uploads/**`、C 端浏览 GET（`/api/dramas` 列表/详情/剧集）；登录才能点赞收藏与 `/api/me/**`；`/api/admin/**` 需 ADMIN（规则先行，接口属里程碑 5）；STATELESS + 关 CSRF；401 统一 JSON `{code:401,message:\"未登录或登录已过期\",data:null}`。\n102\t- 认证接口：`POST /api/auth/register`（重名 409「用户名已被注册」，注册即登录返回 token）、`POST /api/auth/login`（失败统一 400「用户名或密码错误」）、`GET /api/auth/me`（登录态校验回填，nickname 查库）。DTO 四件 + `@NotBlank/@Size` 校验；`exception/` 包：BusinessException + GlobalExceptionHandler 统一 `{code,message,data}` 出口（业务/校验/未知异常）。\n103\t- 详情与剧集：`GET /api/dramas/{id}`（可选登录：带 token 返回 liked/favorited 真实状态，匿名 false；OFFLINE/不存在一律 404）、`GET /api/dramas/{id}/episodes`（episodeNo 升序）；新增 `FavoriteRepository`/`UserLikeRepository`（existsByUserIdAndDramaId）与 `EpisodeRepository.findByDramaIdOrderByEpisodeNoAsc`；DTO `DramaDetail`/`EpisodeSummary`。\n104\t\n105\t**C 端（apps/web，从单页改造为带路由与全局登录态的应用）**：\n106\t\n107\t- 基础设施：`api/client.ts`（axios 实例，请求拦截塞 Bearer；401 清 token 跳 `/login?from=`，`skipAuthRedirect` 标记豁免启动校验）、`api/auth.ts`、`api/dramas.ts`、`store/AuthContext.tsx`（挂载经 getMe 恢复登录态，失败静默降级访客）、`router/index.tsx`（五路由 + 兜底回首页）、`components/Layout.tsx`（顶栏含登录态/退出）、`components/RequireAuth.tsx`（整页守卫备好，供里程碑 4）、`hooks/useDramaInteractions.ts`（点赞收藏点击守卫：未登录跳登录页带回跳，已登录提示「即将上线」不写库）。\n108\t- 页面：HomePage（分类筛选条 + 2/4/6 列响应式网格 + loading/空态/失败重试）、DramaDetailPage（封面左信息右布局、点赞收藏状态回显、选集网格）、PlayerPage（竖屏 9:16 播放、`?ep=` 定位与切换、video key 重载、PC 双栏布局）、LoginPage（含 demo/admin 快捷填充）、RegisterPage（确认密码 + 注册即登录）。\n109\t\n110\t### 门禁实证（全绿）\n111\t\n112\t- curl：注册 200/重名 409、登录 200/错密码 400、`/me` 带 token 200 / 无 token 401 / 伪造 token 401、`GET /api/dramas` 匿名 200（公开接口不回退）、`POST /api/dramas/1/like` 匿名 401。\n113\t- 详情/剧集：无 token liked/favorited=false，带 demo token 正确（false/false）；`/episodes` 4 集升序 videoUrl 正确；mp4 HEAD 200 + Range 206（video/mp4）；不存在的剧 404。\n114\t- 浏览器（自动化全路径）：首页 6 剧网格真实渲染 → 点「悬疑」只剩《午夜出租车》→ 进详情 → 未登录点点赞跳 `/login?from=%2Fdrama%2F5` → 快捷填充登录回详情且头部显示「演示用户/退出」→ 已登录点赞出占位提示不跳转 → 点第 2 集 URL `?ep=2` 视频 readyState=4（360×640 竖屏、进度 3.4s 证实在播）→ 刷新仍停第 2 集 → 选集切 3 URL/片源同步 → 注册 browser_demo 即登录 → 刷新登录态保持 → 退出回登录/注册。\n115\t- 三档宽度（375/900/1440）：首页网格列数实测 2/4/6，均无横向滚动；播放页视频本体 9:16（object-contain 不裁切），PC 档「播放区+右侧信息栏」双栏；四档截图视觉核验无错位/重叠/截断。\n116\t- `./mvnw test` 绿；web `tsc -b` 绿；前端源码无任何外网资源引用（断网演示安全）。\n117\t\n118\t### 偏差记录\n119\t\n120\t1. **播放页数据源用详情接口一次取齐**：计划写「GET /api/dramas/{id}/episodes（+详情取剧名）」两次请求，实际 `DramaDetail` 已内嵌升序 episodes，播放页只调一次详情接口。效果一致少一次请求；episodes 独立接口保留供后续使用（如记忆续播）。\n121\t2. **登录失败 HTTP 状态取 400 而非 401**：若用 401 会触发前端 axios 拦截器「清 token + 跳登录页」，在登录页内形成错误提示被劫持；400 携带「用户名或密码错误」message 由登录页直接展示。语义无歧义。\n122\t3. **手机档播放页保留全局顶栏**：计划写「手机全屏沉浸」，实际保留 56px 顶栏（提供返回首页与登录态入口），播放区 max-h 自适应不出屏。演示价值（随处可导航/退出）优于纯沉浸，如需纯沉浸里程碑 6 再收。\n123\t4. **UserDetailsServiceImpl 本阶段为基础设施预备件**：登录走 AuthService 直查 UserRepository（少一层转换），该类供 Spring Security 全局 AuthenticationManager 装配，里程碑 5 管理后台登录可复用。计划原文即列此类，未删。\n124\t5. 验收期间注册的 browser_demo/gateuser 测试账号留在库中（真实注册链路的副产物），不影响演示；如需清理可 `DELETE FROM user WHERE username IN ('gateuser','browser_demo')`。\n125\t\n126\t### 下一步\n127\t\n128\t里程碑 4：点赞/收藏写库（POST /api/dramas/*/like、/favorite 与 /api/me/favorites，规则已配好）→ 里程碑 5 管理后台。\n129\t\n130\t## 2026-10-16 · 阶段3 任务1 施工中 · review 插单修复两项（会话中断处理）\n131\t\n132\t阶段3 任务1（互动接口）代码落地后、门禁验收前，用户 review 提出两个问题，逐一核实并修复：\n133\t\n134\t### 1. 统一响应包体未落地（🔴，成立，已修实现）\n135\t\n136\t- **核实**：PRD 接口规范明文「统一响应结构 `{ code, message, data }`」；阶段2 实际只落地了错误侧（GlobalExceptionHandler）与 ping，成功响应（auth/dramas）为裸数据——阶段2 门禁当时未覆盖成功包体形态，漏检。\n137\t- **修复**（以 PRD 为准修实现，不改 PRD 迁就现实）：\n138\t  - 后端：`ApiResponse` 增加 `ok(data)` 工厂（code=0, message=\"ok\"）；全部成功返回包体——PingController（保留 message=\"pong\"）、AuthController ×3、DramaController ×3、以及本阶段新写的 InteractionController ×2、MeController ×1。\n139\t  - 前端 web：`client.ts` 响应拦截器统一拆包（识别 `{code,message,data}` → code=0 时 `response.data = body.data`，页面层 `res.data` 消费形状不变；code≠0 且 HTTP 200 的业务错误转 reject 走既有错误提示链）。\n140\t  - 阶段3 计划 §三「衔接表」相应行已加修正注记。\n141\t- **影响面**：属对阶段2 已交付接口契约的修订（计划原文「不改第一、二阶段契约」，此为 review 授权的例外）；admin（任务 4）后续按同口径实现。\n142\t\n143\t### 2. JWT 签名算法实为 HS384 非文档口径 HS256（成立，修文档不修代码）\n144\t\n145\t- **核实**：`JwtService.signWith(key)` 未显式指定算法，jjwt 按密钥位宽自动选最强——52 字符密钥=416bit → HS384（token header `{\"alg\":\"HS384\"}` 实证）。强度高于 HS256，无安全或兼容问题（解析侧 verifyWith 对称校验，不校验 alg 白名单）。\n146\t- **处置**：代码行为不动（更强无理由降级），修正全部文档/注释口径共 6 处：AGENTS.md「当前状态」、devlog 阶段2 条目（就地修正并注明）、第二阶段计划 §四/§五、application.yml 注释、JwtService javadoc（补充自动映射机制说明，防未来换密钥时再漂移）。\n147\t\n148\t### 其他\n149\t\n150\t- 中断前回归另发现两处待办（属阶段3 范围，尚未处理）：USER 调 `/api/admin/**` 返回 401 而非计划门禁的 403（SecurityConfig 缺 accessDeniedHandler 配置，任务 3 修）；未匹配路由异常被 GlobalExceptionHandler 兜成 500 而非 404（计划外问题，仅记录不处理）。\n151\t\n152\t## 2026-10-16 17:10 · 阶段3 任务1 门禁通过：点赞/收藏写库 + 我的收藏接口\n153\t\n154\t按《第三阶段计划》任务 1 完成互动后端。Controller 选型记录（计划允许自选）：独立 `InteractionController` + `InteractionService`（编排，不开事务）+ `InteractionTxService`（写库事务边界，独立 bean）——不并入 DramaController，保持 C 端只读链路纯净。\n155\t\n156\t**交付物**：`POST /api/dramas/{id}/like` / `favorite`（幂等切换）、`GET /api/me/favorites`（收藏时间倒序 DramaSummary）；仓储补 `deleteByUserIdAndDramaId`（返回行数防并发重复扣减）、`findByUserIdOrderByCreatedAtDesc`（EntityGraph 带 drama+episodes）；`DramaSummary.from` 工厂统一映射（DramaService 私有映射收敛至此）；单测 12 个（InteractionServiceTest 7 + InteractionTxServiceTest 4 + 既有 contextLoads）。\n157\t\n158\t**门禁实证（curl 全绿）**：\n159\t- 匿名调 like/favorite/favorites → 401 包体；demo token 详情回显与操作一致（liked 随切换变、favorited 随收藏变）。\n160\t- 点赞往返：2461 → 2462 → 2461；并发双击（两请求同发）后查库 user_like 仅 1 行、计数只 +1——唯一索引兜底生效。\n161\t- 收藏剧 1+剧 2 → /me/favorites 返回 2 条且倒序正确（剧 2 在前）；再取消后清零。\n162\t- 门禁数据已通过接口反向清理（库回种子态：0 like / 0 fav，剧 2 计数回 1987）。\n163\t- `./mvnw test` 全绿。\n164\t\n165\t**偏差记录**：\n166\t1. **唯一索引冲突兜底的实现结构**：计划原文「捕获 DataIntegrityViolationException 按已存在处理」若在同一 @Transactional 内 try-catch，Spring 会因异常穿越仓储代理把共享事务标记 rollback-only，提交时反抛 500。实际改为：编排层不开事务，写入方法（addLike 等）在独立 bean 中各自成事务，冲突时该事务干净回滚、编排层捕获后新事务重读最终状态返回——语义与计划一致（不抛 500、按最终状态返回）。\n167\t2. 取消点赞按 `deleteByUserIdAndDramaId` 实际删除行数决定是否回减计数（计划只说计数-1 下限 0）：并发重复取消时第二次删 0 行不再减，杜绝计数漂移；下限 0 仍保留双保险。\n168\t",
+       "title": "Read",
+       "metadata": {
+        "schemaVersion": 1,
+        "serialization": {
+         "truncated": false,
+         "originalBytes": 21504,
+         "returnedBytes": 21504,
+         "budgetStrategy": "truncate"
+        },
+        "readFileState": {
+         "schemaVersion": 1,
+         "tool": "Read",
+         "path": "/Users/honlnk/project/short-drama-web/docs/devlog.md",
+         "content": "# 施工日志（devlog）\n\n格式：日期 + 阶段 + 验收结论 + 偏差记录。每阶段门禁时更新。\n\n## 2026-10-16 · 阶段0 脚手架（进行中）\n\n- 环境核实：Java 21.0.9 (Temurin) / Maven 3.9.11 / Node v24.11.0 / pnpm 10.21.0 / git 2.51.2；start.spring.io 与 npm registry 均可达。\n- `git init -b main` 完成；计划定稿写入 `docs/PLAN.md`，含与 PRD 的冲突裁定（目录端口按 apps/* + 3000/3001；演示账号 demo 按 demo123）。\n- 待办：apps/api（Spring Initializr）、apps/web、apps/admin（Vite 模板）、scripts/dev.sh、三服务门禁验收。\n\n## 2026-10-16 15:40 · 阶段0 门禁通过（含一次中途技术决策变更）\n\n### 变更与偏差记录\n\n1. **数据库 H2 → 本机 MySQL（用户中途决策，已遵照执行）**：施工期间用户并行修改了 ARCHITECTURE.md / PRD.md / docs/PLAN.md，数据库从「H2 file 模式（零外部依赖）」改为「本机 MySQL 26.7（homebrew，127.0.0.1:3306，非容器）专用库 short_drama，utf8mb4」；用户在会话中提供凭据 root/root123。脚手架随之切换：pom 依赖 h2 → mysql-connector-j、application.yml 数据源改 MySQL、SecurityConfig 移除 h2-console 相关配置。H2 不再是本项目数据库路径；原计划中 3307 docker MySQL 备选方案作废。影响：演示前置条件从「无」变为「本机 mysqld 需在运行」（homebrew services 可设开机自启）。\n2. **start.spring.io 已不再提供 3.5.x**（当前默认 4.1.1，仅 4.x 可选）：按 Initializr 生成骨架后手工将 parent 钉到 Maven Central 最新 3.5.16，并把 Boot4 新依赖名（spring-boot-starter-webmvc 等）换回 3.5 命名（spring-boot-starter-web 等）。计划钉 3.5.x 的意图保持不变。\n3. **dev.sh 首版即败**：`set -u` 下 `$LOG_DIR` 后紧跟全角「（」，bash 将多字节字符部分字节并入变量名导致 unbound 退出。修复：脚本内变量展开一律 `${}`。已重测通过。\n4. **文档冲突裁定**（详见 docs/PLAN.md 执行补记）：目录/端口按计划 apps/* + 3000/3001（PRD 7.2 的 server+5173/5174 为概要性表述）；demo 账号密码按 PRD 用 demo/demo123（计划中的 123456 作废），阶段1 落地。\n\n### 门禁结论（MySQL 模式，全绿）\n\n- `./mvnw package` 构建通过（Java 21 / Boot 3.5.16）。\n- `./scripts/dev.sh` 一键启动：api :8080 `/api/ping` 200（日志确认 HikariPool 真实建立 `com.mysql.cj.jdbc.ConnectionImpl` 连接，启动 1.1s）；web :3000、admin :3001 均 200。\n- 双前端经 Vite 代理访问 `/api/ping` 均正常返回 pong（前后端链路真实连通，非 mock）。\n- 双前端 `tsc -b` 类型检查通过；`short_drama` 库确认为 utf8mb4_unicode_ci。\n- 停止验证：dev.sh 退出后 8080/3000/3001 三端口全部释放。\n\n### 下一步\n\n阶段1 后端：实体 → JWT/Security → 服务 → 控制器 → 种子数据（admin/admin123、demo/demo123）→ `scripts/api-test.sh` curl 验收全绿。\n\n## 2026-10-16 15:45 · 文档归档 + README（脚手架会话）\n\n- 根目录归档：REQUIREMENTS.md / PRD.md / ARCHITECTURE.md → docs/（git mv 保留历史）；根目录只留 README.md 与 AGENTS.md（后者供 AI 工具读取，必须固定在根）。\n- 引用修复：AGENTS.md 需求来源路径、docs/ARCHITECTURE.md 目录树（顺带把 ASCII 树改为嵌套列表，符合文档表达规范）、docs/plan/第一阶段计划的上游文档相对链接。\n- 新增根目录 README.md：功能概览、技术栈、Mermaid 架构图、快速开始、演示账号、数据库说明、文档索引、里程碑进度。\n- 发现并行会话新产出 docs/plan/第一阶段-数据底座与种子资源.md（种子数据线），其对脚手架会话的接口约定已对齐：application.yml 凭据改为 `${DB_USERNAME:root}` / `${DB_PASSWORD:root123}` 占位符写法（默认值即本机实际，演示零配置），改后已实测后端启动 + MySQL 连接正常。\n- 该第一阶段计划的「待用户拍板 #1（MySQL 凭证）」已由用户在本会话提供 root/root123 并验证可用，记录于此供其会话取用。\n\n## 2026-10-16 15:55 · 用户拍板收口：端口/目录统一、demo 口径定稿、PLAN.md 退役（脚手架会话）\n\n用户明确拍板三项，本会话已落实：\n\n1. **目录/端口**：全仓统一为 apps/api(8080) + apps/web(3000) + apps/admin(3001)。PRD 已同步改写：5.2 节「如 5174」→「3001」，7.2 表 server/web/admin+5173/5174 → apps/*+3000/3001。此前的「PRD 与计划冲突」就此消解，PRD 现与实际一致。\n2. **demo 账号**：定稿 `demo / demo123`（admin/admin123 不变）。与 docs/plan/第一阶段 文档口径一致，无代码需改（种子数据未落地）。\n3. **docs/PLAN.md 退役**：用户删除该文件，现行计划唯一存放处为 docs/plan/ 目录。README 文档索引、ARCHITECTURE.md 目录结构、AGENTS.md 的相关引用已同步清理。\n\n注：工作树中 .gitignore（seed-assets/ 忽略）与 scripts/fetch-seed-media.sh、scripts/mixkit-*.txt 为第一阶段会话的新增施工物，本会话未纳入提交，由其自行收口。\n\n## 2026-10-16 16:05 · 种子素材就绪（第一阶段·本会话）\n\n- 素材拍板落地：Mixkit 竖屏真人素材方案（替代原横屏测试视频占位方案）。\n- 下载完成：50 个视频入 `seed-assets/videos/`（54MB，50/50 成功零失败；单文件 470K~2.1M、时长 8~28 秒；抽查 4 个浏览器实测均 360×640 竖屏）。\n- 交付物：`scripts/fetch-seed-media.sh`（幂等下载，带失败清单）、`scripts/mixkit-ids.txt`（243 个候选 ID，前 50 个即已下载集）、`scripts/mixkit-titles.txt`（366 条 ID→标题映射，供按分类选片）、`seed-assets/README.md`（50 个素材清单 + 五分类匹配建议 + License 提示，随素材不入 git）。\n- git：`seed-assets/` 已加入 `.gitignore`（`git check-ignore` 验证生效）。\n- 计划同步：`docs/plan/第一阶段-数据底座与种子资源.md` 任务 2 已由「写下载脚本」改写为「素材已就绪，仅剩按分类选片复制到 uploads/」；第九节素材拍板项标记已定稿。\n- 已知缺口：素材库中无直接对应「古装」分类的内容，施工时用氛围素材顶替并在演示话术说明（详见 seed-assets/README.md 分类说明）。\n- 衔接脚手架：本会话拍板 #1（MySQL 凭证）已由脚手架会话记录为 root/root123 并验证可用，本线任务 1（建库 short_drama）已由脚手架门禁确认 utf8mb4_unicode_ci 就绪，不再重复执行。\n\n## 2026-10-16 19:30 · 阶段1 门禁通过：数据底座与种子资源全线落地（第一阶段·本会话）\n\n验收标准一句话达成：**C 端首页用后端真实接口渲染出 6 部短剧封面网格，数据来自 MySQL，视频与封面全部本地资源。**\n\n### 交付物\n\n- 实体 6 张表：`User`（表名 `` `user` `` 避保留字）、`Drama`（status ONLINE/OFFLINE）、`Episode`、`Favorite`、`UserLike`（各带 user_id+drama_id 唯一约束）、`WatchProgress`（user_id+drama_id 唯一）；仓储 `UserRepository` / `DramaRepository`（@EntityGraph 一次取 episodes）/ `EpisodeRepository`。\n- `DataSeeder`（CommandLineRunner，用户表为空才灌库）：6 剧 × 4 集 + admin/admin123（ADMIN）+ demo/demo123（USER），密码 BCrypt。\n- 接口 `GET /api/dramas`：上线剧按点赞降序，DTO `DramaSummary` 含集数统计。\n- 媒体分配：`scripts/allocate-seed-media.sh`（新增，幂等，已重跑两遍验证）从 seed-assets 按分类选片复制 24 个 mp4 至 `uploads/videos/drama-{01..06}/ep-{01..04}.mp4`，生成 6 张分类配色 SVG 封面 `uploads/covers/drama-{01..06}.svg`，输出校验报告（数量/体积/mdls 时长）。`uploads/` 30 文件共 24MB。\n- C 端首页（apps/web/App.tsx 重写）：axios 调 `/api/dramas`，暗色主题响应式网格（2/3/4/6 列），卡片含封面、分类角标、点赞（万格式化）、集数；loading/error 态齐全，无任何写死数据。\n\n### 门禁实证（全绿）\n\n- 空库启动自动建 6 表并灌种子；二次启动日志「数据已存在，跳过种子导入」，行数不变（6/24/2）。\n- `./mvnw test` 绿；web `tsc -b` 绿。\n- `curl /api/dramas` 返回 6 剧 JSON 字段完整；mp4 直连 200 + Range 206（video/mp4）。\n- 浏览器验收：首页 DOM 快照 6 张卡片与种子数据逐项一致；截图视觉核验通过（SVG 封面、角标、点赞、集数齐全无错位）；页面内 `<video>` 实际解码 ep-01：readyState=4、20.5s、360×640，3000 代理与 8080 直连两路均通。\n- 幂等复验：`fetch-seed-media.sh` 重跑 50 个全跳过 0 失败。\n\n### 偏差记录\n\n1. **drama.status 取值 ONLINE/OFFLINE，非计划的 PUBLISHED**：上游 PRD §6 数据设计即为 ONLINE/OFFLINE，以 PRD 为准（PRD 是需求唯一来源），计划措辞作废。\n2. **媒体重建路径拆成两步**：计划写「uploads 由 fetch-seed-media.sh 一键重建」，实际拆为 fetch（下载 50 素材）+ allocate（选片复制 + 封面生成）两个脚本串行，README 已按两步写。\n3. **episode.duration_sec 按素材实际时长（8~28s 整数）填**，非计划的「填 5 或 10」；like_count 用固定值（963~3258）非随机——两者都更真实，不影响验收。\n4. **插曲：幽灵 `users` 表**——一次测试运行后 SHOW TABLES 列出 `users` 但访问报不存在（遗留元数据残影），drop 全部表后干净重建，6 张表准确无冗余，未复现。\n5. mdls 首次跑 allocation 时 Spotlight 未索引返回 null，重跑即正常（时长数据已在报告中，无需依赖）。\n\n### 下一步\n\n阶段2（里程碑 2）：注册/登录/JWT 贯通 → 阶段3 C 端详情页与播放页 → 阶段4 点赞收藏 → 阶段5 管理后台。\n\n## 2026-10-16 16:40 · 阶段2 门禁通过：用户链路与核心演示路径全线落地（第二阶段·本会话）\n\n按《第二阶段计划》完成里程碑 2+3 合并施工。验收标准一句话达成：**访客打开 C 端首页看到真实短剧网格，注册登录后进入详情页看到点赞收藏状态回显，点集进入竖屏播放页正常播放，三档宽度布局无错位；受保护接口无 token 返回 401。**\n\n### 交付物\n\n**后端（apps/api，第一阶段实体与列表接口未动，只新增）**：\n\n- `security/` 包：`JwtService`（HS384 签发/解析——52 字符密钥 416bit，jjwt `signWith(key)` 按位宽自动选最强算法；原口径写 HS256 系笔误，阶段3 review 修正，载荷 sub=userId + username + role，72h）、`JwtAuthFilter`（Bearer 解析入 SecurityContext，非法/过期放行交授权规则兜底；非 bean，由 SecurityConfig 显式构造避免 Boot 全局 Filter 双注册）、`AuthUser`（UserDetails，供 @AuthenticationPrincipal）、`UserDetailsServiceImpl`（桥接 Security 基础设施，登录本身走 AuthService 直查仓储）。\n- SecurityConfig 替换全量放行：公开 `/api/auth/**`（`/me` 除外，靠规则顺序）、`/api/ping`、`/uploads/**`、C 端浏览 GET（`/api/dramas` 列表/详情/剧集）；登录才能点赞收藏与 `/api/me/**`；`/api/admin/**` 需 ADMIN（规则先行，接口属里程碑 5）；STATELESS + 关 CSRF；401 统一 JSON `{code:401,message:\"未登录或登录已过期\",data:null}`。\n- 认证接口：`POST /api/auth/register`（重名 409「用户名已被注册」，注册即登录返回 token）、`POST /api/auth/login`（失败统一 400「用户名或密码错误」）、`GET /api/auth/me`（登录态校验回填，nickname 查库）。DTO 四件 + `@NotBlank/@Size` 校验；`exception/` 包：BusinessException + GlobalExceptionHandler 统一 `{code,message,data}` 出口（业务/校验/未知异常）。\n- 详情与剧集：`GET /api/dramas/{id}`（可选登录：带 token 返回 liked/favorited 真实状态，匿名 false；OFFLINE/不存在一律 404）、`GET /api/dramas/{id}/episodes`（episodeNo 升序）；新增 `FavoriteRepository`/`UserLikeRepository`（existsByUserIdAndDramaId）与 `EpisodeRepository.findByDramaIdOrderByEpisodeNoAsc`；DTO `DramaDetail`/`EpisodeSummary`。\n\n**C 端（apps/web，从单页改造为带路由与全局登录态的应用）**：\n\n- 基础设施：`api/client.ts`（axios 实例，请求拦截塞 Bearer；401 清 token 跳 `/login?from=`，`skipAuthRedirect` 标记豁免启动校验）、`api/auth.ts`、`api/dramas.ts`、`store/AuthContext.tsx`（挂载经 getMe 恢复登录态，失败静默降级访客）、`router/index.tsx`（五路由 + 兜底回首页）、`components/Layout.tsx`（顶栏含登录态/退出）、`components/RequireAuth.tsx`（整页守卫备好，供里程碑 4）、`hooks/useDramaInteractions.ts`（点赞收藏点击守卫：未登录跳登录页带回跳，已登录提示「即将上线」不写库）。\n- 页面：HomePage（分类筛选条 + 2/4/6 列响应式网格 + loading/空态/失败重试）、DramaDetailPage（封面左信息右布局、点赞收藏状态回显、选集网格）、PlayerPage（竖屏 9:16 播放、`?ep=` 定位与切换、video key 重载、PC 双栏布局）、LoginPage（含 demo/admin 快捷填充）、RegisterPage（确认密码 + 注册即登录）。\n\n### 门禁实证（全绿）\n\n- curl：注册 200/重名 409、登录 200/错密码 400、`/me` 带 token 200 / 无 token 401 / 伪造 token 401、`GET /api/dramas` 匿名 200（公开接口不回退）、`POST /api/dramas/1/like` 匿名 401。\n- 详情/剧集：无 token liked/favorited=false，带 demo token 正确（false/false）；`/episodes` 4 集升序 videoUrl 正确；mp4 HEAD 200 + Range 206（video/mp4）；不存在的剧 404。\n- 浏览器（自动化全路径）：首页 6 剧网格真实渲染 → 点「悬疑」只剩《午夜出租车》→ 进详情 → 未登录点点赞跳 `/login?from=%2Fdrama%2F5` → 快捷填充登录回详情且头部显示「演示用户/退出」→ 已登录点赞出占位提示不跳转 → 点第 2 集 URL `?ep=2` 视频 readyState=4（360×640 竖屏、进度 3.4s 证实在播）→ 刷新仍停第 2 集 → 选集切 3 URL/片源同步 → 注册 browser_demo 即登录 → 刷新登录态保持 → 退出回登录/注册。\n- 三档宽度（375/900/1440）：首页网格列数实测 2/4/6，均无横向滚动；播放页视频本体 9:16（object-contain 不裁切），PC 档「播放区+右侧信息栏」双栏；四档截图视觉核验无错位/重叠/截断。\n- `./mvnw test` 绿；web `tsc -b` 绿；前端源码无任何外网资源引用（断网演示安全）。\n\n### 偏差记录\n\n1. **播放页数据源用详情接口一次取齐**：计划写「GET /api/dramas/{id}/episodes（+详情取剧名）」两次请求，实际 `DramaDetail` 已内嵌升序 episodes，播放页只调一次详情接口。效果一致少一次请求；episodes 独立接口保留供后续使用（如记忆续播）。\n2. **登录失败 HTTP 状态取 400 而非 401**：若用 401 会触发前端 axios 拦截器「清 token + 跳登录页」，在登录页内形成错误提示被劫持；400 携带「用户名或密码错误」message 由登录页直接展示。语义无歧义。\n3. **手机档播放页保留全局顶栏**：计划写「手机全屏沉浸」，实际保留 56px 顶栏（提供返回首页与登录态入口），播放区 max-h 自适应不出屏。演示价值（随处可导航/退出）优于纯沉浸，如需纯沉浸里程碑 6 再收。\n4. **UserDetailsServiceImpl 本阶段为基础设施预备件**：登录走 AuthService 直查 UserRepository（少一层转换），该类供 Spring Security 全局 AuthenticationManager 装配，里程碑 5 管理后台登录可复用。计划原文即列此类，未删。\n5. 验收期间注册的 browser_demo/gateuser 测试账号留在库中（真实注册链路的副产物），不影响演示；如需清理可 `DELETE FROM user WHERE username IN ('gateuser','browser_demo')`。\n\n### 下一步\n\n里程碑 4：点赞/收藏写库（POST /api/dramas/*/like、/favorite 与 /api/me/favorites，规则已配好）→ 里程碑 5 管理后台。\n\n## 2026-10-16 · 阶段3 任务1 施工中 · review 插单修复两项（会话中断处理）\n\n阶段3 任务1（互动接口）代码落地后、门禁验收前，用户 review 提出两个问题，逐一核实并修复：\n\n### 1. 统一响应包体未落地（🔴，成立，已修实现）\n\n- **核实**：PRD 接口规范明文「统一响应结构 `{ code, message, data }`」；阶段2 实际只落地了错误侧（GlobalExceptionHandler）与 ping，成功响应（auth/dramas）为裸数据——阶段2 门禁当时未覆盖成功包体形态，漏检。\n- **修复**（以 PRD 为准修实现，不改 PRD 迁就现实）：\n  - 后端：`ApiResponse` 增加 `ok(data)` 工厂（code=0, message=\"ok\"）；全部成功返回包体——PingController（保留 message=\"pong\"）、AuthController ×3、DramaController ×3、以及本阶段新写的 InteractionController ×2、MeController ×1。\n  - 前端 web：`client.ts` 响应拦截器统一拆包（识别 `{code,message,data}` → code=0 时 `response.data = body.data`，页面层 `res.data` 消费形状不变；code≠0 且 HTTP 200 的业务错误转 reject 走既有错误提示链）。\n  - 阶段3 计划 §三「衔接表」相应行已加修正注记。\n- **影响面**：属对阶段2 已交付接口契约的修订（计划原文「不改第一、二阶段契约」，此为 review 授权的例外）；admin（任务 4）后续按同口径实现。\n\n### 2. JWT 签名算法实为 HS384 非文档口径 HS256（成立，修文档不修代码）\n\n- **核实**：`JwtService.signWith(key)` 未显式指定算法，jjwt 按密钥位宽自动选最强——52 字符密钥=416bit → HS384（token header `{\"alg\":\"HS384\"}` 实证）。强度高于 HS256，无安全或兼容问题（解析侧 verifyWith 对称校验，不校验 alg 白名单）。\n- **处置**：代码行为不动（更强无理由降级），修正全部文档/注释口径共 6 处：AGENTS.md「当前状态」、devlog 阶段2 条目（就地修正并注明）、第二阶段计划 §四/§五、application.yml 注释、JwtService javadoc（补充自动映射机制说明，防未来换密钥时再漂移）。\n\n### 其他\n\n- 中断前回归另发现两处待办（属阶段3 范围，尚未处理）：USER 调 `/api/admin/**` 返回 401 而非计划门禁的 403（SecurityConfig 缺 accessDeniedHandler 配置，任务 3 修）；未匹配路由异常被 GlobalExceptionHandler 兜成 500 而非 404（计划外问题，仅记录不处理）。\n\n## 2026-10-16 17:10 · 阶段3 任务1 门禁通过：点赞/收藏写库 + 我的收藏接口\n\n按《第三阶段计划》任务 1 完成互动后端。Controller 选型记录（计划允许自选）：独立 `InteractionController` + `InteractionService`（编排，不开事务）+ `InteractionTxService`（写库事务边界，独立 bean）——不并入 DramaController，保持 C 端只读链路纯净。\n\n**交付物**：`POST /api/dramas/{id}/like` / `favorite`（幂等切换）、`GET /api/me/favorites`（收藏时间倒序 DramaSummary）；仓储补 `deleteByUserIdAndDramaId`（返回行数防并发重复扣减）、`findByUserIdOrderByCreatedAtDesc`（EntityGraph 带 drama+episodes）；`DramaSummary.from` 工厂统一映射（DramaService 私有映射收敛至此）；单测 12 个（InteractionServiceTest 7 + InteractionTxServiceTest 4 + 既有 contextLoads）。\n\n**门禁实证（curl 全绿）**：\n- 匿名调 like/favorite/favorites → 401 包体；demo token 详情回显与操作一致（liked 随切换变、favorited 随收藏变）。\n- 点赞往返：2461 → 2462 → 2461；并发双击（两请求同发）后查库 user_like 仅 1 行、计数只 +1——唯一索引兜底生效。\n- 收藏剧 1+剧 2 → /me/favorites 返回 2 条且倒序正确（剧 2 在前）；再取消后清零。\n- 门禁数据已通过接口反向清理（库回种子态：0 like / 0 fav，剧 2 计数回 1987）。\n- `./mvnw test` 全绿。\n\n**偏差记录**：\n1. **唯一索引冲突兜底的实现结构**：计划原文「捕获 DataIntegrityViolationException 按已存在处理」若在同一 @Transactional 内 try-catch，Spring 会因异常穿越仓储代理把共享事务标记 rollback-only，提交时反抛 500。实际改为：编排层不开事务，写入方法（addLike 等）在独立 bean 中各自成事务，冲突时该事务干净回滚、编排层捕获后新事务重读最终状态返回——语义与计划一致（不抛 500、按最终状态返回）。\n2. 取消点赞按 `deleteByUserIdAndDramaId` 实际删除行数决定是否回减计数（计划只说计数-1 下限 0）：并发重复取消时第二次删 0 行不再减，杜绝计数漂移；下限 0 仍保留双保险。\n",
+         "isPartialView": false,
+         "readAtMs": 1792141794017,
+         "revisionId": "mtime:1792141720920:size:20940",
+         "mtimeMs": 1792141720920,
+         "sizeBytes": 20940
+        }
+       },
+       "time": {
+        "start": 1792141794002,
+        "end": 1792141794017
+       }
+      }
+     }
+    },
+    {
+     "id": "part_mvaqyac7_d243815a-ce3e-45ea-8b1f-b0cbc96831b8",
+     "sequence": 2,
+     "time_created": "2026-10-16 17:09:45",
+     "data": {
+      "type": "reasoning",
+      "text": "The user wants to know how much time has been spent on the project from start to now. Let me check git history, docs/devlog.md, and any other time-tracking evidence.\n\nLet me look at git log with timestamps, and the devlog which likely records dates/times of work sessions.",
+      "time": {
+       "start": 1792141785473,
+       "end": 1792141794007
+      }
+     }
+    },
+    {
+     "id": "part_mvaqyac8_6a4b9c4e-67b8-4fdf-b4c2-db9c605bfc3d",
+     "sequence": 3,
+     "time_created": "2026-10-16 17:09:45",
+     "data": {
+      "type": "text",
+      "text": "我通过 git 提交时间戳和施工日志来估算项目耗时。",
+      "time": {
+       "start": 1792141785473,
+       "end": 1792141794008
+      }
+     }
+    },
+    {
+     "id": "part_mvaqyacj_0f4bbcee-76fa-4589-b2f2-e8818569e6df",
+     "sequence": 4,
+     "time_created": "2026-10-16 17:09:54",
+     "data": {
+      "type": "tool",
+      "callID": "Bash_5_075c7113",
+      "declarationIndex": 0,
+      "tool": "Bash",
+      "state": {
+       "status": "completed",
+       "input": {
+        "command": "git log --format='%h | %ad | %s' --date=format:'%Y-%m-%d %H:%M' --reverse | head -30",
+        "description": "Show git log from oldest commit with timestamps"
+       },
+       "output": "52492a8 | 2026-10-16 15:25 | chore: 初始化仓库，纳入需求/架构/PRD 文档与实施计划\n03c29de | 2026-10-16 15:38 | docs: 数据库选型变更为本机 MySQL 26.7（127.0.0.1:3306 专用库 short_drama，替代 H2）\n3acc262 | 2026-10-16 15:38 | feat: 阶段0 脚手架——三工程骨架 + dev.sh 一键启动 + MySQL 直连，门禁全绿\n8572091 | 2026-10-16 15:42 | docs: 根目录文档归档至 docs/，新增 README，对齐第一阶段计划约定\nb8a55e2 | 2026-10-16 15:51 | docs: 用户拍板收口——端口目录统一 apps/*+3000/3001，demo 口径定稿 demo123，PLAN.md 退役\n3e62109 | 2026-10-16 15:56 | feat: 种子媒体素材就绪——50 个 Mixkit 竖屏视频下载完成，素材线收口\nd408be7 | 2026-10-16 16:12 | feat: 阶段1 数据底座与种子资源——6 表实体+种子灌库+/api/dramas+C 端首页封面网格，验收门禁全绿\n77d755a | 2026-10-16 16:18 | docs: 计划文档口径修正——status 以 PRD §6 ONLINE/OFFLINE 为准、媒体重建两步、时长/点赞按实际落地口径标注\ne9bea5b | 2026-10-16 16:38 | feat: 阶段2 用户链路与核心演示路径——JWT 鉴权+注册登录+详情/竖屏播放页+点赞收藏状态回显，验收门禁全绿",
+       "title": "Bash",
+       "metadata": {
+        "schemaVersion": 1,
+        "serialization": {
+         "truncated": false,
+         "originalBytes": 1236,
+         "returnedBytes": 1236,
+         "budgetStrategy": "artifact"
+        }
+       },
+       "time": {
+        "start": 1792141794021,
+        "end": 1792141794057
+       }
+      }
+     }
+    },
+    {
+     "id": "part_mvaqyadn_45a6fa20-4dcf-48be-b12d-0757bf441610",
+     "sequence": 5,
+     "time_created": "2026-10-16 17:09:54",
+     "data": {
+      "type": "step-finish",
+      "reason": "tool-calls",
+      "cost": 0,
+      "tokens": {
+       "total": 42647,
+       "input": 42424,
+       "output": 223,
+       "reasoning": 60,
+       "cache": {
+        "read": 41728,
+        "write": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvaqyado_63f545be-95ff-470c-bec6-70cc07a0160e",
+   "sequence": 9,
+   "time_iso": "2026-10-16 17:09:54",
+   "data": {
+    "role": "assistant",
+    "time": {
+     "created": 1792141794060,
+     "completed": 1792141799887
+    },
+    "parentID": "msg_mvaqy3r2_440c3742-d51e-463a-ba2a-9e032564bf80",
+    "modelId": "kimi-k3",
+    "providerId": "new-provider",
+    "mode": "yolo",
+    "planEnabled": false,
+    "agent": "zcode-agent",
+    "path": {
+     "cwd": "/Users/honlnk/project/short-drama-web",
+     "root": "/Users/honlnk/project/short-drama-web"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 49180,
+     "input": 49080,
+     "output": 100,
+     "reasoning": 0,
+     "cache": {
+      "read": 42240,
+      "write": 0
+     }
+    },
+    "finish": "tool-calls",
+    "semantics": {
+     "origin": "agent_runtime",
+     "kind": "assistant_response",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_5610ecdb-d6e1-4375-a140-8ee48de45fd7"
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvaqyado_5a1a0b1c-7c6a-4413-8f44-0ca4729c3b24",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:09:54",
+     "data": {
+      "type": "step-start"
+     }
+    },
+    {
+     "id": "part_mvaqyeuj_8d6ca08e-8848-4f98-bf3f-b51dba9db589",
+     "sequence": 1,
+     "time_created": "2026-10-16 17:09:54",
+     "data": {
+      "type": "text",
+      "text": "看一下 devlog 的剩余部分，确认阶段3 最新的施工时间点。",
+      "time": {
+       "start": 1792141794060,
+       "end": 1792141799851
+      }
+     }
+    },
+    {
+     "id": "part_mvaqyeun_e0eb7b6c-1cdb-43fd-9367-5f01a52fe1b3",
+     "sequence": 2,
+     "time_created": "2026-10-16 17:09:59",
+     "data": {
+      "type": "tool",
+      "callID": "Bash_7_6aa49437",
+      "declarationIndex": 0,
+      "tool": "Bash",
+      "state": {
+       "status": "completed",
+       "input": {
+        "command": "wc -l /Users/honlnk/project/short-drama-web/docs/devlog.md",
+        "description": "Count devlog lines"
+       },
+       "output": "     167 /Users/honlnk/project/short-drama-web/docs/devlog.md",
+       "title": "Bash",
+       "metadata": {
+        "schemaVersion": 1,
+        "serialization": {
+         "truncated": false,
+         "originalBytes": 61,
+         "returnedBytes": 61,
+         "budgetStrategy": "artifact"
+        }
+       },
+       "time": {
+        "start": 1792141799859,
+        "end": 1792141799885
+       }
+      }
+     }
+    },
+    {
+     "id": "part_mvaqyevj_0f878d63-500d-4a93-bc12-2e563eceef20",
+     "sequence": 3,
+     "time_created": "2026-10-16 17:09:59",
+     "data": {
+      "type": "step-finish",
+      "reason": "tool-calls",
+      "cost": 0,
+      "tokens": {
+       "total": 49180,
+       "input": 49080,
+       "output": 100,
+       "reasoning": 0,
+       "cache": {
+        "read": 42240,
+        "write": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvaqyevz_c391e0b1-e3eb-45b2-b69e-96ec985193a9",
+   "sequence": 10,
+   "time_iso": "2026-10-16 17:09:59",
+   "data": {
+    "role": "assistant",
+    "time": {
+     "created": 1792141799903,
+     "completed": 1792141810076
+    },
+    "parentID": "msg_mvaqy3r2_440c3742-d51e-463a-ba2a-9e032564bf80",
+    "modelId": "kimi-k3",
+    "providerId": "new-provider",
+    "mode": "yolo",
+    "planEnabled": false,
+    "agent": "zcode-agent",
+    "path": {
+     "cwd": "/Users/honlnk/project/short-drama-web",
+     "root": "/Users/honlnk/project/short-drama-web"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 49447,
+     "input": 49228,
+     "output": 219,
+     "reasoning": 0,
+     "cache": {
+      "read": 48896,
+      "write": 0
+     }
+    },
+    "finish": "tool-calls",
+    "semantics": {
+     "origin": "agent_runtime",
+     "kind": "assistant_response",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_5610ecdb-d6e1-4375-a140-8ee48de45fd7"
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvaqyevz_cc70bb03-334b-4136-b25b-358796dd79bd",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:09:59",
+     "data": {
+      "type": "step-start"
+     }
+    },
+    {
+     "id": "part_mvaqymp9_223cd119-2c80-4514-878d-ef99a050ac6d",
+     "sequence": 1,
+     "time_created": "2026-10-16 17:09:59",
+     "data": {
+      "type": "text",
+      "text": "devlog 到 167 行为止，已经全部读完了。但注意阶段3 最新门禁时间戳是 17:10，而工作区还有第三、四阶段计划文档（17:01 创建）及未提交的代码改动。看一下当前实际时间和文件时间戳更准确的边界：",
+      "time": {
+       "start": 1792141799903,
+       "end": 1792141810029
+      }
+     }
+    },
+    {
+     "id": "part_mvaqympc_15c3abfd-d433-4551-b755-e8c202f25302",
+     "sequence": 2,
+     "time_created": "2026-10-16 17:10:10",
+     "data": {
+      "type": "tool",
+      "callID": "Bash_8_c3fe718f",
+      "declarationIndex": 0,
+      "tool": "Bash",
+      "state": {
+       "status": "completed",
+       "input": {
+        "command": "date '+%Y-%m-%d %H:%M:%S' && echo \"---\" && stat -f '%Sm %N' -t '%Y-%m-%d %H:%M' /Users/honlnk/project/short-drama-web/docs/plan/*.md /Users/honlnk/project/short-drama-web/docs/devlog.md /Users/honlnk/project/short-drama-web/AGENTS.md",
+        "description": "Current time and key file modification times"
+       },
+       "output": "2026-10-16 17:10:10\n---\n2026-10-16 16:18 /Users/honlnk/project/short-drama-web/docs/plan/第一阶段-数据底座与种子资源.md\n2026-10-16 17:01 /Users/honlnk/project/short-drama-web/docs/plan/第三阶段-互动闭环与管理后台.md\n2026-10-16 17:01 /Users/honlnk/project/short-drama-web/docs/plan/第二阶段-用户链路与核心演示路径.md\n2026-10-16 16:57 /Users/honlnk/project/short-drama-web/docs/plan/第四阶段-体验加分项并行计划.md\n2026-10-16 17:08 /Users/honlnk/project/short-drama-web/docs/devlog.md\n2026-10-16 17:01 /Users/honlnk/project/short-drama-web/AGENTS.md",
+       "title": "Bash",
+       "metadata": {
+        "schemaVersion": 1,
+        "serialization": {
+         "truncated": false,
+         "originalBytes": 600,
+         "returnedBytes": 600,
+         "budgetStrategy": "artifact"
+        }
+       },
+       "time": {
+        "start": 1792141810035,
+        "end": 1792141810074
+       }
+      }
+     }
+    },
+    {
+     "id": "part_mvaqymqk_7c3d77d2-17e7-4e15-999e-0676494f0251",
+     "sequence": 3,
+     "time_created": "2026-10-16 17:10:10",
+     "data": {
+      "type": "step-finish",
+      "reason": "tool-calls",
+      "cost": 0,
+      "tokens": {
+       "total": 49447,
+       "input": 49228,
+       "output": 219,
+       "reasoning": 0,
+       "cache": {
+        "read": 48896,
+        "write": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvaqymql_9a3c1d65-beed-4878-93cd-3181c8fe1a58",
+   "sequence": 11,
+   "time_iso": "2026-10-16 17:10:10",
+   "data": {
+    "role": "assistant",
+    "time": {
+     "created": 1792141810077,
+     "completed": 1792141825667
+    },
+    "parentID": "msg_mvaqy3r2_440c3742-d51e-463a-ba2a-9e032564bf80",
+    "modelId": "kimi-k3",
+    "providerId": "new-provider",
+    "mode": "yolo",
+    "planEnabled": false,
+    "agent": "zcode-agent",
+    "path": {
+     "cwd": "/Users/honlnk/project/short-drama-web",
+     "root": "/Users/honlnk/project/short-drama-web"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 50172,
+     "input": 49679,
+     "output": 493,
+     "reasoning": 0,
+     "cache": {
+      "read": 49152,
+      "write": 0
+     }
+    },
+    "finish": "stop",
+    "semantics": {
+     "origin": "agent_runtime",
+     "kind": "assistant_response",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_5610ecdb-d6e1-4375-a140-8ee48de45fd7",
+     "historyRoundCount": 4,
+     "orderedMessageIds": [
+      "msg_mvaqy3r2_440c3742-d51e-463a-ba2a-9e032564bf80",
+      "msg_mvaqy3r5_54037603-08a2-4932-a661-b88d5168771d",
+      "msg_mvaqyado_63f545be-95ff-470c-bec6-70cc07a0160e",
+      "msg_mvaqyevz_c391e0b1-e3eb-45b2-b69e-96ec985193a9",
+      "msg_mvaqymql_9a3c1d65-beed-4878-93cd-3181c8fe1a58"
+     ],
+     "boundaryMessageId": "msg_mvaqymql_9a3c1d65-beed-4878-93cd-3181c8fe1a58",
+     "goalBoundary": {
+      "kind": "none"
+     }
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvaqymql_5237418e-bdf3-411d-9654-08475d4ccc67",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:10:10",
+     "data": {
+      "type": "step-start"
+     }
+    },
+    {
+     "id": "part_mvaqyyrh_9d87c2d5-23d2-4b10-8d45-19b12f2eb5a3",
+     "sequence": 1,
+     "time_created": "2026-10-16 17:10:10",
+     "data": {
+      "type": "text",
+      "text": "## 结论：项目从开工到现在共 **约 1 小时 45 分钟**\n\n**时间线**（全部发生在同一天 2026-10-16）：\n\n| 时间点 | 事件 | 耗时 |\n|---|---|---|\n| **15:25** | 首个 git 提交（仓库初始化 + 需求/PRD/计划文档入库） | 起点 |\n| 15:38 | 阶段0 脚手架完成（三工程骨架 + dev.sh + MySQL 直连） | ~13 分钟 |\n| 15:51 | 用户拍板收口（端口/目录统一、demo 口径定稿） | ~13 分钟 |\n| 15:56 | 50 个种子视频素材下载完成 | ~5 分钟 |\n| 16:12 | 阶段1 数据底座完成（6 表 + 种子灌库 + 首页网格） | ~16 分钟 |\n| 16:38 | 阶段2 用户链路完成（JWT + 注册登录 + 详情/播放页） | ~26 分钟 |\n| 17:01 | 阶段三、阶段四计划文档写完 | ~23 分钟 |\n| 17:08 | 阶段3 任务1 门禁通过（点赞/收藏写库 + 我的收藏接口）+ devlog 更新 | ~7 分钟 |\n| **17:10** | **当前时间** | **总计 1h 45min** |\n\n**关键观察**：\n\n1. **节奏极快**：7 个里程碑里已经完成了 M1~M3（脚手架/数据底座/用户链路），M4 后端接口也刚通过门禁，距离首次提交不到 2 小时。\n2. **今天是唯一施工日**：项目从 0 到当前状态（阶段3 任务1 完成）全部在 2026-10-16 这一天完成，当前是首日冲刺。\n3. **当前处于阶段3 中段**：互动接口后端已收口（17:08），接下来是阶段3 任务 2~4（前端互动闭环、管理后台后端、后台前端），按前两阶段的节奏估计还需 1~2 小时。\n\n参考点：当前时间 17:10，距开工（15:25）**整 105 分钟**。",
+      "time": {
+       "start": 1792141810077,
+       "end": 1792141825661
+      }
+     }
+    },
+    {
+     "id": "part_mvaqyyrn_04353ae6-0e4d-4f40-a841-e8d3ac33832c",
+     "sequence": 2,
+     "time_created": "2026-10-16 17:10:25",
+     "data": {
+      "type": "step-finish",
+      "reason": "stop",
+      "cost": 0,
+      "tokens": {
+       "total": 50172,
+       "input": 49679,
+       "output": 493,
+       "reasoning": 0,
+       "cache": {
+        "read": 49152,
+        "write": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvaqzu8l_b0559860-e711-4209-b408-f66ab3252b79",
+   "sequence": 12,
+   "time_iso": "2026-10-16 17:11:06",
+   "data": {
+    "role": "user",
+    "time": {
+     "created": 1792141866455
+    },
+    "agent": "zcode-agent",
+    "modelSelection": {
+     "providerId": "new-provider",
+     "modelId": "kimi-k3",
+     "options": {
+      "reasoningLevel": "max"
+     }
+    },
+    "contextSnapshot": {
+     "envInfo": {
+      "cwd": "/Users/honlnk/project/short-drama-web",
+      "platform": "darwin",
+      "shell": "zsh",
+      "osVersion": "darwin 24.6.0 arm64",
+      "nodeVersion": "v24.14.0",
+      "isGitRepository": true,
+      "gitBranch": "main",
+      "gitMainBranch": "main",
+      "gitUser": "honlnk",
+      "gitStatus": "dirty",
+      "gitStatusLines": [
+       "M AGENTS.md",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/AuthController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/DramaController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/PingController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/dto/ApiResponse.java",
+       " M apps/api/src/main/java/com/shortdrama/api/dto/DramaSummary.java",
+       " M apps/api/src/main/java/com/shortdrama/api/repository/FavoriteRepository.java",
+       " M apps/api/src/main/java/com/shortdrama/api/repository/UserLikeRepository.java",
+       " M apps/api/src/main/java/com/shortdrama/api/security/JwtService.java",
+       " M apps/api/src/main/java/com/shortdrama/api/service/DramaService.java",
+       " M apps/api/src/main/resources/application.yml",
+       " M apps/web/src/api/client.ts",
+       " M docs/PRD.md",
+       " M docs/devlog.md",
+       " M docs/plan/第二阶段-用户链路与核心演示路径.md",
+       "?? apps/api/src/main/java/com/shortdrama/api/controller/InteractionController.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/controller/MeController.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/dto/FavoriteToggleResponse.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/dto/LikeToggleResponse.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/service/InteractionService.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/service/InteractionTxService.java",
+       "?? apps/api/src/test/java/com/shortdrama/api/service/",
+       "?? docs/plan/第三阶段-互动闭环与管理后台.md",
+       "?? docs/plan/第四阶段-体验加分项并行计划.md"
+      ],
+      "recentCommits": [
+       "e9bea5b feat: 阶段2 用户链路与核心演示路径——JWT 鉴权+注册登录+详情/竖屏播放页+点赞收藏状态回显，验收门禁全绿",
+       "77d755a docs: 计划文档口径修正——status 以 PRD §6 ONLINE/OFFLINE 为准、媒体重建两步、时长/点赞按实际落地口径标注",
+       "d408be7 feat: 阶段1 数据底座与种子资源——6 表实体+种子灌库+/api/dramas+C 端首页封面网格，验收门禁全绿",
+       "3e62109 feat: 种子媒体素材就绪——50 个 Mixkit 竖屏视频下载完成，素材线收口",
+       "b8a55e2 docs: 用户拍板收口——端口目录统一 apps/*+3000/3001，demo 口径定稿 demo123，PLAN.md 退役"
+      ]
+     }
+    },
+    "semantics": {
+     "origin": "real_user",
+     "kind": "user_prompt",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_9adfda13-bd62-4714-936a-1e5905fe14fb",
+     "origin": "realUser",
+     "sourceCommandId": "01a143fa-b5cc-7ede-a8e9-2f26b6e248e2"
+    },
+    "tools": {
+     "Agent": true,
+     "AskUserQuestion": true,
+     "Bash": true,
+     "CronCreate": true,
+     "CronDelete": true,
+     "CronList": true,
+     "CronUpdate": true,
+     "Edit": true,
+     "EnterPlanMode": true,
+     "ExitPlanMode": true,
+     "Read": true,
+     "Skill": true,
+     "TaskOutput": true,
+     "TaskStop": true,
+     "TodoRead": true,
+     "TodoWrite": true,
+     "WebFetch": true,
+     "WebSearch": true,
+     "Write": true,
+     "OffPeakCreate": true,
+     "OffPeakList": true,
+     "SendMessage": true,
+     "ReadSessionContext": true,
+     "ReplyToChannel": true,
+     "CreateWorkflow": true,
+     "AmendWorkflow": true,
+     "SaveWorkflow": true,
+     "EvalWorkflowSnippet": true,
+     "ListWorkflowRuns": true,
+     "GetWorkflowRun": true,
+     "ResumeWorkflowRun": true,
+     "ResolveWorkflowQuestion": true,
+     "FillWorkflowHole": true,
+     "ListSavedWorkflows": true,
+     "ListModels": true,
+     "mcp__plugin_image-search_image_search__search_image": true,
+     "mcp__linkseek__web_search": true,
+     "mcp__linkseek__web_fetch": true,
+     "mcp__linkseek__web_search_and_fetch": true,
+     "mcp__linkseek__get_result": true,
+     "mcp__linkseek__web_fetch_render": true,
+     "mcp__linkseek__list_models": true,
+     "mcp__linkseek__web_fetch_answer": true,
+     "mcp__linkseek__web_search_answer": true,
+     "mcp__linkseek__web_research": true,
+     "mcp__picsense__analyze_images": true,
+     "mcp__picsense__list_sessions": true,
+     "mcp__picsense__analyze_document": true,
+     "mcp__picsense__analyze_video": true,
+     "mcp__node_repl__js": true
+    },
+    "metadata": {
+     "inputIntent": {
+      "inputOrigin": "desktop",
+      "sourceCommandId": "01a143fa-b5cc-7ede-a8e9-2f26b6e248e2",
+      "queueItemId": "queue_01a143fa-b5cc-7ede-a8e9-2f26b6e248e2",
+      "clientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb",
+      "kind": "sendText",
+      "text": "按照这个节奏 你评估一下大概多久能做完",
+      "modelSelection": {
+       "providerId": "new-provider",
+       "modelId": "kimi-k3",
+       "options": {
+        "reasoningLevel": "max"
+       }
+      },
+      "mode": "yolo",
+      "planEnabled": false,
+      "admissionSeq": 3,
+      "admittedAt": 1792141866451,
+      "requestedDelivery": "startNow",
+      "admittedDelivery": "startNow"
+     },
+     "conversationInputIntent": {
+      "inputOrigin": "desktop",
+      "sourceCommandId": "01a143fa-b5cc-7ede-a8e9-2f26b6e248e2",
+      "queueItemId": "queue_01a143fa-b5cc-7ede-a8e9-2f26b6e248e2",
+      "clientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb",
+      "kind": "sendText",
+      "text": "按照这个节奏 你评估一下大概多久能做完",
+      "attachments": [],
+      "modelSelection": {
+       "providerId": "new-provider",
+       "modelId": "kimi-k3",
+       "options": {
+        "reasoningLevel": "max"
+       }
+      },
+      "mode": "yolo",
+      "planEnabled": false,
+      "delivery": {
+       "requested": "startNow",
+       "admitted": "startNow"
+      },
+      "order": {
+       "admissionSeq": 3
+      },
+      "steer": {
+       "state": "notRequested"
+      },
+      "dispatch": {
+       "state": "drained"
+      },
+      "admittedAt": 1792141866451
+     },
+     "inputClientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb"
+    },
+    "model": {
+     "providerID": "new-provider",
+     "modelID": "kimi-k3",
+     "variant": "max"
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvaqzu8n_77543ff1-23b5-4267-9eef-c78cdc1fe5bc",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:11:06",
+     "data": {
+      "type": "text",
+      "text": "按照这个节奏 你评估一下大概多久能做完",
+      "time": {
+       "start": 1792141866455,
+       "end": 1792141866455
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvaqzu8q_51981fae-2f9b-42d9-b268-ac8c9529485b",
+   "sequence": 13,
+   "time_iso": "2026-10-16 17:11:06",
+   "data": {
+    "role": "assistant",
+    "time": {
+     "created": 1792141866459,
+     "completed": 1792141921942
+    },
+    "parentID": "msg_mvaqzu8l_b0559860-e711-4209-b408-f66ab3252b79",
+    "modelId": "kimi-k3",
+    "providerId": "new-provider",
+    "mode": "yolo",
+    "planEnabled": false,
+    "agent": "zcode-agent",
+    "path": {
+     "cwd": "/Users/honlnk/project/short-drama-web",
+     "root": "/Users/honlnk/project/short-drama-web"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 51956,
+     "input": 50203,
+     "output": 1753,
+     "reasoning": 1058,
+     "cache": {
+      "read": 49664,
+      "write": 0
+     }
+    },
+    "finish": "stop",
+    "semantics": {
+     "origin": "agent_runtime",
+     "kind": "assistant_response",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_9adfda13-bd62-4714-936a-1e5905fe14fb",
+     "historyRoundCount": 1,
+     "orderedMessageIds": [
+      "msg_mvaqzu8l_b0559860-e711-4209-b408-f66ab3252b79",
+      "msg_mvaqzu8q_51981fae-2f9b-42d9-b268-ac8c9529485b"
+     ],
+     "boundaryMessageId": "msg_mvaqzu8q_51981fae-2f9b-42d9-b268-ac8c9529485b",
+     "goalBoundary": {
+      "kind": "none"
+     }
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvaqzu8r_6cb28ec1-7315-4025-9756-79dfee04f662",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:11:06",
+     "data": {
+      "type": "step-start"
+     }
+    },
+    {
+     "id": "part_mvar111s_acade3d9-cbb4-4cbf-b43b-86431ce1a2ad",
+     "sequence": 1,
+     "time_created": "2026-10-16 17:11:06",
+     "data": {
+      "type": "reasoning",
+      "text": "The user wants an estimate of how long the remaining work will take, based on the pace so far.\n\nLet me analyze what's been done and what remains:\n\nCompleted so far (105 minutes):\n- 阶段0: 脚手架 (~13 min)\n- 种子素材 (~21 min including 拍板)\n- 阶段1: 数据底座 (~16 min)\n- 阶段2: 用户链路 (~26 min)\n- 阶段三+四计划文档 (~23 min)\n- 阶段3 任务1: 互动后端 (~7 min)\n\nRemaining work:\n- 阶段3 任务2: 前端互动闭环 (详情页按钮接通 + /mine + /mine/favorites)\n- 阶段3 任务3: 后端管理接口 + StorageService (上传、短剧CRUD、剧集CRUD) — this is the biggest chunk\n- 阶段3 任务4: 管理后台前端 (登录页、短剧管理页、表单页、剧集管理页)\n- 阶段4 (worktree 并行): 进度接口、搜索、播放增强 — can run in parallel with 阶段3\n- 阶段5: PL-05前端页 + PL-03 + M7 联调彩排\n\nLet me estimate based on pace:\n\nPast pace reference:\n- 阶段2 (M2+M3 合并, full-stack: JWT security + auth + detail/player pages): 26 min\n- 阶段3 任务1 (互动后端 + 12 单测): 7 min\n\nEstimates:\n- 阶段3 任务2 (前端互动闭环): similar to 阶段2 frontend portion, maybe 15-20 min\n- 阶段3 任务3 (后端管理接口 + StorageService + upload + CRUD): bigger than 任务1, maybe 20-30 min\n- 阶段3 任务4 (admin 前端, 4 pages + infra): the biggest frontend chunk, AntD tables/forms/upload, maybe 30-40 min\n- 阶段3 验收回归: ~10 min\n\n阶段3 total remaining: roughly 75-100 min\n\n阶段4 (parallel in worktree): \n- 任务1 进度接口后端: ~10-15 min\n- 任务2 搜索: ~10 min\n- 任务3 播放页增强: ~20-25 min\n- 任务4 回归: ~10 min\n阶段4 total: ~50-60 min, but parallel with 阶段3, so wall-clock overlap\n\nBut wait — parallelism depends on whether the same agent/person is doing both. The plan says worktree parallel development. If a single AI session does both sequentially, no wall-clock savings. If two sessions run in parallel (as the plan intends — 阶段3 in main workspace, 阶段4 in worktree), then wall-clock = max(阶段3, 阶段4) + merge.\n\n阶段5:\n- PL-05 前端历史页 + PL-03 已看标记: half day per doc, but at this pace maybe 15-20 min\n- M7 联调彩排 + README 收尾 + 演示脚本: ~20-30 min\n\nSo total remaining:\n- If parallel: ~max(90, 60) + merge 10 + 阶段5 40 ≈ 140 min ≈ 2.5 hours\n- If serial: 90 + 60 + 40 ≈ 190 min ≈ 3+ hours\n\nGiven the demonstrated pace (AI agent working fast), I'd estimate:\n- 阶段3 剩余: ~1.5 小时\n- 阶段4 (并行): ~1 小时 (与阶段3重叠)\n- 合并 + 阶段5 + 彩排: ~1 小时\n\nTotal: roughly 2.5~3.5 hours more, so done by around 19:30-20:30 tonight.\n\nLet me be a bit more careful and structured. The pace data points:\n- Full-stack milestone with security (M2+M3): 26 min\n- Backend-only task with tests: 7 min\n- M1 data foundation: 16 min\n\nThe admin frontend (任务4) is the largest single remaining UI task — AntD, 4 pages, upload flows. 阶段2's frontend was 3 pages + auth infra and the whole 阶段2 was 26 min (including backend). So admin frontend alone might be 25-35 min.\n\nAlso should factor in: things slow down as complexity grows, review cycles (like the 阶段3 review fix), and gates/regressions. But also the AI pace is very fast.\n\nMy answer: \n- 按当前节奏串行估算剩余 ~3 小时; 若阶段3/阶段4真按计划并行（两个会话同时干），墙钟 ~2~2.5 小时\n- 全部完成（含彩排）预计今晚 19:30~20:30 之间，即开工后 4~5 小时总时长\n\nI should present this clearly with a breakdown table. Keep it readable, lead with the answer.",
+      "time": {
+       "start": 1792141866459,
+       "end": 1792141921936
+      }
+     }
+    },
+    {
+     "id": "part_mvar111u_3d8c0beb-7c28-4d0f-a447-ab8a92e3719e",
+     "sequence": 2,
+     "time_created": "2026-10-16 17:11:06",
+     "data": {
+      "type": "text",
+      "text": "## 估算：剩余约 **2.5~3.5 小时**，今晚 **19:30~20:30** 之间全部收口\n\n按已发生的节奏标定工作量：全栈里程碑（阶段2，含 JWT 安全 + 3 个前端页面）26 分钟；纯后端任务带单测（阶段3 任务1）7 分钟。以此推算剩余各块：\n\n| 剩余工作 | 体量评估 | 预估耗时 |\n|---|---|---|\n| 阶段3 任务2：前端互动闭环（详情页按钮接通 + /mine + 收藏页） | 约等于阶段2 前端的一半，基础设施都现成 | ~20 分钟 |\n| 阶段3 任务3：StorageService + 上传 + 后台短剧/剧集 CRUD | 后端最大剩余块，10+ 个端点 + 校验 + 单测 | ~30 分钟 |\n| 阶段3 任务4：管理后台前端（登录 + 列表 + 表单 + 剧集管理，AntD） | **单个最大前端任务**，4 页 + 上传链路 | ~35 分钟 |\n| 阶段3 验收回归 + 文档收口 | 三份门禁清单全量过 | ~10 分钟 |\n| 阶段4：进度接口 + 搜索 + 播放增强（worktree） | 后端小、前端集中在 PlayerPage | ~55 分钟 |\n| 阶段4 合并回 main（冲突预期最多 DramaService 一处） | 计划已拍死合并时机 | ~10 分钟 |\n| 阶段5：历史页挂载 + 已看标记 + M7 联调彩排 + README | 文档自评「半天量」，按实测节奏折算 | ~40 分钟 |\n\n**两种走法：**\n\n- **串行**（一个会话从头做到尾）：约 **3 小时 20 分钟**，完工时间 ≈ 20:30。\n- **并行**（阶段3 在 main、阶段4 在 worktree 两个会话同时干，这正是第四阶段计划设计的初衷）：墙钟 ≈ 阶段3 的 1.5 小时 + 合并/阶段5 的 50 分钟 ≈ **2 小时 20 分钟**，完工时间 ≈ **19:30 前后**。\n\n**两个可能拖慢的风险点**（来自计划文档自己的风险表）：\n\n1. 阶段3 任务4 的 AntD 后台是首次接触 admin 工程实质开发，若出现表格/上传组件的调试反复，可能多花 15~20 分钟——计划已用「不追求视觉定制」封顶。\n2. 浏览器自动播放策略拦截连播是「高概率必踩」项，但决策表已有预案（叠播放按钮），预计只多花几分钟验证。\n\n总体判断：这是一道限时现场题，**首日 4.5~5 小时内从 0 到全部 7 个里程碑收口（含彩排）**，节奏非常充裕——按 PRD 裁剪预案，即使阶段4/阶段5 全砍，阶段3 收口点（约 1.5 小时后）就已经是「必含功能 100% 完整可交付」的安全状态。",
+      "time": {
+       "start": 1792141866459,
+       "end": 1792141921938
+      }
+     }
+    },
+    {
+     "id": "part_mvar111y_17df3bf4-d6ab-488d-8afe-bf7811766eae",
+     "sequence": 3,
+     "time_created": "2026-10-16 17:12:01",
+     "data": {
+      "type": "step-finish",
+      "reason": "stop",
+      "cost": 0,
+      "tokens": {
+       "total": 51956,
+       "input": 50203,
+       "output": 1753,
+       "reasoning": 1058,
+       "cache": {
+        "read": 49664,
+        "write": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvar1y5n_d4d70e98-e914-4cdf-acc8-cc893a34205d",
+   "sequence": 14,
+   "time_iso": "2026-10-16 17:12:44",
+   "data": {
+    "role": "user",
+    "time": {
+     "created": 1792141964845
+    },
+    "agent": "zcode-agent",
+    "modelSelection": {
+     "providerId": "new-provider",
+     "modelId": "kimi-k3",
+     "options": {
+      "reasoningLevel": "max"
+     }
+    },
+    "contextSnapshot": {
+     "envInfo": {
+      "cwd": "/Users/honlnk/project/short-drama-web",
+      "platform": "darwin",
+      "shell": "zsh",
+      "osVersion": "darwin 24.6.0 arm64",
+      "nodeVersion": "v24.14.0",
+      "isGitRepository": true,
+      "gitBranch": "main",
+      "gitMainBranch": "main",
+      "gitUser": "honlnk",
+      "gitStatus": "dirty",
+      "gitStatusLines": [
+       "M AGENTS.md",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/AuthController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/DramaController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/PingController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/dto/ApiResponse.java",
+       " M apps/api/src/main/java/com/shortdrama/api/dto/DramaSummary.java",
+       " M apps/api/src/main/java/com/shortdrama/api/repository/FavoriteRepository.java",
+       " M apps/api/src/main/java/com/shortdrama/api/repository/UserLikeRepository.java",
+       " M apps/api/src/main/java/com/shortdrama/api/security/JwtService.java",
+       " M apps/api/src/main/java/com/shortdrama/api/service/DramaService.java",
+       " M apps/api/src/main/resources/application.yml",
+       " M apps/web/src/api/client.ts",
+       " M docs/PRD.md",
+       " M docs/devlog.md",
+       " M docs/plan/第二阶段-用户链路与核心演示路径.md",
+       "?? apps/api/src/main/java/com/shortdrama/api/controller/InteractionController.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/controller/MeController.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/dto/FavoriteToggleResponse.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/dto/LikeToggleResponse.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/service/InteractionService.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/service/InteractionTxService.java",
+       "?? apps/api/src/test/java/com/shortdrama/api/service/",
+       "?? docs/plan/第三阶段-互动闭环与管理后台.md",
+       "?? docs/plan/第四阶段-体验加分项并行计划.md"
+      ],
+      "recentCommits": [
+       "e9bea5b feat: 阶段2 用户链路与核心演示路径——JWT 鉴权+注册登录+详情/竖屏播放页+点赞收藏状态回显，验收门禁全绿",
+       "77d755a docs: 计划文档口径修正——status 以 PRD §6 ONLINE/OFFLINE 为准、媒体重建两步、时长/点赞按实际落地口径标注",
+       "d408be7 feat: 阶段1 数据底座与种子资源——6 表实体+种子灌库+/api/dramas+C 端首页封面网格，验收门禁全绿",
+       "3e62109 feat: 种子媒体素材就绪——50 个 Mixkit 竖屏视频下载完成，素材线收口",
+       "b8a55e2 docs: 用户拍板收口——端口目录统一 apps/*+3000/3001，demo 口径定稿 demo123，PLAN.md 退役"
+      ]
+     }
+    },
+    "semantics": {
+     "origin": "real_user",
+     "kind": "user_prompt",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_70be9470-8a7e-486d-8bc0-0c76aa935785",
+     "origin": "realUser",
+     "sourceCommandId": "01a143fc-3621-7e8d-8566-80be8493c2f2"
+    },
+    "tools": {
+     "Agent": true,
+     "AskUserQuestion": true,
+     "Bash": true,
+     "CronCreate": true,
+     "CronDelete": true,
+     "CronList": true,
+     "CronUpdate": true,
+     "Edit": true,
+     "EnterPlanMode": true,
+     "ExitPlanMode": true,
+     "Read": true,
+     "Skill": true,
+     "TaskOutput": true,
+     "TaskStop": true,
+     "TodoRead": true,
+     "TodoWrite": true,
+     "WebFetch": true,
+     "WebSearch": true,
+     "Write": true,
+     "OffPeakCreate": true,
+     "OffPeakList": true,
+     "SendMessage": true,
+     "ReadSessionContext": true,
+     "ReplyToChannel": true,
+     "CreateWorkflow": true,
+     "AmendWorkflow": true,
+     "SaveWorkflow": true,
+     "EvalWorkflowSnippet": true,
+     "ListWorkflowRuns": true,
+     "GetWorkflowRun": true,
+     "ResumeWorkflowRun": true,
+     "ResolveWorkflowQuestion": true,
+     "FillWorkflowHole": true,
+     "ListSavedWorkflows": true,
+     "ListModels": true,
+     "mcp__plugin_image-search_image_search__search_image": true,
+     "mcp__linkseek__web_search": true,
+     "mcp__linkseek__web_fetch": true,
+     "mcp__linkseek__web_search_and_fetch": true,
+     "mcp__linkseek__get_result": true,
+     "mcp__linkseek__web_fetch_render": true,
+     "mcp__linkseek__list_models": true,
+     "mcp__linkseek__web_fetch_answer": true,
+     "mcp__linkseek__web_search_answer": true,
+     "mcp__linkseek__web_research": true,
+     "mcp__picsense__analyze_images": true,
+     "mcp__picsense__list_sessions": true,
+     "mcp__picsense__analyze_document": true,
+     "mcp__picsense__analyze_video": true,
+     "mcp__node_repl__js": true
+    },
+    "metadata": {
+     "inputIntent": {
+      "inputOrigin": "desktop",
+      "sourceCommandId": "01a143fc-3621-7e8d-8566-80be8493c2f2",
+      "queueItemId": "queue_01a143fc-3621-7e8d-8566-80be8493c2f2",
+      "clientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb",
+      "kind": "sendText",
+      "text": "阶段三 主要的任务是什么？正式接通前后端数据吗？",
+      "modelSelection": {
+       "providerId": "new-provider",
+       "modelId": "kimi-k3",
+       "options": {
+        "reasoningLevel": "max"
+       }
+      },
+      "mode": "yolo",
+      "planEnabled": false,
+      "admissionSeq": 4,
+      "admittedAt": 1792141964840,
+      "requestedDelivery": "startNow",
+      "admittedDelivery": "startNow"
+     },
+     "conversationInputIntent": {
+      "inputOrigin": "desktop",
+      "sourceCommandId": "01a143fc-3621-7e8d-8566-80be8493c2f2",
+      "queueItemId": "queue_01a143fc-3621-7e8d-8566-80be8493c2f2",
+      "clientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb",
+      "kind": "sendText",
+      "text": "阶段三 主要的任务是什么？正式接通前后端数据吗？",
+      "attachments": [],
+      "modelSelection": {
+       "providerId": "new-provider",
+       "modelId": "kimi-k3",
+       "options": {
+        "reasoningLevel": "max"
+       }
+      },
+      "mode": "yolo",
+      "planEnabled": false,
+      "delivery": {
+       "requested": "startNow",
+       "admitted": "startNow"
+      },
+      "order": {
+       "admissionSeq": 4
+      },
+      "steer": {
+       "state": "notRequested"
+      },
+      "dispatch": {
+       "state": "drained"
+      },
+      "admittedAt": 1792141964840
+     },
+     "inputClientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb"
+    },
+    "model": {
+     "providerID": "new-provider",
+     "modelID": "kimi-k3",
+     "variant": "max"
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvar1y5p_4c32c2dd-31f6-43fe-a25a-48ad348c14d0",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:12:44",
+     "data": {
+      "type": "text",
+      "text": "阶段三 主要的任务是什么？正式接通前后端数据吗？",
+      "time": {
+       "start": 1792141964845,
+       "end": 1792141964845
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvar1y5r_94720d6e-956c-41dc-ab73-0ad6d6728307",
+   "sequence": 15,
+   "time_iso": "2026-10-16 17:12:44",
+   "data": {
+    "role": "user",
+    "time": {
+     "created": 1792141964847
+    },
+    "agent": "zcode-agent",
+    "metadata": {
+     "source": "todo_reminder",
+     "visibility": "model-only"
+    },
+    "modelSelection": {
+     "providerId": "new-provider",
+     "modelId": "kimi-k3",
+     "options": {
+      "reasoningLevel": "max"
+     }
+    },
+    "semantics": {
+     "origin": "agent_runtime",
+     "kind": "todo_reminder",
+     "source": "todo_reminder",
+     "uiVisibility": "hidden",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "hidden"
+    },
+    "anchor": {
+     "turnId": "turn_70be9470-8a7e-486d-8bc0-0c76aa935785",
+     "origin": "synthetic"
+    },
+    "source": "todo_reminder",
+    "synthetic": true,
+    "tools": {
+     "Agent": true,
+     "AskUserQuestion": true,
+     "Bash": true,
+     "CronCreate": true,
+     "CronDelete": true,
+     "CronList": true,
+     "CronUpdate": true,
+     "Edit": true,
+     "EnterPlanMode": true,
+     "ExitPlanMode": true,
+     "Read": true,
+     "Skill": true,
+     "TaskOutput": true,
+     "TaskStop": true,
+     "TodoRead": true,
+     "TodoWrite": true,
+     "WebFetch": true,
+     "WebSearch": true,
+     "Write": true,
+     "OffPeakCreate": true,
+     "OffPeakList": true,
+     "SendMessage": true,
+     "ReadSessionContext": true,
+     "ReplyToChannel": true,
+     "CreateWorkflow": true,
+     "AmendWorkflow": true,
+     "SaveWorkflow": true,
+     "EvalWorkflowSnippet": true,
+     "ListWorkflowRuns": true,
+     "GetWorkflowRun": true,
+     "ResumeWorkflowRun": true,
+     "ResolveWorkflowQuestion": true,
+     "FillWorkflowHole": true,
+     "ListSavedWorkflows": true,
+     "ListModels": true,
+     "mcp__plugin_image-search_image_search__search_image": true,
+     "mcp__linkseek__web_search": true,
+     "mcp__linkseek__web_fetch": true,
+     "mcp__linkseek__web_search_and_fetch": true,
+     "mcp__linkseek__get_result": true,
+     "mcp__linkseek__web_fetch_render": true,
+     "mcp__linkseek__list_models": true,
+     "mcp__linkseek__web_fetch_answer": true,
+     "mcp__linkseek__web_search_answer": true,
+     "mcp__linkseek__web_research": true,
+     "mcp__picsense__analyze_images": true,
+     "mcp__picsense__list_sessions": true,
+     "mcp__picsense__analyze_document": true,
+     "mcp__picsense__analyze_video": true,
+     "mcp__node_repl__js": true
+    },
+    "visibility": "model-only",
+    "model": {
+     "providerID": "new-provider",
+     "modelID": "kimi-k3",
+     "variant": "max"
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvar1y5r_34ad5f7d-5415-456d-8cd7-51d942b44af7",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:12:44",
+     "data": {
+      "type": "text",
+      "text": "The TodoWrite tool hasn't been used recently. If you're working on tasks that would benefit from tracking progress, consider using the TodoWrite tool to track progress. Also consider cleaning up the todo list if has become stale and no longer matches what you are working on. Only use it if it's relevant to the current work. This is just a gentle reminder - ignore if not applicable.",
+      "synthetic": true,
+      "time": {
+       "start": 1792141964847,
+       "end": 1792141964847
+      },
+      "metadata": {
+       "runtimeMessage": {
+        "source": "todo_reminder"
+       },
+       "source": "todo_reminder",
+       "visibility": "model-only"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvar1y5s_c3035166-19dd-47fa-80b1-3c1e9579d87f",
+   "sequence": 16,
+   "time_iso": "2026-10-16 17:12:44",
+   "data": {
+    "role": "assistant",
+    "time": {
+     "created": 1792141964848,
+     "completed": 1792141998185
+    },
+    "parentID": "msg_mvar1y5n_d4d70e98-e914-4cdf-acc8-cc893a34205d",
+    "modelId": "kimi-k3",
+    "providerId": "new-provider",
+    "mode": "yolo",
+    "planEnabled": false,
+    "agent": "zcode-agent",
+    "path": {
+     "cwd": "/Users/honlnk/project/short-drama-web",
+     "root": "/Users/honlnk/project/short-drama-web"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 51475,
+     "input": 51018,
+     "output": 457,
+     "reasoning": 0,
+     "cache": {
+      "read": 50176,
+      "write": 0
+     }
+    },
+    "finish": "stop",
+    "semantics": {
+     "origin": "agent_runtime",
+     "kind": "assistant_response",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_70be9470-8a7e-486d-8bc0-0c76aa935785",
+     "historyRoundCount": 1,
+     "orderedMessageIds": [
+      "msg_mvar1y5n_d4d70e98-e914-4cdf-acc8-cc893a34205d",
+      "msg_mvar1y5r_94720d6e-956c-41dc-ab73-0ad6d6728307",
+      "msg_mvar1y5s_c3035166-19dd-47fa-80b1-3c1e9579d87f"
+     ],
+     "boundaryMessageId": "msg_mvar1y5s_c3035166-19dd-47fa-80b1-3c1e9579d87f",
+     "goalBoundary": {
+      "kind": "none"
+     }
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvar1y5s_c1e48f99-a6a8-49f9-9ffa-dfcee019b991",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:12:44",
+     "data": {
+      "type": "step-start"
+     }
+    },
+    {
+     "id": "part_mvar2nvs_5c6b3288-f387-4497-82d2-e6b73068b25a",
+     "sequence": 1,
+     "time_created": "2026-10-16 17:12:44",
+     "data": {
+      "type": "text",
+      "text": "不只是「接通前后端」——前后端数据链路在阶段1、阶段2 就已经真实打通了（首页网格、详情、登录注册都是真接口真库）。**阶段三的核心是把「只读展示」升级为「双向写库」**，它合并了 PRD 里程碑 4 和 5，共 4 个任务：\n\n| 任务 | 内容 | 状态 |\n|---|---|---|\n| **任务1** 后端互动接口 | 点赞/收藏**幂等切换写库**（`POST /api/dramas/{id}/like` / `/favorite`）、`like_count` 同事务 ±1、我的收藏列表 `GET /api/me/favorites` | ✅ 已完成（17:08 门禁通过） |\n| **任务2** 前端互动闭环 | 详情页点赞/收藏按钮从「占位提示」换成**真实调用**；新增 `/mine` 我的页 + `/mine/favorites` 收藏列表页；未登录点击跳登录并回跳 | 待做 |\n| **任务3** 后端管理接口 | StorageService（封面/视频上传落盘 `uploads/files/`）、`POST /api/admin/files/upload`、短剧 CRUD（分页/新增/编辑/删除级联/上下架）、剧集 CRUD | 待做 |\n| **任务4** 管理后台前端 | `apps/admin` 替换占位页：ADMIN 登录页、短剧管理表格（新增/编辑/剧集管理/上下架/删除二次确认）、封面上传回显、剧集弹窗管理 | 待做 |\n\n**一句话概括阶段三的目标**：demo 账号在详情页点赞收藏真实写库、刷新后状态仍在；admin 账号登录后台能「新增一部短剧 + 上传封面 + 加一集视频」，C 端首页立刻可见可播。\n\n它标志着**题目规定的全部必含功能（注册/登录、内容展示、点赞、收藏、管理后台增删改查）100% 集齐**——阶段三收口后，即使砍掉后面所有加分项，项目也已经完整可交付。",
+      "time": {
+       "start": 1792141964848,
+       "end": 1792141998184
+      }
+     }
+    },
+    {
+     "id": "part_mvar2nvt_daa5f947-4488-4473-8dcb-e55e82a4836c",
+     "sequence": 2,
+     "time_created": "2026-10-16 17:13:18",
+     "data": {
+      "type": "step-finish",
+      "reason": "stop",
+      "cost": 0,
+      "tokens": {
+       "total": 51475,
+       "input": 51018,
+       "output": 457,
+       "reasoning": 0,
+       "cache": {
+        "read": 50176,
+        "write": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvar8mei_5c2267c9-22f0-4c44-bb49-de2f4c079b89",
+   "sequence": 17,
+   "time_iso": "2026-10-16 17:17:56",
+   "data": {
+    "role": "user",
+    "time": {
+     "created": 1792142276204
+    },
+    "agent": "zcode-agent",
+    "modelSelection": {
+     "providerId": "new-provider",
+     "modelId": "kimi-k3",
+     "options": {
+      "reasoningLevel": "max"
+     }
+    },
+    "contextSnapshot": {
+     "envInfo": {
+      "cwd": "/Users/honlnk/project/short-drama-web",
+      "platform": "darwin",
+      "shell": "zsh",
+      "osVersion": "darwin 24.6.0 arm64",
+      "nodeVersion": "v24.14.0",
+      "isGitRepository": true,
+      "gitBranch": "main",
+      "gitMainBranch": "main",
+      "gitUser": "honlnk",
+      "gitStatus": "dirty",
+      "gitStatusLines": [
+       "M AGENTS.md",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/AuthController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/DramaController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/controller/PingController.java",
+       " M apps/api/src/main/java/com/shortdrama/api/dto/ApiResponse.java",
+       " M apps/api/src/main/java/com/shortdrama/api/dto/DramaSummary.java",
+       " M apps/api/src/main/java/com/shortdrama/api/repository/FavoriteRepository.java",
+       " M apps/api/src/main/java/com/shortdrama/api/repository/UserLikeRepository.java",
+       " M apps/api/src/main/java/com/shortdrama/api/security/JwtService.java",
+       " M apps/api/src/main/java/com/shortdrama/api/service/DramaService.java",
+       " M apps/api/src/main/resources/application.yml",
+       " M apps/web/src/api/client.ts",
+       " M docs/PRD.md",
+       " M docs/devlog.md",
+       " M docs/plan/第二阶段-用户链路与核心演示路径.md",
+       "?? apps/api/src/main/java/com/shortdrama/api/controller/InteractionController.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/controller/MeController.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/dto/FavoriteToggleResponse.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/dto/LikeToggleResponse.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/service/InteractionService.java",
+       "?? apps/api/src/main/java/com/shortdrama/api/service/InteractionTxService.java",
+       "?? apps/api/src/test/java/com/shortdrama/api/service/",
+       "?? docs/plan/第三阶段-互动闭环与管理后台.md",
+       "?? docs/plan/第四阶段-体验加分项并行计划.md"
+      ],
+      "recentCommits": [
+       "e9bea5b feat: 阶段2 用户链路与核心演示路径——JWT 鉴权+注册登录+详情/竖屏播放页+点赞收藏状态回显，验收门禁全绿",
+       "77d755a docs: 计划文档口径修正——status 以 PRD §6 ONLINE/OFFLINE 为准、媒体重建两步、时长/点赞按实际落地口径标注",
+       "d408be7 feat: 阶段1 数据底座与种子资源——6 表实体+种子灌库+/api/dramas+C 端首页封面网格，验收门禁全绿",
+       "3e62109 feat: 种子媒体素材就绪——50 个 Mixkit 竖屏视频下载完成，素材线收口",
+       "b8a55e2 docs: 用户拍板收口——端口目录统一 apps/*+3000/3001，demo 口径定稿 demo123，PLAN.md 退役"
+      ]
+     }
+    },
+    "semantics": {
+     "origin": "real_user",
+     "kind": "user_prompt",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_1d07dc43-861d-43c3-95e3-6ab69bb5ec9a",
+     "origin": "realUser",
+     "sourceCommandId": "01a14400-f65f-7f26-82e3-4da5397ed4dc"
+    },
+    "tools": {
+     "Agent": true,
+     "AskUserQuestion": true,
+     "Bash": true,
+     "CronCreate": true,
+     "CronDelete": true,
+     "CronList": true,
+     "CronUpdate": true,
+     "Edit": true,
+     "EnterPlanMode": true,
+     "ExitPlanMode": true,
+     "Read": true,
+     "Skill": true,
+     "TaskOutput": true,
+     "TaskStop": true,
+     "TodoRead": true,
+     "TodoWrite": true,
+     "WebFetch": true,
+     "WebSearch": true,
+     "Write": true,
+     "OffPeakCreate": true,
+     "OffPeakList": true,
+     "SendMessage": true,
+     "ReadSessionContext": true,
+     "ReplyToChannel": true,
+     "CreateWorkflow": true,
+     "AmendWorkflow": true,
+     "SaveWorkflow": true,
+     "EvalWorkflowSnippet": true,
+     "ListWorkflowRuns": true,
+     "GetWorkflowRun": true,
+     "ResumeWorkflowRun": true,
+     "ResolveWorkflowQuestion": true,
+     "FillWorkflowHole": true,
+     "ListSavedWorkflows": true,
+     "ListModels": true,
+     "mcp__plugin_image-search_image_search__search_image": true,
+     "mcp__linkseek__web_search": true,
+     "mcp__linkseek__web_fetch": true,
+     "mcp__linkseek__web_search_and_fetch": true,
+     "mcp__linkseek__get_result": true,
+     "mcp__linkseek__web_fetch_render": true,
+     "mcp__linkseek__list_models": true,
+     "mcp__linkseek__web_fetch_answer": true,
+     "mcp__linkseek__web_search_answer": true,
+     "mcp__linkseek__web_research": true,
+     "mcp__picsense__analyze_images": true,
+     "mcp__picsense__list_sessions": true,
+     "mcp__picsense__analyze_document": true,
+     "mcp__picsense__analyze_video": true,
+     "mcp__node_repl__js": true
+    },
+    "metadata": {
+     "inputIntent": {
+      "inputOrigin": "desktop",
+      "sourceCommandId": "01a14400-f65f-7f26-82e3-4da5397ed4dc",
+      "queueItemId": "queue_01a14400-f65f-7f26-82e3-4da5397ed4dc",
+      "clientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb",
+      "kind": "sendText",
+      "text": "好 了解了 实际上 阶段四的任务 已经在另一个 worktree 中进行了\n你不用关心 进度 你看一下假装 阶段三 和 阶段四 的任务全部都完成后 我们就完成了百分之多少的 任务了",
+      "modelSelection": {
+       "providerId": "new-provider",
+       "modelId": "kimi-k3",
+       "options": {
+        "reasoningLevel": "max"
+       }
+      },
+      "mode": "yolo",
+      "planEnabled": false,
+      "admissionSeq": 5,
+      "admittedAt": 1792142276198,
+      "requestedDelivery": "startNow",
+      "admittedDelivery": "startNow"
+     },
+     "conversationInputIntent": {
+      "inputOrigin": "desktop",
+      "sourceCommandId": "01a14400-f65f-7f26-82e3-4da5397ed4dc",
+      "queueItemId": "queue_01a14400-f65f-7f26-82e3-4da5397ed4dc",
+      "clientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb",
+      "kind": "sendText",
+      "text": "好 了解了 实际上 阶段四的任务 已经在另一个 worktree 中进行了\n你不用关心 进度 你看一下假装 阶段三 和 阶段四 的任务全部都完成后 我们就完成了百分之多少的 任务了",
+      "attachments": [],
+      "modelSelection": {
+       "providerId": "new-provider",
+       "modelId": "kimi-k3",
+       "options": {
+        "reasoningLevel": "max"
+       }
+      },
+      "mode": "yolo",
+      "planEnabled": false,
+      "delivery": {
+       "requested": "startNow",
+       "admitted": "startNow"
+      },
+      "order": {
+       "admissionSeq": 5
+      },
+      "steer": {
+       "state": "notRequested"
+      },
+      "dispatch": {
+       "state": "drained"
+      },
+      "admittedAt": 1792142276198
+     },
+     "inputClientId": "client-019f89b9-b672-786c-8edd-63f3da6b38fb"
+    },
+    "model": {
+     "providerID": "new-provider",
+     "modelID": "kimi-k3",
+     "variant": "max"
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvar8mek_4d81b6b6-e2cc-4288-9eee-4af394a8d2e7",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:17:56",
+     "data": {
+      "type": "text",
+      "text": "好 了解了 实际上 阶段四的任务 已经在另一个 worktree 中进行了\n你不用关心 进度 你看一下假装 阶段三 和 阶段四 的任务全部都完成后 我们就完成了百分之多少的 任务了",
+      "time": {
+       "start": 1792142276204,
+       "end": 1792142276204
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "msg_mvar8mep_6332d31b-f150-4b86-b60d-3d6c15b628f5",
+   "sequence": 18,
+   "time_iso": "2026-10-16 17:17:56",
+   "data": {
+    "role": "assistant",
+    "time": {
+     "created": 1792142276209,
+     "completed": 1792142291781
+    },
+    "parentID": "msg_mvar8mei_5c2267c9-22f0-4c44-bb49-de2f4c079b89",
+    "modelId": "kimi-k3",
+    "providerId": "new-provider",
+    "mode": "yolo",
+    "planEnabled": false,
+    "agent": "zcode-agent",
+    "path": {
+     "cwd": "/Users/honlnk/project/short-drama-web",
+     "root": "/Users/honlnk/project/short-drama-web"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 51954,
+     "input": 51543,
+     "output": 411,
+     "reasoning": 0,
+     "cache": {
+      "read": 50944,
+      "write": 0
+     }
+    },
+    "finish": "stop",
+    "semantics": {
+     "origin": "agent_runtime",
+     "kind": "assistant_response",
+     "uiVisibility": "visible",
+     "providerVisibility": "visible",
+     "transcriptVisibility": "visible"
+    },
+    "anchor": {
+     "turnId": "turn_1d07dc43-861d-43c3-95e3-6ab69bb5ec9a",
+     "historyRoundCount": 1,
+     "orderedMessageIds": [
+      "msg_mvar8mei_5c2267c9-22f0-4c44-bb49-de2f4c079b89",
+      "msg_mvar8mep_6332d31b-f150-4b86-b60d-3d6c15b628f5"
+     ],
+     "boundaryMessageId": "msg_mvar8mep_6332d31b-f150-4b86-b60d-3d6c15b628f5",
+     "goalBoundary": {
+      "kind": "none"
+     }
+    }
+   },
+   "parts": [
+    {
+     "id": "part_mvar8mep_0207e961-2c1d-426a-9708-b3fee23570b7",
+     "sequence": 0,
+     "time_created": "2026-10-16 17:17:56",
+     "data": {
+      "type": "step-start"
+     }
+    },
+    {
+     "id": "part_mvar8yf7_9f42e74b-e4c6-40b8-bf01-952c4ef23e4b",
+     "sequence": 1,
+     "time_created": "2026-10-16 17:17:56",
+     "data": {
+      "type": "text",
+      "text": "## 结论：约 **95%**\n\n对照 PRD 第十章 7 个里程碑逐项盘点，假设阶段三 + 阶段四都收口后的状态：\n\n| PRD 里程碑 | 完成情况 |\n|---|---|\n| M1 脚手架与数据底座 | ✅ 已完成（阶段一） |\n| M2 用户链路 | ✅ 已完成（阶段二） |\n| M3 核心演示路径 | ✅ 已完成（阶段二） |\n| M4 互动闭环（点赞、收藏） | ✅ 阶段三任务1/2 |\n| M5 管理后台（CRUD + 上传） | ✅ 阶段三任务3/4 |\n| M6 体验加分项（PL-01~06） | 🔶 大部分完成（阶段四），**剩两个小尾巴** |\n| M7 联调彩排 | ❌ 未做 |\n\n**剩余的 5% 缺口**（两份计划文档都明确留给「第五阶段」）：\n\n1. **PL-05 观看历史的前端页面**（阶段四只做了后端 `/api/me/history`，前端页必须挂在阶段三建的 `/mine` 路由下，半天量）\n2. **PL-03 选集面板的「已看」标记**（规则模糊、演示价值低，阶段四明确排除）\n3. **M7 联调彩排**（三端全流程走查 + 演示脚本演练 + README 收尾）\n\n**按工作量估算的逻辑**：必含功能（注册/登录/展示/点赞/收藏/后台 CRUD）在阶段三收口时就是 100% 集齐；阶段四把 M6 六个体验项干掉了四个半；剩下的历史页挂载是「接口现成、页面半天」的轻活，M7 是纯走查不写新功能。所以整体任务盘子 ≈ **95% 完成**，只差一个短小的阶段五收口。",
+      "time": {
+       "start": 1792142276209,
+       "end": 1792142291779
+      }
+     }
+    },
+    {
+     "id": "part_mvar8yf9_b64977bf-8ef4-4dbc-95bd-d2ec396c4a07",
+     "sequence": 2,
+     "time_created": "2026-10-16 17:18:11",
+     "data": {
+      "type": "step-finish",
+      "reason": "stop",
+      "cost": 0,
+      "tokens": {
+       "total": 51954,
+       "input": 51543,
+       "output": 411,
+       "reasoning": 0,
+       "cache": {
+        "read": 50944,
+        "write": 0
+       }
+      }
+     }
+    }
+   ]
+  }
+ ]
+}
