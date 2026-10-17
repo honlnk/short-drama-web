@@ -19,7 +19,10 @@ export default function PlayerPage() {
   const [detail, setDetail] = useState<DramaDetail | null>(null)
   const [state, setState] = useState<LoadState>('loading')
   const [error, setError] = useState('')
-  const { like, favorite, hint } = useDramaInteractions()
+  // 阶段3 新签名：真实写库 + 乐观更新；阶段4 的进度/手势状态照旧
+  const { like, favorite, hint } = useDramaInteractions(detail, (update) =>
+    setDetail((prev) => (prev ? { ...prev, ...update } : prev)),
+  )
   const { user } = useAuth()
 
   const videoRef = useRef<HTMLVideoElement>(null)

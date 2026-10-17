@@ -9,12 +9,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/** (drama_id, episode_no) 唯一约束：删集不自动重排，靠约束防集数重复（阶段3 决策）。 */
 @Entity
-@Table(name = "episode")
+@Table(name = "episode", uniqueConstraints = @UniqueConstraint(columnNames = {"drama_id", "episode_no"}))
 @Getter
 @Setter
 @NoArgsConstructor

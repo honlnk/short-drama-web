@@ -2,6 +2,8 @@ package com.shortdrama.api.repository;
 
 import com.shortdrama.api.entity.Drama;
 import com.shortdrama.api.entity.DramaStatus;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -13,7 +15,11 @@ public interface DramaRepository extends JpaRepository<Drama, Long> {
     @EntityGraph(attributePaths = "episodes")
     List<Drama> findByStatusOrderByLikeCountDesc(DramaStatus status);
 
-    /** 搜索（PL-06）：标题模糊匹配（忽略大小写），命中集合同上排序与预取。 */
+    /** C 端搜索（PL-06）：标题模糊匹配（忽略大小写），命中集合同上排序与预取。 */
     @EntityGraph(attributePaths = "episodes")
     List<Drama> findByStatusAndTitleContainingIgnoreCaseOrderByLikeCountDesc(DramaStatus status, String title);
+
+    /** 后台列表：含 OFFLINE，剧名模糊检索（后台检索，非 C 端搜索）。 */
+    @EntityGraph(attributePaths = "episodes")
+    Page<Drama> findByTitleContaining(String keyword, Pageable pageable);
 }

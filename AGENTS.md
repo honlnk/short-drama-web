@@ -12,9 +12,17 @@ AI Coding 现场实战题：开发一个类似「红果短剧」的简化版短�
 - 前后端及数据库必须**真实打通**，禁止用 mock 数据糊弄演示路径
 - 项目必须可在本地正常启动并现场演示
 
-## 当前状态（阶段2 用户链路与核心演示路径已完成，2026-10-16）
+## 当前状态（阶段3 互动闭环与管理后台已完成，2026-10-16）
 
-三工程 monorepo 就绪（阶段0）+ 数据底座（阶段1）+ 用户链路与核心演示路径（阶段2，验收清单见 `docs/plan/第二阶段-用户链路与核心演示路径.md` 第六节，全部通过）。当前能力：JWT 注册/登录/登出（jjwt HS256 72h，`/api/auth/*`），C 端五路由（首页分类筛选网格 → 详情（点赞收藏状态回显）→ 竖屏播放页 `?ep=` 选集/刷新续停 → 登录/注册），三档响应式布局（2/4/6 列），受保护接口无 token 401。点赞收藏按钮仅 UI+状态回显（写库属里程碑 4）。后续：点赞收藏写库 → 管理后台 → 体验加分项。施工日志见 `docs/devlog.md`。
+三工程 monorepo 就绪（阶段0）+ 数据底座（阶段1）+ 用户链路与核心演示路径（阶段2）+ 互动闭环与管理后台（阶段3，验收清单见 `docs/plan/第三阶段-互动闭环与管理后台.md` 第六节，全部通过）。题目必含功能（注册/登录、内容展示、点赞、收藏、管理后台）全部落地，后续仅剩体验加分项（里程碑 6）与联调彩排。当前能力：
+
+- 统一响应包体 `{code,message,data}`（成功 code=0；错误经 GlobalExceptionHandler，401/403 也是 JSON）；JWT HS384 72h（密钥 416bit 由 jjwt 按位宽自动映射）。
+- 互动写库：`POST /api/dramas/{id}/like|favorite` 幂等切换（乐观更新+响应校准+失败回滚），`GET /api/me/favorites` 倒序收藏列表；C 端新增 `/mine`（我的）与 `/mine/favorites`（我的收藏，RequireAuth 守卫）。
+- 管理后台（`/api/admin/**` 需 ADMIN，无 token 401 / USER 403）：短剧分页列表（keyword 检索）/新增/编辑/上下架/级联删除（watch_progress→favorite→user_like→drama），剧集 CRUD（`(drama_id, episode_no)` 唯一约束），`POST /api/admin/files/upload` 文件上传（扩展名白名单+大小上限+magic bytes 三重校验，落 `uploads/files/<uuid>.<ext>`）。
+- admin 前端（:3001，antd 6）：登录页预填 admin/admin123（非 ADMIN 拒入）、短剧列表（封面/状态 Tag/上下架/删除二次确认/分页）、短剧表单（封面上传）、剧集管理（视频上传+时长元数据自动读取）。
+- 后端单测 27 个全绿；断网演示项已验证（C 端首页/播放页/后台列表资源审计全部本机来源，源码无外链）。
+
+施工日志见 `docs/devlog.md`。
 
 ### 构建 / 启动 / 测试命令
 
@@ -30,10 +38,10 @@ AI Coding 现场实战题：开发一个类似「红果短剧」的简化版短�
 
 ### 目录结构与分层规则
 
-- `apps/api`：Spring Boot 3.5.16（Java 21、Maven mvnw）。包 `com.shortdrama.api` 分层：`config/`（SecurityConfig JWT 无状态鉴权、WebMvcConfig 映射 `/uploads/**`、DataSeeder 种子灌库）、`security/`（JwtService/JwtAuthFilter/AuthUser/UserDetailsServiceImpl）、`entity/`（User/Drama/Episode/Favorite/UserLike/WatchProgress，drama.status 取 ONLINE/OFFLINE）、`repository/`、`service/`（DramaService/AuthService）、`controller/`（`GET /api/ping`、`GET /api/dramas`、`GET /api/dramas/{id}`、`GET /api/dramas/{id}/episodes`、`POST /api/auth/register|login`、`GET /api/auth/me`）、`dto/`、`exception/`（BusinessException + GlobalExceptionHandler）。鉴权规则：点赞/收藏/`/api/me/**` 需登录，`/api/admin/**` 需 ADMIN（接口未实现，规则先行）。
-- `apps/web`：C 端，Vite + React + TS + Tailwind v4 + react-router v7 + axios；路由 `/`（首页分类筛选+网格）、`/drama/:id`（详情）、`/drama/:id/play?ep=`（竖屏播放）、`/login`、`/register`；`api/client.ts` 统一带 token 与 401 跳转，`store/AuthContext.tsx` 全局登录态；`/api`、`/uploads` 经 Vite 代理转发 8080。
-- `apps/admin`：管理后台，同栈 + Ant Design，仅 PC；代理同上。
-- `apps/api/uploads/`：封面/视频本地存储目录（`/uploads/**` 静态服务）；不入 git，由 scripts 两个脚本重建。
+- `apps/api`：Spring Boot 3.5.16（Java 21、Maven mvnw）。包 `com.shortdrama.api` 分层：`config/`（SecurityConfig JWT 无状态鉴权 + 401/403 JSON、WebMvcConfig 映射 `/uploads/**`、DataSeeder 种子灌库）、`security/`（JwtService/JwtAuthFilter/AuthUser/UserDetailsServiceImpl）、`entity/`（User/Drama/Episode/Favorite/UserLike/WatchProgress，drama.status 取 ONLINE/OFFLINE）、`repository/`、`service/`（DramaService/AuthService/InteractionService+InteractionTxService 编排与事务分离/AdminDramaService/AdminEpisodeService）、`storage/`（StorageService 接口 + LocalStorageService）、`controller/`（`GET /api/ping`、`GET /api/dramas`、`GET /api/dramas/{id}`、`GET /api/dramas/{id}/episodes`、`POST /api/dramas/{id}/like|favorite`、`POST /api/auth/register|login`、`GET /api/auth/me`、`GET /api/me/favorites`、`/api/admin/dramas`+`episodes`+`files/upload` 全套）、`dto/`（含 ApiResponse 统一包体）、`exception/`（BusinessException + GlobalExceptionHandler）。鉴权规则：点赞/收藏/`/api/me/**` 需登录，`/api/admin/**` 需 ADMIN。
+- `apps/web`：C 端，Vite + React + TS + Tailwind v4 + react-router v7 + axios；路由 `/`（首页分类筛选+网格）、`/drama/:id`（详情）、`/drama/:id/play?ep=`（竖屏播放）、`/login`、`/register`、`/mine`、`/mine/favorites`；`api/client.ts` 统一带 token、解包体（code≠0 即 reject）与 401 跳转，`store/AuthContext.tsx` 全局登录态；`/api`、`/uploads` 经 Vite 代理转发 8080。
+- `apps/admin`：管理后台，同栈 + Ant Design 6（仅 PC）；`api/client.ts` 用独立 `admin_token` localStorage 键（与 C 端 `token` 隔离）；路由 `/login`、`/`（列表）、`/dramas/new`、`/dramas/:id/edit`、`/dramas/:id/episodes`，RequireAdmin 守卫（非 ADMIN 登出拒入）；代理同上。
+- `apps/api/uploads/`：封面/视频本地存储目录（`/uploads/**` 静态服务）：`covers/`+`videos/` 为种子媒体（scripts 两个脚本重建）、`files/` 为后台运行期上传产物；均不入 git。
 - `docs/`：plan/（分阶段实施计划，现行计划唯一存放处）、devlog.md（施工日志）。
 
 ### 数据库连接与初始化

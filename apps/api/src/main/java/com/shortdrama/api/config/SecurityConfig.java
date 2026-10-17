@@ -53,7 +53,10 @@ public class SecurityConfig {
                         .requestMatchers("/api/me/**").authenticated()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
-                .exceptionHandling(eh -> eh.authenticationEntryPoint(this::unauthorized))
+                .exceptionHandling(eh -> eh
+                        // 匿名/坏 token → 401；已登录但角色不足（如 USER 调 /api/admin/**）→ 403
+                        .authenticationEntryPoint(this::unauthorized)
+                        .accessDeniedHandler(this::forbidden))
                 .addFilterBefore(new JwtAuthFilter(jwtService), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
@@ -63,5 +66,12 @@ public class SecurityConfig {
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setContentType("application/json;charset=UTF-8");
         response.getWriter().write("{\"code\":401,\"message\":\"未登录或登录已过期\",\"data\":null}");
+    }
+
+    private void forbidden(HttpServletRequest request, HttpServletResponse response,
+                           org.springframework.security.access.AccessDeniedException ex) throws IOException {
+        response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+        response.setContentType("application/json;charset=UTF-8");
+        response.getWriter().write("{\"code\":403,\"message\":\"无权限访问该功能\",\"data\":null}");
     }
 }

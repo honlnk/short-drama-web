@@ -1,6 +1,11 @@
 spring:
   application:
     name: shortdrama-api
+  servlet:
+    multipart:
+      # 管理后台上传上限（Spring Boot 默认 1MB/10MB 必拦视频上传）
+      max-file-size: 50MB
+      max-request-size: 50MB
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/short_drama?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -17,8 +22,11 @@ server:
 app:
   # 本地文件存储目录（封面/视频上传落盘处，经 /uploads/** 静态映射对外提供）
   upload-dir: ./uploads
+  # 存储实现类型：本期仅 local；oss 为讲解占位（第三阶段计划决策）
+  storage:
+    type: local
   jwt:
-    # 本地演示固定密钥（HS256 要求 ≥256bit，此串 52 字符）；与数据库凭据同口径不拆环境变量
+    # 本地演示固定密钥（HMAC-SHA 要求 ≥256bit；此串 52 字符=416bit，jjwt 按位宽自动映射为 HS384）；与数据库凭据同口径不拆环境变量
     secret: short-drama-local-demo-secret-key-please-change-in-prod
     # 演示期间不过期，避免现场重新登录
     expire-hours: 72

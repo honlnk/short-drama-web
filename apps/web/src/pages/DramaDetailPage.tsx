@@ -11,7 +11,9 @@ export default function DramaDetailPage() {
   const [detail, setDetail] = useState<DramaDetail | null>(null)
   const [state, setState] = useState<LoadState>('loading')
   const [error, setError] = useState('')
-  const { like, favorite, hint } = useDramaInteractions()
+  const { like, favorite, hint } = useDramaInteractions(detail, (update) =>
+    setDetail((prev) => (prev ? { ...prev, ...update } : prev)),
+  )
 
   useEffect(() => {
     if (!id) {

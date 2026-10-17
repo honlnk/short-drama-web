@@ -13,7 +13,8 @@ import java.time.Instant;
 import java.util.Date;
 
 /**
- * JWT 签发与解析（jjwt 0.12.6，HS256）。
+ * JWT 签发与解析（jjwt 0.12.6）。signWith(key) 未显式指定算法，jjwt 按密钥位宽自动选最强：
+ * 当前密钥 52 字符=416bit → HS384（≥256bit 即满足 HMAC-SHA 要求）。
  * 载荷：sub=userId、username、role；过期时间 app.jwt.expire-hours。
  */
 @Service
