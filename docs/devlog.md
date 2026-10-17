@@ -126,3 +126,44 @@
 ### 下一步
 
 里程碑 4：点赞/收藏写库（POST /api/dramas/*/like、/favorite 与 /api/me/favorites，规则已配好）→ 里程碑 5 管理后台。
+
+## 2026-10-16 17:50 · 阶段4 门禁通过：体验加分项在独立 worktree 落地（第四阶段·本会话）
+
+按《第四阶段计划》在独立 worktree（`../short-drama-web-m4`，分支 `feat/m4-experience`，基于 main@e9bea5b）并行施工，与第三阶段（main 工作区在途）零文件冲突。验收标准一句话达成：**demo 账号在播放页看片，进度自动上报服务端；重新打开该剧自动从上次集数与进度续播；首页搜索框实时过滤短剧；播放页滚轮/键盘/手势切集与自动连播全部可用。**
+
+### 交付物
+
+**后端（apps/api，进度接口全为新文件；搜索只动 listOnline 一条链路）**：
+
+- `repository/WatchProgressRepository`（findByUserIdAndDramaId / findByUserIdOrderByUpdatedAtDesc）；`dto/ProgressReportRequest`（@PositiveOrZero 校验）、`dto/ProgressReportResponse`、`dto/HistoryItem`（DramaSummary 八字段平铺 + 集信息 + updatedAt）。
+- `service/ProgressService`：report 为 upsert（每用户每剧一条），剧 ONLINE/OFFLINE 均可写（与 history 不过滤 OFFLINE 口径一致），episode 归属校验 400、剧不存在 404、progressSec 截断 `[0, durationSec]`、唯一索引冲突捕获后重查收敛；**刻意不开外层事务**——save 的独立事务让冲突干净回滚（与第三阶段 InteractionTxService 拆 bean 解决同一问题，此为「无外层事务」路线，类注释有说明）。history 倒序 + 脏记录（Drama/Episode 被级联删）逐条隔离跳过。
+- `controller/ProgressController`（`/api/me` 前缀，与第三阶段 MeController 同前缀不同文件互不包含）：`PUT /api/me/progress?dramaId=`、`GET /api/me/history`。
+- 搜索（PL-06）：`DramaRepository` 新增 `findByStatusAndTitleContainingIgnoreCaseOrderByLikeCountDesc`（@EntityGraph episodes），`DramaService.listOnline(keyword)` trim 空串走原查询（无参行为与阶段2 完全一致），`DramaController` 透传 `?keyword=`。
+- 单测 `ProgressServiceTest` 8 例：新建/原位更新/上下限截断/跨剧 400/缺剧 404/唯一索引冲突收敛/history 倒序与孤儿跳过。
+
+**C 端（apps/web，只动 HomePage/PlayerPage/dramas.ts + 新增 progress.ts；vite.config 加 VITE_PROXY_TARGET 一行）**：
+
+- `api/progress.ts`：reportProgress（静默失败）/getHistory。
+- HomePage：搜索框（受控 + 300ms 防抖、清空按钮、空结果文案区分「没有找到相关短剧」/「该分类暂无短剧」、keyword 后端 × category 前端的叠加过滤）。
+- PlayerPage：进度上报（timeupdate 5s 节流 + pause/visibilitychange(hidden)/切集前/卸载补报，未登录零调用）；记忆续播（无 `?ep=` 时按 history 恢复集数与秒数，`?ep=` 显式存在时 URL 优先，loadedmetadata 后设置 currentTime，距片尾 <3s 视为已看完从头播，提示「已为你续播到第 X 集」3s 淡出）；滚轮（节流 500ms）/键盘 ↓→↑←/触摸纵向滑动 >50px 切集，首尾集边界提示「已经是第一/最后一集」；自动连播（ended 非末集自动进下一集并显式 play()，被浏览器拦则叠「▶ 继续下一集」按钮；末集停留并提示）。
+
+### 门禁实证（全绿）
+
+- 并存：主工作区 8080/3000 与 worktree 8081/3002 四服务同时在线互不干扰；3002 代理经 VITE_PROXY_TARGET 指向 8081 转发验证。
+- 进度 curl：无 token 两接口 401；上报剧1第2集 35s（时长 13s）→ `{updated:true}` 库中截断 13；同剧换第3集 8s → 仍一条记录且 episode/秒数已更新（upsert）；9999 → 截断 20；跨剧 episodeId 400；剧不存在 404；`GET /api/me/history` 倒序（最新观看在前）且字段齐全。
+- 搜索 curl：`?keyword=豪门` 只含《闪婚老公是豪门》；`?keyword=zzzz` 空数组 200；无 keyword 全量 6 剧（回归）；前后空格 trim 命中。
+- 浏览器（自动化，登录态 token 注入等价登录）：搜索「豪门」防抖后剩 1 部 → 清空按钮恢复 6 部 → 选「甜宠」（2 部）再搜「豪门」叠加剩 1 部；播放页自然播完第 1 集自动连播 1→2→3→4 全程自动推进且逐集上报（库记录随播更新）；末集 ended 后 URL 停留 `?ep=4`；固定库值 ep2/5s 重进 → 恢复 ep=2 从 5s 起播且提示正确；库值 12s/13s 贴片尾重进 → 从头播（tail-grace）；显式 `?ep=3` → 从头播不恢复（URL 优先）；键盘 ↑/← 逐集回退且 URL 同步；末集 ↓ 弹「已经是最后一集」、首集 ↑ 弹「已经是第一集」；滚轮 deltaY>0 下一集；模拟触摸上滑/下滑 100px 正反向切集；未登录播 6.5s+ 无任何 `/api/me/progress` 请求且无续播提示（XHR 钩子实证零调用）。
+- `./mvnw test` 9 例全绿（含新 8 例）；web `pnpm exec tsc -b` 绿。
+- 阶段2 回归：无 keyword 列表全量、详情/播放路由、点赞收藏按钮与 hint 均未动（详情页与 DramaDetailPage 零改动）。
+
+### 偏差记录
+
+1. **计划门禁示例词「甜」不可用**：计划任务 2 门禁写「输入『甜』只剩甜宠分类两部剧」，但「甜」不在任何剧名中（甜宠是分类名），按拍死的 title LIKE 实现搜索「甜」为空结果——空结果提示正好借此验证。改用「豪门」（唯一命中）完成同一门禁语义。计划文档措辞缺陷，非实现偏差。
+2. **修复 WebKit `type="search"` 原生清除按钮与自定义清空按钮重叠**：搜索框首版 `type="search"`，WebKit 给其渲染原生 × 与自定义清空按钮叠放导致点击不可达。改 `type="text"`（保留自定义按钮与 aria-label）。
+3. **uploads 媒体目录计划未提**：uploads 不入 git，worktree 内仅有 .gitkeep，8081 静态服务会 404。以 symlink 指向主工作区 `apps/api/uploads` 共享（只读共享无冲突）。此链接不入 git，合并回 main 后自然失效（main 工作区自身有真实目录）。
+4. **进度接口返回裸 DTO 而非 ApiResponse 包装**：与 C 端既有接口（/api/dramas、/api/auth/*）一致；第三阶段互动接口用 ApiResponse 是其在途选择，两风格在错误出口上已由 GlobalExceptionHandler 统一。
+5. 续播浏览器验证期间出现「后台页持续播放并上报导致库值自干扰」——为测试方法论问题（固定库值后 goto 会触发卸载补报覆盖），非产品缺陷；改用页面内 seek 设值后验证通过。
+
+### 下一步
+
+等第三阶段收口上 main 后合并本分支（预期冲突面：DramaService/DramaController 签名行，保留双方即可）；PL-03 已看标记与 PL-05 观看历史前端页留第五阶段（挂 /mine 路由）；里程碑 7 联调彩排。

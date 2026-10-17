@@ -11,11 +11,19 @@ export default function HomePage() {
   const [error, setError] = useState('')
   const [category, setCategory] = useState('全部')
   const [reloadKey, setReloadKey] = useState(0)
+  const [keyword, setKeyword] = useState('')
+  const [debouncedKeyword, setDebouncedKeyword] = useState('')
+
+  // PL-06 搜索：输入 300ms 防抖后触发请求，避免每次击键打后端
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedKeyword(keyword.trim()), 300)
+    return () => clearTimeout(timer)
+  }, [keyword])
 
   useEffect(() => {
     let cancelled = false
     setState('loading')
-    listDramas()
+    listDramas(debouncedKeyword)
       .then((data) => {
         if (cancelled) return
         setDramas(data)
@@ -29,14 +37,19 @@ export default function HomePage() {
     return () => {
       cancelled = true
     }
-  }, [reloadKey])
+  }, [debouncedKeyword, reloadKey])
 
-  // 分类条随种子数据生成（全部 + 去重分类），数据量小走前端过滤
+  // 分类条随数据生成（全部 + 去重分类）；keyword 走后端、category 走前端，两条件叠加
   const categories = useMemo(
     () => ['全部', ...Array.from(new Set(dramas.map((drama) => drama.category)))],
     [dramas],
   )
   const visible = category === '全部' ? dramas : dramas.filter((drama) => drama.category === category)
+
+  const clearKeyword = () => {
+    setKeyword('')
+    setDebouncedKeyword('')
+  }
 
   return (
     <main className="mx-auto w-full max-w-6xl px-4 py-5">
@@ -56,6 +69,44 @@ export default function HomePage() {
 
       {state === 'ready' && (
         <>
+          {/* 搜索框：手机独立一行，平板/PC 靠右（PL-06）。不清空分类状态，两条件正交 */}
+          <div className="mb-4 flex md:justify-end">
+            <div className="relative w-full md:w-72">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500"
+                aria-hidden="true"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-3.5-3.5" strokeLinecap="round" />
+              </svg>
+              {/* text 而非 search：WebKit 会给 search 输入框渲染原生清除按钮，与自定义清空按钮重叠导致点不中 */}
+              <input
+                type="text"
+                value={keyword}
+                onChange={(event) => setKeyword(event.target.value)}
+                placeholder="搜索短剧"
+                aria-label="搜索短剧"
+                className="w-full rounded-full border border-neutral-700 bg-neutral-900 py-2 pl-9 pr-9 text-sm text-neutral-100 placeholder:text-neutral-500 outline-none transition focus:border-rose-500"
+              />
+              {keyword && (
+                <button
+                  type="button"
+                  onClick={clearKeyword}
+                  aria-label="清空搜索"
+                  className="absolute right-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-neutral-400 transition hover:bg-neutral-800 hover:text-white"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5">
+                    <path d="M6 6l12 12M18 6 6 18" strokeLinecap="round" />
+                  </svg>
+                </button>
+              )}
+            </div>
+          </div>
+
           <nav className="mb-4 flex gap-2 overflow-x-auto pb-1" aria-label="分类筛选">
             {categories.map((item) => (
               <button
@@ -73,7 +124,9 @@ export default function HomePage() {
           </nav>
 
           {visible.length === 0 ? (
-            <p className="py-20 text-center text-sm text-neutral-400">该分类暂无短剧</p>
+            <p className="py-20 text-center text-sm text-neutral-400">
+              {debouncedKeyword ? '没有找到相关短剧' : '该分类暂无短剧'}
+            </p>
           ) : (
             <div className="grid grid-cols-2 gap-3 md:grid-cols-4 xl:grid-cols-6">
               {visible.map((drama) => (

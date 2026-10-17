@@ -32,9 +32,14 @@ public class DramaService {
         this.favoriteRepository = favoriteRepository;
     }
 
+    /** C 端推荐流/搜索（PL-06）：keyword trim 后非空走标题模糊匹配，否则全量；排序口径一致（点赞倒序）。 */
     @Transactional(readOnly = true)
-    public List<DramaSummary> listOnline() {
-        return dramaRepository.findByStatusOrderByLikeCountDesc(DramaStatus.ONLINE).stream()
+    public List<DramaSummary> listOnline(String keyword) {
+        String kw = keyword == null ? "" : keyword.trim();
+        List<Drama> dramas = kw.isEmpty()
+                ? dramaRepository.findByStatusOrderByLikeCountDesc(DramaStatus.ONLINE)
+                : dramaRepository.findByStatusAndTitleContainingIgnoreCaseOrderByLikeCountDesc(DramaStatus.ONLINE, kw);
+        return dramas.stream()
                 .map(DramaService::toSummary)
                 .toList();
     }

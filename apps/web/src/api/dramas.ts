@@ -25,8 +25,10 @@ export interface DramaDetail extends DramaSummary {
   favorited: boolean
 }
 
-export function listDramas(): Promise<DramaSummary[]> {
-  return client.get<DramaSummary[]>('/api/dramas').then((res) => res.data)
+/** 首页列表/搜索（PL-06）：keyword 可选，空串/undefined 均返回全量。 */
+export function listDramas(keyword?: string): Promise<DramaSummary[]> {
+  const query = keyword && keyword.trim() ? `?keyword=${encodeURIComponent(keyword.trim())}` : ''
+  return client.get<DramaSummary[]>(`/api/dramas${query}`).then((res) => res.data)
 }
 
 /** 详情：带 token 时 liked/favorited 反映当前用户真实状态，匿名恒 false。 */
