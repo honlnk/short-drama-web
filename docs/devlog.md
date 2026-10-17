@@ -264,3 +264,27 @@
 ### 下一步
 
 等第三阶段收口上 main 后合并本分支（预期冲突面：DramaService/DramaController 签名行，保留双方即可）；PL-03 已看标记与 PL-05 观看历史前端页留第五阶段（挂 /mine 路由）；里程碑 7 联调彩排。
+
+## 2026-10-17 · 阶段4 合并回 main（冲突 6 处按双方保留解，门禁全绿）
+
+第三阶段收口上 main（5ff846f）后，按第四阶段计划 §四拍板的合并时机执行合并：worktree 分支先 merge main 解冲突（cc6fb0a），main 再 fast-forward 并入。
+
+### 冲突解决（6 处）
+
+1. `WatchProgressRepository`（add/add）：阶段4 的 findByUserIdAndDramaId/findByUserIdOrderByUpdatedAtDesc（续播/历史）+ 阶段3 的 deleteByDramaId/deleteByEpisodeId（级联清理）合并为一个接口，注释标注各自归属。
+2. `DramaService.listOnline`：阶段4 的 keyword 参数搜索 × 阶段3 的 `DramaSummary::from` 口径融合（私有 toSummary 已被阶段3 移除）。
+3. `DramaController.listOnline`：`ApiResponse<List<DramaSummary>>` 统一包体 + keyword 透传。
+4. `DramaRepository`：C 端搜索查询（阶段4）与后台分页检索（阶段3）两方法并存，注释区分用途。
+5. `PlayerPage.tsx`：换用阶段3 的 `useDramaInteractions(detail, onChange)` 新签名——播放页点赞收藏由「占位提示」升级为真实写库；阶段4 的进度/手势/连播状态全部保留。
+6. `docs/devlog.md`：阶段3/阶段4 条目按时间序并存。
+
+### 合并适配（非冲突、为对齐阶段3 架构决策）
+
+- `ProgressController` 响应改 `ApiResponse.ok()` 包装（阶段3 定了「全部 /api 接口统一包体」，前端 client.ts 拦截器统一拆包后页面层 `res.data` 仍是业务数据，阶段4 前端零适配）。
+
+### 合并后门禁（全绿）
+
+- `./mvnw test` 35 例全绿（阶段3 27 + 阶段4 8）；web、admin `pnpm exec tsc -b` 绿。
+- 8081（worktree 合并版）与 8080（main 重启后）双侧冒烟：列表统一包体 6 剧、keyword=豪门 命中 1 部、进度上报 upsert、history 倒序、阶段3 点赞幂等切换与收藏列表共存正常。
+- 8080 演示主路径已重启加载合并后代码（前端 3000 经 vite HMR 自动更新）。
+- worktree 已清理（8081/3002 停止、`git worktree remove`）；分支 `feat/m4-experience` 保留可查。
